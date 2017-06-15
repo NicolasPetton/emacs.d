@@ -107,26 +107,28 @@
 
 (use-package buffer-watcher)
 
-(use-package cider
+(use-package clojure-mode
+  :mode "\\.clj\\'"
+  :config
+  (use-package cider
   :config
   (defun setup-clojure-buffer ()
     (eldoc-mode)
     (clj-refactor-mode 1)
     (paredit-mode 1)
     (setq indent-tabs-mode nil))
-  
+
   (add-hook 'clojure-mode-hook #'setup-clojure-buffer)
   (add-hook 'cider-mode-hook #'cider-turn-on-eldoc-mode)
-  
+
   (setq cider-repl-use-clojure-font-lock t
         cider-repl-use-pretty-printing t
         cider-repl-wrap-history t
-        cider-repl-history-size 3000
-        cider-interactive-eval-result-prefix ";; => "))
+        cider-repl-history-size 3000))
 
 (use-package clj-refactor
   :config
-  (cljr-add-keybindings-with-prefix "C-c C-r"))
+  (cljr-add-keybindings-with-prefix "C-c C-r")))
 
 (use-package company
   :diminish ""
@@ -355,7 +357,8 @@ be global."
     :init
     (add-to-list 'load-path
                  (expand-file-name "lib/emacs-js/widgetjs" user-emacs-directory)))
-  (use-package klassified)
+  (use-package klassified
+    :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
   (use-package ftgp))
 
 (use-package less-css-mode)
@@ -409,6 +412,7 @@ be global."
                                             user-emacs-directory)))
 
 (use-package paredit
+  :demand t
   :diminish ""
   :bind (:map paredit-mode-map
               ("M-s" . nil))
@@ -527,6 +531,9 @@ be global."
           (newline-mark 10 [182 10]) ; newlne, ¶
           (tab-mark 9 [9655 9] [92 9]) ; tab, ▷
           )))
+
+(use-package window
+  :bind ("C-;" . other-window))
 
 (use-package winner
   :bind ("C-|".  winner-undo)
