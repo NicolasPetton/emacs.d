@@ -1,1 +1,0 @@
-("~/.emacs.d/" "~/org/" "~/config/emacs.d/" "~/.emacs.d/lib/use-package/")

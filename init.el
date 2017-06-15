@@ -404,6 +404,12 @@ be global."
          ("C-M->" . mc/unmark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
 
+(use-package no-littering
+  :config
+  (require 'recentf)
+  (add-to-list 'recentf-exclude no-littering-var-directory)
+  (add-to-list 'recentf-exclude no-littering-etc-directory))
+
 (use-package org)
 
 (use-package paredit

@@ -182,6 +182,9 @@
 [submodule "multiple-cursors"]
 	path = lib/multiple-cursors
 	url = git@github.com:magnars/multiple-cursors.el.git
+[submodule "no-littering"]
+	path = lib/no-littering
+	url = git@github.com:tarsius/no-littering.git
 [submodule "notmuch"]
 	path = lib/notmuch
 	load-path = emacs
