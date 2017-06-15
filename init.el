@@ -353,10 +353,8 @@ be global."
         (delete-region (point-min) (point-max))
         (insert node-contents))))
   
-  (use-package emacs-js
-    :init
-    (add-to-list 'load-path
-                 (expand-file-name "lib/emacs-js/widgetjs" user-emacs-directory)))
+  (use-package emacs-js)
+
   (use-package klassified
     :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
   (use-package ftgp))
@@ -406,10 +404,7 @@ be global."
          ("C-M->" . mc/unmark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
 
-(use-package org
-  :init
-  (add-to-list 'load-path (expand-file-name "lib/org/contrib/lisp"
-                                            user-emacs-directory)))
+(use-package org)
 
 (use-package paredit
   :demand t
@@ -446,8 +441,6 @@ be global."
   :config (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?:"))
 
 (use-package restclient
-  :init
-  (add-to-list 'load-path (expand-file-name "lib/know-your-http-well/emacs" user-emacs-directory))
   :config
   (use-package company-restclient
     :config
@@ -479,12 +472,6 @@ be global."
   (defun untabify-buffer ()
     (interactive)
     (untabify (point-min) (point-max))))
-
-(use-package tern
-  :defer t
-  :init
-  (add-to-list 'load-path (expand-file-name "lib/tern/emacs"
-                                            user-emacs-directory)))
 
 (progn ;    `text-mode'
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))

@@ -1,5 +1,3 @@
-(add-to-list 'load-path (expand-file-name "lib/notmuch/emacs" user-emacs-directory))
-
 (require 'notmuch)
 (require 'seq)
 (require 'org-notmuch)

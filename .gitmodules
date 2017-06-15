@@ -79,6 +79,8 @@
 	url = git@github.com:expez/edn.el.git
 [submodule "emacs-js"]
 	path = lib/emacs-js
+	load-path = .
+	load-path = widgetjs
 	url = git@github.com:foretagsplatsen/emacs-js.git
 [submodule "emacsql"]
 	path = lib/emacsql
@@ -141,6 +143,7 @@
 [submodule "indium"]
 	path = lib/indium
 	url = git@github.com:NicolasPetton/Indium.git
+	info-path = doc
 [submodule "ivy"]
 	path = lib/ivy
 	url = git@github.com:abo-abo/swiper.git
@@ -158,6 +161,7 @@
 	url = https://github.com/DamienCassou/klassified.el.git
 [submodule "know-your-http-well"]
 	path = lib/know-your-http-well
+	load-path = emacs
 	url = git@github.com:for-GET/know-your-http-well.git
 [submodule "ledger-mode"]
 	path = lib/ledger-mode
@@ -180,9 +184,12 @@
 	url = git@github.com:magnars/multiple-cursors.el.git
 [submodule "notmuch"]
 	path = lib/notmuch
+	load-path = emacs
 	url = git://notmuchmail.org/git/notmuch
 [submodule "org"]
 	path = lib/org
+	load-path = lisp
+	load-path = contrib/lisp
 	url = git://orgmode.org/org-mode.git
 [submodule "org-bullets"]
 	path = lib/org-bullets
@@ -252,6 +259,7 @@
 	url = git@github.com:NicolasPetton/telepathy.el.git
 [submodule "tern"]
 	path = lib/tern
+	load-path = emacs
 	url = git@github.com:ternjs/tern.git
 [submodule "use-package"]
 	path = lib/use-package
