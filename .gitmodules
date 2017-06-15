@@ -34,6 +34,9 @@
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "buffer-move"]
+	path = lib/buffer-move
+	url = git@github.com:lukhas/buffer-move.git
 [submodule "buffer-watcher"]
 	path = lib/buffer-watcher
 	url = git@github.com:NicolasPetton/buffer-watcher.git

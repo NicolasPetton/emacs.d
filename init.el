@@ -105,6 +105,8 @@
   :config
   (setq browse-url-generic-program (executable-find "firefox")))
 
+(use-package buffer-move)
+
 (use-package buffer-watcher)
 
 (use-package clojure-mode
@@ -409,6 +411,9 @@ be global."
   (require 'recentf)
   (add-to-list 'recentf-exclude no-littering-var-directory)
   (add-to-list 'recentf-exclude no-littering-etc-directory))
+
+(use-package open-url-at-point
+  :bind ("C-c C-o" . open-url-at-point))
 
 (use-package org)
 
