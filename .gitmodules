@@ -1,15 +1,63 @@
 [borg]
 	pushDefault = locutus
 	collective = emacsg
+[submodule "ag"]
+	path = lib/ag
+	url = git@github.com:Wilfred/ag.el.git
+[submodule "alert"]
+	path = lib/alert
+	url = git@github.com:jwiegley/alert.git
+[submodule "all-the-icons"]
+	path = lib/all-the-icons
+	url = git@github.com:domtronn/all-the-icons.el.git
+[submodule "amd-mode"]
+	path = lib/amd-mode
+	url = git@github.com:NicolasPetton/amd-mode.el.git
+[submodule "anzu"]
+	path = lib/anzu
+	url = git@github.com:syohex/emacs-anzu.git
+[submodule "auth-password-store"]
+	path = lib/auth-password-store
+	url = git@github.com:DamienCassou/auth-password-store.git
 [submodule "auto-compile"]
 	path = lib/auto-compile
 	url = git@github.com:tarsius/auto-compile.git
+[submodule "avy"]
+	path = lib/avy
+	url = git@github.com:abo-abo/avy.git
+[submodule "beginend"]
+	path = lib/beginend
+	url = git@github.com:DamienCassou/beginend.git
 [submodule "borg"]
 	path = lib/borg
 	url = git@github.com:emacscollective/borg.git
+[submodule "buffer-watcher"]
+	path = lib/buffer-watcher
+	url = git@github.com:NicolasPetton/buffer-watcher.git
+[submodule "cider"]
+	path = lib/cider
+	url = git@github.com:clojure-emacs/cider.git
+[submodule "clj-refactor"]
+	path = lib/clj-refactor
+	url = git@github.com:clojure-emacs/clj-refactor.el.git
+[submodule "clojure-mode"]
+	path = lib/clojure-mode
+	url = git@github.com:clojure-emacs/clojure-mode.git
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
+[submodule "company"]
+	path = lib/company
+	url = git@github.com:company-mode/company-mode.git
+[submodule "company-restclient"]
+	path = lib/company-restclient
+	url = git@github.com:iquiw/company-restclient.git
+[submodule "company-tern"]
+	path = lib/company-tern
+	url = git@github.com:proofit404/company-tern.git
+[submodule "counsel-projectile"]
+	path = lib/counsel-projectile
+	url = git@github.com:ericdanan/counsel-projectile.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
@@ -17,6 +65,21 @@
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
+[submodule "diminish"]
+	path = lib/diminish
+	url = git@github.com:myrjola/diminish.el.git
+[submodule "drag-stuff"]
+	path = lib/drag-stuff
+	url = git@github.com:rejeep/drag-stuff.el.git
+[submodule "duplicate-thing"]
+	path = lib/duplicate-thing
+	url = git@github.com:ongaeshi/duplicate-thing.git
+[submodule "edn"]
+	path = lib/edn
+	url = git@github.com:expez/edn.el.git
+[submodule "emacs-js"]
+	path = lib/emacs-js
+	url = git@github.com:foretagsplatsen/emacs-js.git
 [submodule "emacsql"]
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
@@ -24,22 +87,199 @@
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
+[submodule "epl"]
+	path = lib/epl
+	url = git@github.com:cask/epl.git
+[submodule "eslintd-fix"]
+	path = lib/eslintd-fix
+	url = git@github.com:aaronjensen/eslintd-fix.git
+[submodule "exec-path-from-shell"]
+	path = lib/exec-path-from-shell
+	url = git@github.com:purcell/exec-path-from-shell.git
+[submodule "expand-region"]
+	path = lib/expand-region
+	url = git@github.com:magnars/expand-region.el.git
+[submodule "f"]
+	path = lib/f
+	url = git@github.com:rejeep/f.el.git
 [submodule "finalize"]
 	path = lib/finalize
 	url = git@github.com:skeeto/elisp-finalize.git
+[submodule "flycheck"]
+	path = lib/flycheck
+	url = git@github.com:flycheck/flycheck.git
+[submodule "font-lock+"]
+	path = lib/font-lock+
+	url = git@github.com:emacsmirror/font-lock-plus.git
+[submodule "frame-cmds"]
+	path = lib/frame-cmds
+	url = git@github.com:emacsmirror/frame-cmds.git
+[submodule "frame-fns"]
+	path = lib/frame-fns
+	url = git@github.com:emacsmirror/frame-fns.git
+[submodule "ftgp"]
+	path = lib/ftgp
+	url = git@gitlab.petton.fr:ftgp/emacs.git
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "gnome-calendar"]
+	path = lib/gnome-calendar
+	url = git@github.com:NicolasPetton/gnome-calendar.el.git
+[submodule "grunt"]
+	path = lib/grunt
+	url = git@github.com:gempesaw/grunt.el.git
+[submodule "gulp-task-runner"]
+	path = lib/gulp-task-runner
+	url = git@github.com:NicolasPetton/gulp-task-runner.git
+[submodule "hierarchy"]
+	path = lib/hierarchy
+	url = git@github.com:DamienCassou/hierarchy.git
+[submodule "hydra"]
+	path = lib/hydra
+	url = git@github.com:abo-abo/hydra.git
+[submodule "indium"]
+	path = lib/indium
+	url = git@github.com:NicolasPetton/Indium.git
+[submodule "ivy"]
+	path = lib/ivy
+	url = git@github.com:abo-abo/swiper.git
+[submodule "js2-mode"]
+	path = lib/js2-mode
+	url = git@github.com:mooz/js2-mode.git
+[submodule "js2-refactor"]
+	path = lib/js2-refactor
+	url = git@github.com:magnars/js2-refactor.el.git
+[submodule "jump"]
+	path = lib/jump
+	url = git@github.com:eschulte/jump.el.git
+[submodule "klassified"]
+	path = lib/klassified
+	url = https://github.com/DamienCassou/klassified.el.git
+[submodule "know-your-http-well"]
+	path = lib/know-your-http-well
+	url = git@github.com:for-GET/know-your-http-well.git
+[submodule "ledger-mode"]
+	path = lib/ledger-mode
+	url = git@github.com:ledger/ledger-mode.git
+[submodule "less-css-mode"]
+	path = lib/less-css-mode
+	url = git@github.com:purcell/less-css-mode.git
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
 	info-path = Documentation
+[submodule "makey"]
+	path = lib/makey
+	url = git@github.com:mickeynp/makey.git
+[submodule "memoize"]
+	path = lib/memoize
+	url = git@github.com:skeeto/emacs-memoize.git
+[submodule "multiple-cursors"]
+	path = lib/multiple-cursors
+	url = git@github.com:magnars/multiple-cursors.el.git
+[submodule "notmuch"]
+	path = lib/notmuch
+	url = git://notmuchmail.org/git/notmuch
+[submodule "org"]
+	path = lib/org
+	url = git://orgmode.org/org-mode.git
+[submodule "org-bullets"]
+	path = lib/org-bullets
+	url = git@github.com:emacsorphanage/org-bullets.git
+[submodule "org-gnome"]
+	path = lib/org-gnome
+	url = git@github.com:NicolasPetton/org-gnome.el.git
+[submodule "org-gnome-calendar"]
+	path = lib/org-gnome-calendar
+	url = git@github.com:llvilanova/org-gnome-calendar.git
+[submodule "org-pomodoro"]
+	path = lib/org-pomodoro
+	url = git@github.com:lolownia/org-pomodoro.git
 [submodule "packed"]
 	path = lib/packed
 	url = git@github.com:tarsius/packed.git
+[submodule "paredit"]
+	path = lib/paredit
+	url = http://mumble.net/~campbell/git/paredit.git
+[submodule "pass"]
+	path = lib/pass
+	url = git@github.com:NicolasPetton/pass.git
+[submodule "password-store"]
+	path = lib/password-store
+	url = git@github.com:emacsmirror/password-store.git
+[submodule "peg"]
+	path = lib/peg
+	url = git@github.com:ellerh/peg.el.git
+[submodule "pkg-info"]
+	path = lib/pkg-info
+	url = git@github.com:lunaryorn/pkg-info.el.git
+[submodule "prodigy"]
+	path = lib/prodigy
+	url = git@github.com:rejeep/prodigy.el.git
+[submodule "projectile"]
+	path = lib/projectile
+	url = git@github.com:bbatsov/projectile.git
+[submodule "queue"]
+	path = lib/queue
+	url = git@github.com:emacsmirror/queue.git
+[submodule "rainbow-mode"]
+	path = lib/rainbow-mode
+	url = git@github.com:emacsmirror/rainbow-mode.git
+[submodule "restclient"]
+	path = lib/restclient
+	url = git@github.com:pashky/restclient.el.git
+[submodule "s"]
+	path = lib/s
+	url = git@github.com:magnars/s.el.git
+[submodule "seq"]
+	path = lib/seq
+	url = git@github.com:emacsmirror/seq.git
+[submodule "shell-switcher"]
+	path = lib/shell-switcher
+	url = git@github.com:DamienCassou/shell-switcher.git
+[submodule "slime"]
+	path = lib/slime
+	url = git@github.com:slime/slime.git
+[submodule "spinner"]
+	path = lib/spinner
+	url = git@github.com:Malabarba/spinner.el.git
+[submodule "sudo-edit"]
+	path = lib/sudo-edit
+	url = git@github.com:nflath/sudo-edit.git
+[submodule "telepathy"]
+	path = lib/telepathy
+	url = git@github.com:NicolasPetton/telepathy.el.git
+[submodule "tern"]
+	path = lib/tern
+	url = git@github.com:ternjs/tern.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
+[submodule "web-mode"]
+	path = lib/web-mode
+	url = git@github.com:fxbois/web-mode.git
+[submodule "websocket"]
+	path = lib/websocket
+	url = git@github.com:ahyatt/emacs-websocket.git
+[submodule "widgetjs"]
+	path = lib/widgetjs
+	url = git@github.com:foretagsplatsen/emacs-js.git
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
+[submodule "ws-butler"]
+	path = lib/ws-butler
+	url = git@github.com:lewang/ws-butler.git
+[submodule "xref-js2"]
+	path = lib/xref-js2
+	url = git@github.com:NicolasPetton/xref-js2.git
+[submodule "yasnippet"]
+	path = lib/yasnippet
+	url = git@github.com:joaotavora/yasnippet.git
+[submodule "zerodark-theme"]
+	path = lib/zerodark-theme
+	url = git@github.com:NicolasPetton/zerodark-theme.git
+[submodule "zoom-frm"]
+	path = lib/zoom-frm
+	url = git@github.com:emacsmirror/zoom-frm.git

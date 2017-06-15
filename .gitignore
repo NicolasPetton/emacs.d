@@ -1,2 +1,7 @@
 /.hive-maint
 /var
+auto-save-list
+/history
+*.elc
+/recentf~
+recentf
