@@ -5,3 +5,4 @@ auto-save-list
 *.elc
 /recentf~
 recentf
+/eshell/history
