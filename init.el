@@ -536,8 +536,7 @@ be global."
   :bind ("C-;" . other-window))
 
 (use-package winner
-  :bind ("C-|".  winner-undo)
-  :config (winner-more))
+  :bind ("C-|".  winner-undo))
 
 (use-package workflow)
 
