@@ -97,8 +97,9 @@
   :bind ("C-c C-j" . avy-goto-word-1))
 
 (use-package beginend
-  :diminish ""
-  :config (beginend-global-mode))
+  :config
+  (beginend-global-mode)
+  (diminish 'beginend-global-mode))
 
 (use-package browse-url
   :config
