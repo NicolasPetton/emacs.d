@@ -525,13 +525,12 @@ be global."
           (tab-mark 9 [9655 9] [92 9]) ; tab, ▷
           )))
 
-(use-package window
-  :bind ("C-;" . other-window))
-
 (use-package winner
-  :bind ("C-|".  winner-undo))
+  :bind (("C-|".  winner-undo)
+         ("C-;" . other-window)))
 
-(use-package workflow)
+(use-package workflow
+  :demand t)
 
 (use-package ws-butler
   :config
@@ -583,12 +582,14 @@ be global."
 
 (progn ;    host-specific setup
   (let* ((host (substring (shell-command-to-string "hostname") 0 -1))
-         (host-dir (concat "~/.emacs.d/hosts/" host)))
-    (add-to-list 'load-path host-dir)
-    (let ((default-directory host-dir))
-      (normal-top-level-add-subdirs-to-load-path))
-    (let ((init-host-feature (intern (concat "init-" host))))
-      (require init-host-feature nil t))))
+         (host-dir (concat "~/.emacs.d/hosts/" host))
+         (host-file (expand-file-name "init.el" host-dir)))
+    (when (file-exists-p host-dir)
+      (let ((default-directory host-dir))
+        (add-to-list 'load-path host-dir)
+        (normal-top-level-add-subdirs-to-load-path)))
+    (when (file-exists-p host-file)
+      (load host-file))))
 
 (progn ;   private modules
   (let ((private-dir "~/.priv/elisp"))
