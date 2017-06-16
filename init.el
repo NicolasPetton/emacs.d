@@ -482,6 +482,10 @@ be global."
   (setq inferior-lisp-program "/usr/bin/sbcl")
   (slime-setup))
 
+(use-package subword
+  :diminish 'subword-mode
+  :config (global-subword-mode))
+
 (use-package sudo-edit)
 
 (use-package tabify
