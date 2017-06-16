@@ -175,7 +175,8 @@
   (diminish 'amd-mode)
   (diminish 'js2-refactor-mode)
   (diminish 'tern-mode)
-  (diminish 'eslintd-fix-mode))
+  (diminish 'eslintd-fix-mode)
+  (diminish 'widgetjs-mode))
 
 (use-package dired
   :defer t
@@ -547,6 +548,7 @@ be global."
   :demand t)
 
 (use-package ws-butler
+  :diminish ""
   :config
   (add-hook 'prog-mode-hook #'ws-butler-mode))
 
