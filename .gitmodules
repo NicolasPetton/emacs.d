@@ -257,6 +257,9 @@
 [submodule "slime"]
 	path = lib/slime
 	url = git@github.com:slime/slime.git
+[submodule "sourcemap"]
+	path = lib/sourcemap
+	url = git@github.com:syohex/emacs-sourcemap.git
 [submodule "spinner"]
 	path = lib/spinner
 	url = git@github.com:Malabarba/spinner.el.git
