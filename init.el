@@ -73,6 +73,7 @@
   (setq-default abbrev-mode t))
 
 (use-package anzu
+  :diminish 'anzu-mode
   :config (global-anzu-mode)
   :bind (([remap query-replace] . anzu-query-replace)
          ([remap query-replace-regexp] . anzu-query-replace-regexp)
@@ -170,7 +171,11 @@
 (use-package diminish
   :config
   (diminish 'auto-revert-mode)
-  (diminish 'outline-minor-mode))
+  (diminish 'outline-minor-mode)
+  (diminish 'amd-mode)
+  (diminish 'js2-refactor-mode)
+  (diminish 'tern-mode)
+  (diminish 'eslintd-fix-mode))
 
 (use-package dired
   :defer t
@@ -189,6 +194,7 @@
   (setq dired-omit-files "^\\...+$"))
 
 (use-package drag-stuff
+  :diminish 'drag-stuff-mode
   :config
   (drag-stuff-global-mode t)
   (drag-stuff-define-keys)
@@ -279,6 +285,7 @@
   (setq create-lockfiles nil))
 
 (use-package flycheck
+  :diminish 'flycheck-mode
   :config (add-hook 'prog-mode-hook #'flycheck-mode))
 
 (use-package flyspell
@@ -358,7 +365,9 @@ be global."
   (use-package emacs-js)
 
   (use-package klassified
+    :diminish 'klassified-interaction-js-mode
     :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
+
   (use-package ftgp))
 
 (use-package less-css-mode)
@@ -540,6 +549,9 @@ be global."
 (use-package ws-butler
   :config
   (add-hook 'prog-mode-hook #'ws-butler-mode))
+
+(use-package yasnippet
+  :diminish 'yas-minor-mode)
 
 (use-package zerodark-theme
   :config
