@@ -19,8 +19,8 @@
  '(company-backends
    (quote
     (company-tern company-elisp company-nxml company-css company-semantic company-clang company-cmake company-capf
-                  (company-dabbrev-code company-keywords)
-                  company-files company-dabbrev company-slime)))
+		  (company-dabbrev-code company-keywords)
+		  company-files company-dabbrev company-slime)))
  '(company-tooltip-align-annotations t)
  '(compilation-message-face (quote default))
  '(css-indent-offset 2)
@@ -110,67 +110,67 @@
  '(ledger-reports
    (quote
     ((#("Vacations" 0 1
-        (idx 0))
+	(idx 0))
       "ledger reg -f ledger.dat ^Assets:Vacation")
      (#("prices" 0 1
-        (idx 1))
+	(idx 1))
       "ledger -f ledger.dat prices €")
      (#("trading SEK" 0 1
-        (idx 2))
+	(idx 2))
       "ledger reg -f ledger.dat trading -X €")
      (#("Forecast" 0 1
-        (idx 3))
+	(idx 3))
       "ledger -M -X € -f /home/nico/org/reference/ledger/ledger.dat --forecast \"d<[2017]\" bal ^assets ^liab")
      (#("Budget (with unbudgeted expenses/income)" 0 1
-        (idx 4))
+	(idx 4))
       "ledger -p \"this month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --unbudgeted --invert")
      (#("Budget (of the year)" 0 1
-        (idx 5))
+	(idx 5))
       "ledger -p \"this year\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses --budget --invert")
      (#("Budget (last month)" 0 1
-        (idx 6))
+	(idx 6))
       "ledger -p \"last month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --invert")
      (#("Budget" 0 1
-        (idx 7))
+	(idx 7))
       "ledger -p \"this month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --invert")
      (#("Account statement Swedish Checking" 0 1
-        (idx 8))
+	(idx 8))
       "ledger reg -f ledger.dat Assets:Checking:Nordea")
      (#("Account statement Checking" 0 1
-        (idx 9))
+	(idx 9))
       "ledger reg -f ledger.dat ^Assets:Checking:CE")
      (#("Income statement (last month)" 0 1
-        (idx 10))
+	(idx 10))
       "ledger --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X € -p \"last month\"")
      (#("Income statement" 0 1
-        (idx 11))
+	(idx 11))
       "ledger --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X € -p \"this month\"")
      (#("Cash Flow" 0 1
-        (idx 12))
+	(idx 12))
       "ledger reg -f ledger.dat Assets:Swedish Assets:Checking")
      (#("Cash Flow (in €)" 0 1
-        (idx 13))
+	(idx 13))
       "ledger reg -f ledger.dat Assets:Swedish Assets:Checking -X €")
      (#("List of accounts" 0 1
-        (idx 14))
+	(idx 14))
       "ledger -f /home/nico/org/reference/ledger/ledger.dat accounts")
      (#("Balance sheet" 0 1
-        (idx 15))
+	(idx 15))
       "ledger -f /home/nico/org/reference/ledger/ledger.dat bal ^assets ^liabilities ^equity")
      (#("Balance sheet (in euros)" 0 1
-        (idx 16))
+	(idx 16))
       "ledger -f /home/nico/org/reference/ledger/ledger.dat bal ^assets ^liabilities ^equity -X €")
      (#("Income statement (all time)" 0 1
-        (idx 17))
+	(idx 17))
       "ledger -M --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X €")
      (#("Account statement Savings" 0 1
-        (idx 18))
+	(idx 18))
       "ledger reg -f ledger.dat ^Assets:Savings")
      (#("Equity" 0 1
-        (idx 19))
+	(idx 19))
       "ledger -f ledger.dat equity")
      (#("Cleared" 0 1
-        (idx 20))
+	(idx 20))
       "ledger cleared -f ledger.dat"))))
  '(line-spacing nil)
  '(linum-format "%4d ")
@@ -220,16 +220,16 @@
    (quote
     (("unread"
       (notmuch-tag-format-image-data tag
-                                     (notmuch-tag-star-empty-icon))
+				     (notmuch-tag-star-empty-icon))
       (propertize tag
-                  (quote face)
-                  (quote
-                   (:foreground "red"))))
+		  (quote face)
+		  (quote
+		   (:foreground "red"))))
      ("flagged")
      ("encrypted"
       (notmuch-apply-face tag
-                          (quote
-                           (:weight bold :foreground "orange red")))))))
+			  (quote
+			   (:weight bold :foreground "orange red")))))))
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
@@ -241,11 +241,11 @@
     (("w" . "TODOs")
      ("d" "30 days deadlines" agenda ""
       ((org-agenda-entry-types
-        (quote
-         (:deadline)))
+	(quote
+	 (:deadline)))
        (org-agenda-overriding-header "Month deadlines")
        (org-agenda-span
-        (quote month))
+	(quote month))
        (org-agenda-overriding-header "")))
      ("l" "Logbook" nico/org-agenda-log ""
       ((org-agenda-overriding-header "Logbook")))
@@ -253,66 +253,66 @@
      ("E" "Errands" tags "errands" nil)
      ("n" "Next actions"
       ((alltodo ""
-                ((org-agenda-tag-filter-preset
-                  (quote nil))
-                 (org-agenda-overriding-header "Next actions")
-                 (org-agenda-skip-function
-                  (quote
-                   (org-agenda-skip-all-siblings-but-first)))
-                 (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")
-                 (org-agenda-todo-keyword-format "%-4s")
-                 (org-agenda-files
-                  (quote
-                   ("~/org/gtd.org"))))))
+		((org-agenda-tag-filter-preset
+		  (quote nil))
+		 (org-agenda-overriding-header "Next actions")
+		 (org-agenda-skip-function
+		  (quote
+		   (org-agenda-skip-all-siblings-but-first)))
+		 (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")
+		 (org-agenda-todo-keyword-format "%-4s")
+		 (org-agenda-files
+		  (quote
+		   ("~/org/gtd.org"))))))
       nil nil)
      ("@" "Contexts"
       ((tags "ftgp"
-             ((org-agenda-skip-function
-               (quote
-                (org-agenda-skip-all-siblings-but-first)))
-              (org-agenda-overriding-header "FTGP next actions")))
+	     ((org-agenda-skip-function
+	       (quote
+		(org-agenda-skip-all-siblings-but-first)))
+	      (org-agenda-overriding-header "FTGP next actions")))
        (tags "emacs"
-             ((org-agenda-overriding-header "Emacs next actions")
-              (org-agenda-skip-function
-               (quote
-                (org-agenda-skip-all-siblings-but-first)))))
+	     ((org-agenda-overriding-header "Emacs next actions")
+	      (org-agenda-skip-function
+	       (quote
+		(org-agenda-skip-all-siblings-but-first)))))
        (tags-todo "@email"
-                  ((org-agenda-overriding-header "Emails")
-                   (org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-entry-if
-                      (quote nottodo)
-                      (quote
-                       ("TODO")))))))
+		  ((org-agenda-overriding-header "Emails")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-entry-if
+		      (quote nottodo)
+		      (quote
+		       ("TODO")))))))
        (tags-todo "@phone"
-                  ((org-agenda-overriding-header "Phone calls")))
+		  ((org-agenda-overriding-header "Phone calls")))
        (todo "WAITING"
-             ((org-agenda-overriding-header "Waiting")))
+	     ((org-agenda-overriding-header "Waiting")))
        (tags-todo "@office"
-                  ((org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-all-siblings-but-first)))
-                   (org-agenda-overriding-header "At the office")))
+		  ((org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-all-siblings-but-first)))
+		   (org-agenda-overriding-header "At the office")))
        (tags-todo "@plourin"
-                  ((org-agenda-overriding-header "Plourin")
-                   (org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-all-siblings-but-first)))))
+		  ((org-agenda-overriding-header "Plourin")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-all-siblings-but-first)))))
        (tags-todo "@stmartin"
-                  ((org-agenda-overriding-header "Saint Martin")
-                   (org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-all-siblings-but-first)))))
+		  ((org-agenda-overriding-header "Saint Martin")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-all-siblings-but-first)))))
        (tags-todo "@brest"
-                  ((org-agenda-overriding-header "Brest")
-                   (org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-all-siblings-but-first)))))
+		  ((org-agenda-overriding-header "Brest")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-all-siblings-but-first)))))
        (tags-todo "@stockholm"
-                  ((org-agenda-overriding-header "Stockholm")
-                   (org-agenda-skip-function
-                    (quote
-                     (org-agenda-skip-all-siblings-but-first))))))
+		  ((org-agenda-overriding-header "Stockholm")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-all-siblings-but-first))))))
       nil nil))))
  '(org-agenda-default-appointment-duration 60)
  '(org-agenda-files
@@ -381,34 +381,35 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((eval when
-           (and
-            (buffer-file-name)
-            (file-regular-p
-             (buffer-file-name))
-            (string-match-p "^[^.]"
-                            (buffer-file-name)))
-           (unless
-               (featurep
-                (quote package-build))
-             (let
-                 ((load-path
-                   (cons "../package-build" load-path)))
-               (require
-                (quote package-build))))
-           (package-build-minor-mode)
-           (set
-            (make-local-variable
-             (quote package-build-working-dir))
-            (expand-file-name "../working/"))
-           (set
-            (make-local-variable
-             (quote package-build-archive-dir))
-            (expand-file-name "../packages/"))
-           (set
-            (make-local-variable
-             (quote package-build-recipes-dir))
-            default-directory))
+    ((checkdoc-package-keywords-flag)
+     (eval when
+	   (and
+	    (buffer-file-name)
+	    (file-regular-p
+	     (buffer-file-name))
+	    (string-match-p "^[^.]"
+			    (buffer-file-name)))
+	   (unless
+	       (featurep
+		(quote package-build))
+	     (let
+		 ((load-path
+		   (cons "../package-build" load-path)))
+	       (require
+		(quote package-build))))
+	   (package-build-minor-mode)
+	   (set
+	    (make-local-variable
+	     (quote package-build-working-dir))
+	    (expand-file-name "../working/"))
+	   (set
+	    (make-local-variable
+	     (quote package-build-archive-dir))
+	    (expand-file-name "../packages/"))
+	   (set
+	    (make-local-variable
+	     (quote package-build-recipes-dir))
+	    default-directory))
      (jade-workspace-directories "/home/nico/work/ftgp/monitor/monitor/Monitor.Web.Ui/Client")
      (lentic-init . lentic-orgel-org-init)
      (flycheck-javascript-eslint-executable . "/home/nico/work/ftgp/monitor/monitor/Monitor.Web.Ui/Client/node_modules/.bin/eslint")
