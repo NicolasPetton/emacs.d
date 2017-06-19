@@ -5,9 +5,9 @@
 
 (defvar nico-website-html-head
   "<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link rel='stylesheet' href='https://code.cdn.mozilla.net/fonts/fira.css'>
 <link rel='stylesheet' href='css/site.css?v=2' type='text/css'/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<script src='/js/Hyphenator.js' type='text/javascript'></script>
 <script src='/js/jquery.js' type='text/javascript'></script>
 <link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>")
 
@@ -24,27 +24,28 @@
 
 (defvar nico-website-html-blog-head
   "<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
+<link rel='stylesheet' href='https://code.cdn.mozilla.net/fonts/fira.css'>
 <link rel='stylesheet' href='../css/site.css?v=2' type='text/css'/>
 <link rel='stylesheet' href='../css/blog.css?v=2' type='text/css'/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<script src='/js/Hyphenator.js' type='text/javascript'></script>
 <script src='/js/jquery.js' type='text/javascript'></script>
 <link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>")
 
 (defvar nico-website-html-preamble
   "<div class='intro'>
-<h1><b>Nicolas</b> Petton</h1>
+<img src='/images/profile.jpg' alt='Nicolas Petton'/>
+<h1>Nicolas Petton</h1>
 <p>Web developer, Lisper, Smalltalker & Emacs maniac.</p>
 </div>
 
 <div class='nav'>
 <ul>
-<li><a href='/'>Home</a>/</li>
-<li><a href='/blog/index.html'>Blog</a>/</li>
-<li><a href='https://emacs.cafe'>Emacs Café</a>/</li>
-<li><a href='https://petton.fr/git/nico'>Git repositories</a>/</li>
-<li><a href='http://github.com/NicolasPetton'>GitHub</a>/</li>
-<li><a href='http://twitter.com/NicolasPetton'>Twitter</a>/</li>
+<li><a href='/'>Home</a>–</li>
+<li><a href='/blog/index.html'>Blog</a>–</li>
+<li><a href='https://emacs.cafe'>Emacs Café</a>–</li>
+<li><a href='https://petton.fr/git/nico'>GitLab</a>–</li>
+<li><a href='http://github.com/NicolasPetton'>GitHub</a>–</li>
+<li><a href='http://twitter.com/NicolasPetton'>Twitter</a>–</li>
 <li><a href='/contact.html'>Contact</a></li>
 </ul>
 </div>
@@ -52,10 +53,6 @@
 
 (defvar nico-website-html-postamble
   (concat
-   "<script type='text/javascript'>
-    $('p').addClass('hyphenate');
-   Hyphenator.run();
-</script>"
    "<div class='footer'>
 Copyright "
    (format-time-string "%Y")
