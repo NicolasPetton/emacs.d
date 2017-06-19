@@ -1,14 +1,20 @@
 ;;; init.el --- init-file for blueberry           -*- lexical-binding: t -*-
 
 (use-package epg
+  :demand t
   :config
   (setq epg-gpg-program "gpg2")
   (eval-after-load 'magit
     '(setq magit-commit-arguments '("--gpg-sign=233587A47C207910"))))
 
-(use-package init-org)
-(use-package init-org-publish)
-(use-package init-notmuch)
+(use-package init-org
+  :demand t)
+
+(use-package init-org-publish
+  :demand t)
+
+(use-package init-notmuch
+  :demand t)
 
 (use-package ledger
   :init
