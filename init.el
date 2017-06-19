@@ -30,7 +30,9 @@
 
 (progn ;    `use-package'
   (require  'use-package)
-  (setq use-package-verbose t))
+  (setq use-package-verbose t)
+  (setq use-package-always-defer t)
+  (setq use-package-enable-imenu-support t))
 
 (use-package auto-compile
   :demand t
@@ -46,7 +48,6 @@
             'auto-compile-inhibit-compile-detached-git-head))
 
 (use-package epkg
-  :defer t
   :init (setq epkg-repository
               (expand-file-name "var/epkgs/" user-emacs-directory)))
 
@@ -111,41 +112,48 @@
 (use-package buffer-watcher)
 
 (use-package clojure-mode
-  :mode "\\.clj\\'"
-  :config
-  (use-package cider
-  :config
-  (defun setup-clojure-buffer ()
-    (eldoc-mode)
-    (clj-refactor-mode 1)
-    (paredit-mode 1)
-    (setq indent-tabs-mode nil))
+  :mode "\\.clj\\'")
 
-  (add-hook 'clojure-mode-hook #'setup-clojure-buffer)
-  (add-hook 'cider-mode-hook #'cider-turn-on-eldoc-mode)
+(use-package cider
+  :after clojure-mode
+  :init
+  (progn
+    (defun setup-clojure-buffer ()
+      (eldoc-mode)
+      (clj-refactor-mode 1)
+      (paredit-mode 1)
+      (setq indent-tabs-mode nil))
 
-  (setq cider-repl-use-clojure-font-lock t
-        cider-repl-use-pretty-printing t
-        cider-repl-wrap-history t
-        cider-repl-history-size 3000))
+    (add-hook 'clojure-mode-hook #'setup-clojure-buffer)
+    (add-hook 'cider-mode-hook #'cider-turn-on-eldoc-mode))
+  :config
+  (progn
+    (setq cider-repl-use-clojure-font-lock t
+          cider-repl-use-pretty-printing t
+          cider-repl-wrap-history t
+          cider-repl-history-size 3000)))
 
 (use-package clj-refactor
-  :config
-  (cljr-add-keybindings-with-prefix "C-c C-r")))
+  :after clojure-mode
+  :config (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package company
   :diminish ""
+  :init
+  (progn
+    (add-hook 'prog-mode-hook 'company-mode))
   :config
-  (add-hook 'prog-mode-hook 'company-mode)
-  (setq company-idle-delay 0.5)
-  (setq company-tooltip-limit 10)
-  (setq company-minimum-prefix-length 2)
-  (setq company-tooltip-flip-when-above t))
+  (progn
+    (setq company-idle-delay 0.5)
+    (setq company-tooltip-limit 10)
+    (setq company-minimum-prefix-length 2)
+    (setq company-tooltip-flip-when-above t)))
 
 (use-package company-dabbrev
   :config
-  (setq company-dabbrev-ignore-case t)
-  (setq company-dabbrev-downcase nil))
+  (progn
+    (setq company-dabbrev-ignore-case t)
+    (setq company-dabbrev-downcase nil)))
 
 (use-package counsel
   :config (global-set-key (kbd "M-x") #'counsel-M-x)
@@ -179,29 +187,37 @@
   (diminish 'widgetjs-mode))
 
 (use-package dired
-  :defer t
   :bind (:map dired-mode-map
               ("M-s" . find-name-dired)
               ("C-k" . dired-kill-subdir))
+  :init
+  (progn
+    (add-hook 'dired-mode-hook #'dired-hide-details-mode))
   :config
-  (add-hook 'dired-mode-hook #'dired-hide-details-mode)
-  (setq dired-listing-switches "-alh")
-  (setq dired-dwim-target t)
-  (put 'dired-find-alternate-file 'disabled nil))
+  (progn
+    (setq dired-listing-switches "-alh")
+    (setq dired-dwim-target t)
+    (put 'dired-find-alternate-file 'disabled nil)))
 
 (use-package dired-x
+  :after dired
+  :init
+  (progn
+    (add-hook 'dired-mode-hook #'dired-omit-mode))
   :config
-  (add-hook 'dired-mode-hook #'dired-omit-mode)
-  (setq dired-omit-files "^\\...+$"))
+  (progn
+    (setq dired-omit-files "^\\...+$")))
 
 (use-package drag-stuff
+  :demand t
   :diminish 'drag-stuff-mode
   :config
-  (drag-stuff-global-mode t)
-  (drag-stuff-define-keys)
-  (add-to-list 'drag-stuff-except-modes 'org-mode)
-  (add-to-list 'drag-stuff-except-modes 'rebase-mode)
-  (add-to-list 'drag-stuff-except-modes 'emacs-lisp-mode))
+  (progn
+    (drag-stuff-global-mode t)
+    (drag-stuff-define-keys)
+    (add-to-list 'drag-stuff-except-modes 'org-mode)
+    (add-to-list 'drag-stuff-except-modes 'rebase-mode)
+    (add-to-list 'drag-stuff-except-modes 'emacs-lisp-mode)))
 
 (use-package duplicate-thing
   :bind ("M-D" . duplicate-thing))
@@ -220,6 +236,7 @@
   (electric-pair-mode t))
 
 (use-package electric
+  :demand t
   :config (electric-indent-mode t))
 
 (use-package erc
@@ -295,7 +312,6 @@
   :config (add-hook 'dired-mode-hook #'turn-on-gnus-dired-mode))
 
 (use-package help
-  :defer t
   :config (temp-buffer-resize-mode))
 
 (use-package ibuffer
@@ -373,7 +389,6 @@ be global."
   (add-hook 'lisp-interaction-mode-hook #'indent-spaces-mode))
 
 (use-package magit
-  :defer t
   :bind (("C-x g"   . magit-status)
          ("C-x M-g" . magit-dispatch-popup)
          :map magit-mode-map
@@ -397,7 +412,6 @@ be global."
   (setq magit-default-tracking-name-function #'magit-default-tracking-name-branch-only))
 
 (use-package man
-  :defer t
   :config (setq Man-width 80))
 
 (use-package multiple-cursors
@@ -409,6 +423,7 @@ be global."
          ("C-c C-<" . mc/mark-all-like-this)))
 
 (use-package no-littering
+  :demand t
   :config
   (require 'recentf)
   (add-to-list 'recentf-exclude no-littering-var-directory)
@@ -494,7 +509,6 @@ be global."
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
 
 (use-package tramp
-  :defer t
   :config
   (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
   (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
@@ -508,7 +522,6 @@ be global."
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package web-mode
-  :defer t
   :config
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.htm\\'" . web-mode))
@@ -545,28 +558,29 @@ be global."
 
 (use-package ws-butler
   :diminish ""
-  :config
+  :init
   (add-hook 'prog-mode-hook #'ws-butler-mode))
 
 (use-package yasnippet
   :diminish 'yas-minor-mode)
 
 (use-package zerodark-theme
+  :demand t
   :config
-  
-  (defun set-selected-frame-dark ()
-    (interactive)
-    (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
-      (call-process-shell-command
-       (format
-        "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
-        frame-name))))
-  
-  (when (window-system)
-    (load-theme 'zerodark t)
-    (zerodark-setup-modeline-format)
-    (set-selected-frame-dark)
-    (setq frame-title-format '(buffer-file-name "%f" ("%b")))))
+  (progn
+    (defun set-selected-frame-dark ()
+      (interactive)
+      (let ((frame-name (cdr (assq 'name (frame-parameters (selected-frame))))))
+        (call-process-shell-command
+         (format
+          "xprop -f _GTK_THEME_VARIANT 8u -set _GTK_THEME_VARIANT 'dark' -name '%s'"
+          frame-name))))
+
+    (when (window-system)
+      (load-theme 'zerodark t)
+      (zerodark-setup-modeline-format)
+      (set-selected-frame-dark)
+      (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
 
 (use-package zoom-frm
   :bind (("C-+" . zoom-frm-in)
