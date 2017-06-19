@@ -242,11 +242,8 @@
        (require 'em-term)
        (require 'em-cmpl)
        (setenv "PAGER" "cat")
-       (add-hook 'eshell-mode-hook ;; for some reason this needs to be a hook
-                 (lambda ()
-                   (company-mode)
-                   (define-key eshell-mode-map "\C-a" #'eshell-bol)
-                   (define-key eshell-mode-map (kbd "M-r") #'nico-eshell-hist-input)))
+       (add-hook 'eshell-mode-hook
+                 #'company-mode)
 
        (add-to-list 'eshell-visual-commands "ssh")
        (add-to-list 'eshell-visual-commands "htop")
@@ -259,12 +256,7 @@
        (add-to-list 'eshell-command-completions-alist
                     '("gunzip" "gz\\'"))
        (add-to-list 'eshell-command-completions-alist
-                    '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))
-
-  (when (not (functionp 'eshell/rgrep))
-    (defun eshell/rgrep (&rest args)
-      "Use Emacs grep facility instead of calling external grep."
-      (eshell-grep "rgrep" args t))))
+                    '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'")))))
 
 (use-package exec-path-from-shell
   :config (exec-path-from-shell-initialize))
