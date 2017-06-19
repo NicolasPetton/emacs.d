@@ -285,7 +285,12 @@
 		      (quote
 		       ("TODO")))))))
        (tags-todo "@phone"
-		  ((org-agenda-overriding-header "Phone calls")))
+		  ((org-agenda-overriding-header "Phone calls")
+		   (org-agenda-skip-function
+		    (quote
+		     (org-agenda-skip-entry-if
+		      (quote todo)
+		      (quote done))))))
        (todo "WAITING"
 	     ((org-agenda-overriding-header "Waiting")))
        (tags-todo "@office"
