@@ -381,7 +381,8 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((checkdoc-package-keywords-flag)
+    ((ispell-dictionary . francais)
+     (checkdoc-package-keywords-flag)
      (eval when
 	   (and
 	    (buffer-file-name)
