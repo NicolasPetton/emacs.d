@@ -266,6 +266,9 @@
 [submodule "sudo-edit"]
 	path = lib/sudo-edit
 	url = git@github.com:nflath/sudo-edit.git
+[submodule "systemd"]
+	path = lib/systemd
+	url = git@github.com:holomorph/systemd-mode.git
 [submodule "telepathy"]
 	path = lib/telepathy
 	url = git@github.com:NicolasPetton/telepathy.el.git

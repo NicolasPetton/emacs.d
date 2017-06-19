@@ -495,6 +495,8 @@ be global."
 
 (use-package sudo-edit)
 
+(use-package systemd)
+
 (use-package tabify
   :config
   (defun tabify-buffer ()
