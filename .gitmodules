@@ -191,6 +191,8 @@
 [submodule "no-littering"]
 	path = lib/no-littering
 	url = git@github.com:tarsius/no-littering.git
+	remote = "nico git@github.com:NicolasPetton/no-littering.git"
+	pushDefault = nico
 [submodule "notmuch"]
 	path = lib/notmuch
 	load-path = emacs
@@ -275,7 +277,7 @@
 [submodule "tern"]
 	path = lib/tern
 	load-path = emacs
-	url = git@github.com:ternjs/tern.git
+	url = git@github.com:terjns/tern.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
