@@ -75,6 +75,13 @@
     (slack-say (seq-random-elt messages)))
   (work-clock-in))
 
+(defun work-coffee ()
+  "Send a \"Coffee break\"-like message on #general."
+  (interactive)
+  (slack-say (seq-random-elt '("Getting a :coffee:"
+			       ":coffee: break"
+			       ":coffee:"))))
+
 (defun slack-token ()
   "Return the slack token from pass."
   (password-store-get "slack-token"))
