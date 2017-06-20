@@ -302,7 +302,7 @@
               ("C-;" . nil))
   :config
   (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-  (dolist (mode-hook '(text-mode-hook LaTeX-mode-hook))
+  (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
     (add-hook mode-hook #'flyspell-mode)))
 
 (use-package gnus-dired
