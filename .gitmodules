@@ -280,7 +280,7 @@
 [submodule "tern"]
 	path = lib/tern
 	load-path = emacs
-	url = git@github.com:terjns/tern.git
+	url = git@github.com:ternjs/tern.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
