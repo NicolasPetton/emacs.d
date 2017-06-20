@@ -78,7 +78,7 @@
 (defun work-coffee ()
   "Send a \"Coffee break\"-like message on #general."
   (interactive)
-  (slack-say (seq-random-elt '("Getting a :coffee:"
+  (slack-say (seq-random-elt '("/me is getting a :coffee:"
 			       ":coffee: break"
 			       ":coffee:"))))
 
