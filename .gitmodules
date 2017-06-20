@@ -182,6 +182,9 @@
 [submodule "makey"]
 	path = lib/makey
 	url = git@github.com:mickeynp/makey.git
+[submodule "markdown-mode"]
+	path = lib/markdown-mode
+	url = git@github.com:jrblevin/markdown-mode.git
 [submodule "memoize"]
 	path = lib/memoize
 	url = git@github.com:skeeto/emacs-memoize.git
