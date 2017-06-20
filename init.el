@@ -282,7 +282,8 @@
 
 (use-package flycheck
   :diminish 'flycheck-mode
-  :config (add-hook 'prog-mode-hook #'flycheck-mode))
+  :commands (flycheck-mode)
+  :init (add-hook 'prog-mode-hook #'flycheck-mode))
 
 (use-package flyspell
   :bind (:map flyspell-mode-map
@@ -489,10 +490,6 @@ be global."
   :diminish 'subword-mode
   :config (global-subword-mode))
 
-(use-package sudo-edit)
-
-(use-package systemd)
-
 (use-package tabify
   :config
   (defun tabify-buffer ()
@@ -507,13 +504,11 @@ be global."
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
 
 (use-package tramp
-  :config
-  (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
-  (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
-  (add-to-list 'tramp-default-proxies-alist
-               (list (regexp-quote (system-name)) nil nil)))
-
-(use-package tunnel)
+  :config (progn
+            (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
+            (add-to-list 'tramp-default-proxies-alist '("localhost" nil nil))
+            (add-to-list 'tramp-default-proxies-alist
+                         (list (regexp-quote (system-name)) nil nil))))
 
 (use-package uniquify
   :config
@@ -566,7 +561,9 @@ be global."
   (add-hook 'prog-mode-hook #'ws-butler-mode))
 
 (use-package yasnippet
-  :diminish 'yas-minor-mode)
+  :diminish 'yas-minor-mode
+  :init (progn
+          (add-hook 'prog-mode-hook #'yas-minor-mode)))
 
 (use-package zerodark-theme
   :demand t
@@ -632,5 +629,6 @@ be global."
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
+;; eval: (flycheck-mode -1)
 ;; End:
 ;;; init.el ends here
