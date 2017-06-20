@@ -116,22 +116,20 @@
 
 (use-package cider
   :after clojure-mode
-  :init
-  (progn
-    (defun setup-clojure-buffer ()
-      (eldoc-mode)
-      (clj-refactor-mode 1)
-      (paredit-mode 1)
-      (setq indent-tabs-mode nil))
+  :init (progn
+          (defun setup-clojure-buffer ()
+            (eldoc-mode)
+            (clj-refactor-mode 1)
+            (paredit-mode 1)
+            (setq indent-tabs-mode nil))
 
-    (add-hook 'clojure-mode-hook #'setup-clojure-buffer)
-    (add-hook 'cider-mode-hook #'cider-turn-on-eldoc-mode))
-  :config
-  (progn
-    (setq cider-repl-use-clojure-font-lock t
-          cider-repl-use-pretty-printing t
-          cider-repl-wrap-history t
-          cider-repl-history-size 3000)))
+          (add-hook 'clojure-mode-hook #'setup-clojure-buffer)
+          (add-hook 'cider-mode-hook #'cider-turn-on-eldoc-mode))
+  :config (progn
+            (setq cider-repl-use-clojure-font-lock t
+                  cider-repl-use-pretty-printing t
+                  cider-repl-wrap-history t
+                  cider-repl-history-size 3000)))
 
 (use-package clj-refactor
   :after clojure-mode
@@ -139,27 +137,25 @@
 
 (use-package company
   :diminish ""
-  :init
-  (progn
-    (add-hook 'prog-mode-hook 'company-mode))
-  :config
-  (progn
-    (setq company-idle-delay 0.5)
-    (setq company-tooltip-limit 10)
-    (setq company-minimum-prefix-length 2)
-    (setq company-tooltip-flip-when-above t)))
+  :init (progn
+          (add-hook 'prog-mode-hook 'company-mode))
+  :config (progn
+            (setq company-idle-delay 0.5)
+            (setq company-tooltip-limit 10)
+            (setq company-minimum-prefix-length 2)
+            (setq company-tooltip-flip-when-above t)))
 
 (use-package company-dabbrev
-  :config
-  (progn
-    (setq company-dabbrev-ignore-case t)
-    (setq company-dabbrev-downcase nil)))
+  :config (progn
+            (setq company-dabbrev-ignore-case t)
+            (setq company-dabbrev-downcase nil)))
 
 (use-package counsel
-  :config (global-set-key (kbd "M-x") #'counsel-M-x)
-  (global-set-key (kbd "C-x C-f") #'counsel-find-file)
-  (global-set-key (kbd "M-i") #'counsel-imenu)
-  (global-set-key (kbd "M-y") #'counsel-yank-pop))
+  :config (progn
+            (global-set-key (kbd "M-x") #'counsel-M-x)
+            (global-set-key (kbd "C-x C-f") #'counsel-find-file)
+            (global-set-key (kbd "M-i") #'counsel-imenu)
+            (global-set-key (kbd "M-y") #'counsel-yank-pop)))
 
 (use-package counsel-projectile
   :config (counsel-projectile-on))
@@ -171,108 +167,99 @@
   :config (dash-enable-font-lock))
 
 (use-package diff-hl
-  :config
-  (global-diff-hl-mode)
-  (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t))
+  :config (progn
+            (global-diff-hl-mode)
+            (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)))
 
 (use-package diminish
-  :config
-  (diminish 'auto-revert-mode)
-  (diminish 'outline-minor-mode)
-  (diminish 'amd-mode)
-  (diminish 'js2-refactor-mode)
-  (diminish 'tern-mode)
-  (diminish 'eslintd-fix-mode)
-  (diminish 'widgetjs-mode))
+  :demand t
+  :config (progn
+            (diminish 'auto-revert-mode)
+            (diminish 'outline-minor-mode)
+            (diminish 'amd-mode)
+            (diminish 'js2-refactor-mode)
+            (diminish 'tern-mode)
+            (diminish 'eslintd-fix-mode)
+            (diminish 'widgetjs-mode)))
 
 (use-package dired
   :bind (:map dired-mode-map
               ("M-s" . find-name-dired)
               ("C-k" . dired-kill-subdir))
-  :init
-  (progn
-    (add-hook 'dired-mode-hook #'dired-hide-details-mode))
-  :config
-  (progn
-    (setq dired-listing-switches "-alh")
-    (setq dired-dwim-target t)
-    (put 'dired-find-alternate-file 'disabled nil)))
+  :init (progn
+          (add-hook 'dired-mode-hook #'dired-hide-details-mode))
+  :config (progn
+            (setq dired-listing-switches "-alh")
+            (setq dired-dwim-target t)
+            (put 'dired-find-alternate-file 'disabled nil)))
 
 (use-package dired-x
   :after dired
-  :init
-  (progn
-    (add-hook 'dired-mode-hook #'dired-omit-mode))
-  :config
-  (progn
-    (setq dired-omit-files "^\\...+$")))
+  :init (progn
+          (add-hook 'dired-mode-hook #'dired-omit-mode))
+  :config (progn
+            (setq dired-omit-files "^\\...+$")))
 
 (use-package drag-stuff
   :demand t
   :diminish 'drag-stuff-mode
-  :config
-  (progn
-    (drag-stuff-global-mode t)
-    (drag-stuff-define-keys)
-    (add-to-list 'drag-stuff-except-modes 'org-mode)
-    (add-to-list 'drag-stuff-except-modes 'rebase-mode)
-    (add-to-list 'drag-stuff-except-modes 'emacs-lisp-mode)))
+  :config (progn
+            (drag-stuff-global-mode t)
+            (drag-stuff-define-keys)
+            (add-to-list 'drag-stuff-except-modes 'org-mode)
+            (add-to-list 'drag-stuff-except-modes 'rebase-mode)
+            (add-to-list 'drag-stuff-except-modes 'emacs-lisp-mode)))
 
 (use-package duplicate-thing
   :bind ("M-D" . duplicate-thing))
 
 (use-package ediff
-  :config
-  ;; window positioning & frame setup
-  (setq ediff-window-setup-function 'ediff-setup-windows-plain
-        ediff-split-window-function 'split-window-horizontally))
+  :config (progn
+            ;; window positioning & frame setup
+            (setq ediff-window-setup-function 'ediff-setup-windows-plain
+                  ediff-split-window-function 'split-window-horizontally)))
 
 (use-package eldoc
   :config (global-eldoc-mode))
 
 (use-package elec-pair
-  :config
-  (electric-pair-mode t))
+  :config (electric-pair-mode t))
 
 (use-package electric
   :demand t
   :config (electric-indent-mode t))
 
 (use-package erc
-  :config
-  (setq erc-email-userid "NicolasPetton"
-        erc-autojoin-channels-alist '(("freenode.net" . ("#emacs")))))
+  :config (progn
+            (setq erc-email-userid "NicolasPetton"
+                  erc-autojoin-channels-alist '(("freenode.net" . ("#emacs"))))))
 
 (use-package eshell
-  :config
-  (use-package shell-switcher
-    :config
-    (setq shell-switcher-mode t))
-  
-  (setq eshell-banner-message (concat " Welcome to Eshell, "
-                                      user-login-name
-                                      "!\n       _\n     _|_|_\n     (o o)\n ooO--(_)--Ooo-\n\n Oh, Nice hat.\n\n"))
-  (eval-after-load 'esh-opt
-    '(progn
-       (require 'em-prompt)
-       (require 'em-term)
-       (require 'em-cmpl)
-       (setenv "PAGER" "cat")
-       (add-hook 'eshell-mode-hook
-                 #'company-mode)
+  :config (progn
+            (setq eshell-banner-message (concat " Welcome to Eshell, "
+                                                user-login-name
+                                                "!\n       _\n     _|_|_\n     (o o)\n ooO--(_)--Ooo-\n\n Oh, Nice hat.\n\n"))
+            (eval-after-load 'esh-opt
+              '(progn
+                 (require 'em-prompt)
+                 (require 'em-term)
+                 (require 'em-cmpl)
+                 (setenv "PAGER" "cat")
+                 (add-hook 'eshell-mode-hook
+                           #'company-mode)
 
-       (add-to-list 'eshell-visual-commands "ssh")
-       (add-to-list 'eshell-visual-commands "htop")
-       (add-to-list 'eshell-visual-commands "top")
-       (add-to-list 'eshell-visual-commands "tail")
-       (add-to-list 'eshell-visual-commands "vim")
-       (add-to-list 'eshell-visual-commands "bower")
-       (add-to-list 'eshell-visual-commands "npm")
+                 (add-to-list 'eshell-visual-commands "ssh")
+                 (add-to-list 'eshell-visual-commands "htop")
+                 (add-to-list 'eshell-visual-commands "top")
+                 (add-to-list 'eshell-visual-commands "tail")
+                 (add-to-list 'eshell-visual-commands "vim")
+                 (add-to-list 'eshell-visual-commands "bower")
+                 (add-to-list 'eshell-visual-commands "npm")
 
-       (add-to-list 'eshell-command-completions-alist
-                    '("gunzip" "gz\\'"))
-       (add-to-list 'eshell-command-completions-alist
-                    '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'")))))
+                 (add-to-list 'eshell-command-completions-alist
+                              '("gunzip" "gz\\'"))
+                 (add-to-list 'eshell-command-completions-alist
+                              '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))))
 
 (use-package exec-path-from-shell
   :config (exec-path-from-shell-initialize))
@@ -368,15 +355,21 @@ be global."
       (with-current-buffer
           (set-buffer buf)
         (delete-region (point-min) (point-max))
-        (insert node-contents))))
-  
-  (use-package emacs-js)
+        (insert node-contents)))))
 
-  (use-package klassified
-    :diminish 'klassified-interaction-js-mode
-    :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
+(use-package emacs-js
+  :diminish (js2-refactor-mode js2-minor-mode js-lint-mode tern-mode)
+  :commands (setup-js-buffer)
+  :init
+  (progn
+    (add-hook 'js-mode-hook #'setup-js-buffer)))
 
-  (use-package ftgp))
+(use-package klassified
+  :diminish 'klassified-interaction-js-mode
+  :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
+
+(use-package ftgp
+  :demand t)
 
 (use-package less-css-mode)
 
@@ -480,6 +473,10 @@ be global."
 (use-package saveplace
   :config (save-place-mode))
 
+(use-package shell-switcher
+  :bind (("C-'" . shell-switcher-switch-buffer)
+         ("C-M-'" . shell-switcher-new-shell)))
+
 (use-package simple
   :config (column-number-mode))
 
@@ -555,7 +552,13 @@ be global."
          ("C-;" . other-window)))
 
 (use-package workflow
-  :demand t)
+  :commands (work-clock-out
+             work-back-from-lunch
+             work-start
+             work-stop
+             work-lunch
+             work-clock-in
+             work-send-weekly-email))
 
 (use-package ws-butler
   :diminish ""
