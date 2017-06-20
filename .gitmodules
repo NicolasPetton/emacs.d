@@ -262,6 +262,9 @@
 [submodule "slime"]
 	path = lib/slime
 	url = git@github.com:slime/slime.git
+[submodule "smex"]
+	path = lib/smex
+	url = git@github.com:nonsequitur/smex.git
 [submodule "sourcemap"]
 	path = lib/sourcemap
 	url = git@github.com:syohex/emacs-sourcemap.git
