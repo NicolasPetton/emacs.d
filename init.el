@@ -268,6 +268,7 @@
   :bind (("C-=" . er/expand-region)))
 
 (use-package files
+  :demand t
   :config
   (setq delete-old-versions t
         kept-new-versions 6
