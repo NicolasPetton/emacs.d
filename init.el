@@ -550,6 +550,7 @@ be global."
 (use-package workflow
   :commands (work-clock-out
              work-back-from-lunch
+             work-coffee
              work-start
              work-stop
              work-lunch
