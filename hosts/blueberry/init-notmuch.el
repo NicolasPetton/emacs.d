@@ -106,16 +106,19 @@
     ("nicolas@foretagsplatsen.se"
      (user-mail-address "nicolas@foretagsplatsen.se"))))
 
+(setq notmuch-fcc-dirs '(("nicolas@petton.fr" . "petton/Sent -unread")
+			 ("nicolas@foretagsplatsen.se" . "ftgp/Sent Items -unread")))
+
 (defun nico-setup-mail-account (account)
   (let ((account-vars (cdr (assoc account nico-notmuch-account-alist))))
-    (mapc #'(lambda (var)
+    (mapc (lambda (var)
 	      (set (car var) (cadr var)))
 	  account-vars)))
 
 (defun nico-select-mail-account ()
   (completing-read (format "Compose with account: (%s) "
-                           (mapconcat #'(lambda (var) (car var)) nico-notmuch-account-alist "/"))
-                   (mapcar #'(lambda (var) (car var)) nico-notmuch-account-alist)
+                           (mapconcat (lambda (var) (car var)) nico-notmuch-account-alist "/"))
+                   (mapcar (lambda (var) (car var)) nico-notmuch-account-alist)
                    nil t nil nil (caar nico-notmuch-account-alist)))
 
 (add-hook 'message-setup-hook #'nico-set-email-account-and-setup-message)
