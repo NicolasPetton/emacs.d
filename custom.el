@@ -386,7 +386,7 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((ispell-dictionary . francais)
+    ((eval ispell-change-dictionary "francais")
      (checkdoc-package-keywords-flag)
      (eval when
 	   (and
