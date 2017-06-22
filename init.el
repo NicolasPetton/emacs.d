@@ -444,6 +444,7 @@ be global."
   :bind ("C-x p" . pass))
 
 (use-package projectile
+  :demand t
   :diminish ""
   :config (projectile-mode))
 
