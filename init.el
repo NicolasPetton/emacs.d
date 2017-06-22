@@ -189,7 +189,7 @@
   :init (progn
           (add-hook 'dired-mode-hook #'dired-hide-details-mode))
   :config (progn
-            (setq dired-listing-switches "-alh")
+            (setq dired-listing-switches "-al")
             (setq dired-dwim-target t)
             (put 'dired-find-alternate-file 'disabled nil)))
 
