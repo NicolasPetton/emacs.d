@@ -223,6 +223,7 @@
   :config (global-eldoc-mode))
 
 (use-package elec-pair
+  :demand t
   :config (electric-pair-mode t))
 
 (use-package electric
