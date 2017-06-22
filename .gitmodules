@@ -283,6 +283,7 @@
 [submodule "tern"]
 	path = lib/tern
 	load-path = emacs
+	build-step = npm install
 	url = git@github.com:ternjs/tern.git
 [submodule "use-package"]
 	path = lib/use-package
