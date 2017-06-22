@@ -107,7 +107,7 @@
      (user-mail-address "nicolas@foretagsplatsen.se"))))
 
 (setq notmuch-fcc-dirs '(("nicolas@petton.fr" . "petton/Sent -unread")
-			 ("nicolas@foretagsplatsen.se" . "ftgp/Sent Items -unread")))
+			 ("nicolas@foretagsplatsen.se" . "\"ftgp/Sent Items\" -unread")))
 
 (defun nico-setup-mail-account (account)
   (let ((account-vars (cdr (assoc account nico-notmuch-account-alist))))
