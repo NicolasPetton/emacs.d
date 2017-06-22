@@ -7,6 +7,10 @@
 
 (define-abbrev-table 'Man-mode-abbrev-table '())
 
+(define-abbrev-table 'TeX-error-overview-mode-abbrev-table '())
+
+(define-abbrev-table 'TeX-output-mode-abbrev-table '())
+
 (define-abbrev-table 'ag-mode-abbrev-table '())
 
 (define-abbrev-table 'apropos-mode-abbrev-table '())
@@ -46,6 +50,8 @@
 (define-abbrev-table 'cider-docview-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'cider-repl-history-mode-abbrev-table '())
 
 (define-abbrev-table 'cider-repl-mode-abbrev-table '())
 
@@ -95,6 +101,8 @@
 
 (define-abbrev-table 'dig-mode-abbrev-table '())
 
+(define-abbrev-table 'doctex-mode-abbrev-table '())
+
 (define-abbrev-table 'edebug-eval-mode-abbrev-table '())
 
 (define-abbrev-table 'edit-abbrevs-mode-abbrev-table '())
@@ -108,6 +116,12 @@
 (define-abbrev-table 'epa-key-list-mode-abbrev-table '())
 
 (define-abbrev-table 'epa-key-mode-abbrev-table '())
+
+(define-abbrev-table 'epkg-list-mode-abbrev-table '())
+
+(define-abbrev-table 'erc-list-menu-mode-abbrev-table '())
+
+(define-abbrev-table 'erc-mode-abbrev-table '())
 
 (define-abbrev-table 'ert-results-mode-abbrev-table '())
 
@@ -143,6 +157,8 @@
 
 (define-abbrev-table 'git-rebase-mode-abbrev-table '())
 
+(define-abbrev-table 'gitconfig-mode-abbrev-table '())
+
 (define-abbrev-table 'global-abbrev-table
   '(
     ("accomodate" "accommodate" nil 0)
@@ -150,6 +166,7 @@
     ("bebes" "bébés" nil 0)
     ("beleive" "believe" nil 0)
     ("bientot" "bientôt" nil 3)
+    ("ca" "ça" nil 2)
     ("completement" "complètement" nil 1)
     ("componenp" "component" nil 0)
     ("custon" "custom" nil 0)
@@ -192,6 +209,8 @@
 
 (define-abbrev-table 'help-mode-abbrev-table '())
 
+(define-abbrev-table 'hierarchy-tabulated-mode-abbrev-table '())
+
 (define-abbrev-table 'html-mode-abbrev-table '())
 
 (define-abbrev-table 'ibuffer-mode-abbrev-table '())
@@ -201,6 +220,16 @@
 (define-abbrev-table 'image-dired-display-image-mode-abbrev-table '())
 
 (define-abbrev-table 'image-dired-thumbnail-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-debugger-frames-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-debugger-locals-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-inspector-mode-abbrev-table '())
+
+(define-abbrev-table 'indium-repl-mode-abbrev-table '())
+
+(define-abbrev-table 'inferior-python-mode-abbrev-table '())
 
 (define-abbrev-table 'internal-ange-ftp-mode-abbrev-table '())
 
@@ -227,6 +256,8 @@
 (define-abbrev-table 'js2-jsx-mode-abbrev-table '())
 
 (define-abbrev-table 'js2-mode-abbrev-table '())
+
+(define-abbrev-table 'latex-mode-abbrev-table '())
 
 (define-abbrev-table 'ledger-check-mode-abbrev-table '())
 
@@ -273,6 +304,8 @@
 (define-abbrev-table 'magit-stashes-mode-abbrev-table '())
 
 (define-abbrev-table 'magit-status-mode-abbrev-table '())
+
+(define-abbrev-table 'magit-submodule-list-mode-abbrev-table '())
 
 (define-abbrev-table 'makefile-automake-mode-abbrev-table '())
 
@@ -336,6 +369,8 @@
   '(
    ))
 
+(define-abbrev-table 'plain-tex-mode-abbrev-table '())
+
 (define-abbrev-table 'process-menu-mode-abbrev-table '())
 
 (define-abbrev-table 'prodigy-mode-abbrev-table '())
@@ -343,6 +378,12 @@
 (define-abbrev-table 'prodigy-view-mode-abbrev-table '())
 
 (define-abbrev-table 'prog-mode-abbrev-table '())
+
+(define-abbrev-table 'python-mode-abbrev-table '())
+
+(define-abbrev-table 'python-mode-skeleton-abbrev-table
+  '(
+   ))
 
 (define-abbrev-table 'quickurl-list-mode-abbrev-table '())
 
@@ -382,6 +423,8 @@
 
 (define-abbrev-table 'slime-xref-mode-abbrev-table '())
 
+(define-abbrev-table 'slitex-mode-abbrev-table '())
+
 (define-abbrev-table 'smime-mode-abbrev-table '())
 
 (define-abbrev-table 'snapshot-timeline-mode-abbrev-table '())
@@ -395,6 +438,10 @@
 (define-abbrev-table 'tabulated-list-mode-abbrev-table '())
 
 (define-abbrev-table 'term-mode-abbrev-table '())
+
+(define-abbrev-table 'tex-mode-abbrev-table '())
+
+(define-abbrev-table 'tex-shell-abbrev-table '())
 
 (define-abbrev-table 'text-mode-abbrev-table '())
 
