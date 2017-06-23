@@ -64,6 +64,9 @@
 [submodule "counsel-projectile"]
 	path = lib/counsel-projectile
 	url = git@github.com:ericdanan/counsel-projectile.git
+[submodule "csharp-mode"]
+	path = lib/csharp-mode
+	url = git@github.com:josteink/csharp-mode.git
 [submodule "dash"]
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
