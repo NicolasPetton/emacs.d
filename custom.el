@@ -336,6 +336,7 @@
  '(org-deadline-warning-days 10)
  '(org-default-notes-file "~/org/inbox.org")
  '(org-ditaa-jar-path "~/bin/ditaa/ditaa.jar")
+ '(org-duration-format (quote h:mm))
  '(org-enforce-todo-checkbox-dependencies t)
  '(org-enforce-todo-dependencies t)
  '(org-export-taskjuggler-target-version 3)
