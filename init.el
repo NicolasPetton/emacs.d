@@ -158,6 +158,7 @@
             (global-set-key (kbd "M-y") #'counsel-yank-pop)))
 
 (use-package counsel-projectile
+  :after projectile
   :config (counsel-projectile-on))
 
 (use-package dabbrev
@@ -438,6 +439,7 @@ be global."
   (add-hook 'emacs-lisp-mode-hook #'paredit-mode))
 
 (use-package paren
+  :demand t
   :config (show-paren-mode))
 
 (use-package pass
