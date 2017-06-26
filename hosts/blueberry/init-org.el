@@ -8,6 +8,7 @@
 (require 'org-debbugs-protocol)
 (require 'org-bullets)
 (require 'ob-js)
+(require 'ox-md)
 (require 'avy)
 (require 'ivy)
 (require 'org-gnome)
