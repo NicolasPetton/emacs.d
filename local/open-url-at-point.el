@@ -8,5 +8,11 @@ argument, in Emacs."
        (browse-url-emacs url)
      (browse-url url))))
 
+(defun youtube-dl-at-point ()
+  (interactive)
+  (let ((url (browse-url-url-at-point))
+	(default-directory (expand-file-name "~/Downloads")))
+    (async-shell-command (format "youtube-dl %s" url))))
+
 (provide 'open-url-at-point)
 
