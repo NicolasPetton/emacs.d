@@ -4,6 +4,7 @@
 (require 'fetch-email)
 (require 'alert)
 (require 'yasnippet)
+(require 'debbugs)
 
 ;; For existing org links, load mu4e anyway
 
@@ -257,6 +258,22 @@
              ))
     (message "rlt=%s" rlt)
     rlt))
+
+(advice-add 'debbugs-gnu-select-report :override #'debbugs-notmuch-select-report)
+
+(defun debbugs-notmuch-select-report (&rest _)
+  (let* ((status (debbugs-gnu-current-status))
+	 (id (cdr (assq 'id status)))
+	 (merged (cdr (assq 'mergedwith status))))
+    (setq merged (if (listp merged) merged (list merged)))
+    (unless id
+      (user-error "No bug report on the current line"))
+    (let ((address (format "%s@debbugs.gnu.org" id))
+          (merged-addresses (string-join (mapcar (lambda (id)
+                                                   (format "%s@debbugs.gnu.org %s" id))
+                                                 merged)
+                                         " ")))
+      (notmuch-search (format "%s %s" address merged-addresses)))))
 
 (provide 'init-notmuch)
 ;;; init-notmuch ends here

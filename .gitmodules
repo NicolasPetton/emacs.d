@@ -71,6 +71,9 @@
 	path = lib/dash
 	url = git@github.com:magnars/dash.el.git
 	no-makeinfo = dash-template.texi
+[submodule "debbugs"]
+	path = lib/debbugs
+	url = git@github.com:emacsmirror/debbugs.git
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
@@ -274,6 +277,9 @@
 [submodule "spinner"]
 	path = lib/spinner
 	url = git@github.com:Malabarba/spinner.el.git
+[submodule "stream"]
+	path = lib/stream
+	url = git@github.com:emacsmirror/stream.git
 [submodule "sudo-edit"]
 	path = lib/sudo-edit
 	url = git@github.com:nflath/sudo-edit.git
