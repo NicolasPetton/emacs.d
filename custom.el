@@ -43,6 +43,7 @@
      ("\\.svg" "inkscape")
      ("\\.png" "eog" "gimp")
      ("\\.jpg" "eog" "gimp"))))
+ '(dired-listing-switches "-alh")
  '(doc-view-continuous t)
  '(doc-view-resolution 200)
  '(eldoc-echo-area-use-multiline-p nil)
