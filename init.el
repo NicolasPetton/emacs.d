@@ -492,9 +492,8 @@ be global."
   (slime-setup))
 
 (use-package subword
-  :demand t
   :diminish 'subword-mode
-  :config (global-subword-mode))
+  :init (global-subword-mode))
 
 (use-package tabify
   :config
