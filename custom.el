@@ -317,6 +317,11 @@
 		  ((org-agenda-overriding-header "Stockholm")
 		   (org-agenda-skip-function
 		    (quote
+		     (org-agenda-skip-all-siblings-but-first)))))
+       (tags-todo "@home"
+		  ((org-agenda-overriding-header "Home")
+		   (org-agenda-skip-function
+		    (quote
 		     (org-agenda-skip-all-siblings-but-first))))))
       nil nil))))
  '(org-agenda-default-appointment-duration 60)
