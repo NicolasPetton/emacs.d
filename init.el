@@ -307,6 +307,10 @@
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer)))
 
+;; Fix dead characters
+(use-package iso-transl
+  :demand t)
+
 (use-package ispell
   :config
   (defun ispell-word-then-abbrev (p)
