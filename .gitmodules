@@ -40,6 +40,9 @@
 [submodule "buffer-watcher"]
 	path = lib/buffer-watcher
 	url = git@github.com:NicolasPetton/buffer-watcher.git
+[submodule "buttercup"]
+	path = lib/buttercup
+	url = git@github.com:jorgenschaefer/emacs-buttercup.git
 [submodule "cider"]
 	path = lib/cider
 	url = git@github.com:clojure-emacs/cider.git
@@ -86,6 +89,9 @@
 [submodule "duplicate-thing"]
 	path = lib/duplicate-thing
 	url = git@github.com:ongaeshi/duplicate-thing.git
+[submodule "ecukes"]
+	path = lib/ecukes
+	url = git@github.com:ecukes/ecukes.git
 [submodule "edn"]
 	path = lib/edn
 	url = git@github.com:expez/edn.el.git
@@ -116,6 +122,9 @@
 [submodule "f"]
 	path = lib/f
 	url = git@github.com:rejeep/f.el.git
+[submodule "feature-mode"]
+	path = lib/feature-mode
+	url = git@github.com:michaelklishin/cucumber.el.git
 [submodule "finalize"]
 	path = lib/finalize
 	url = git@github.com:skeeto/elisp-finalize.git
