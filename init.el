@@ -572,8 +572,9 @@ be global."
 
 (use-package yasnippet
   :diminish 'yas-minor-mode
+  :demand t
   :init (progn
-          (add-hook 'prog-mode-hook #'yas-minor-mode)))
+          (yas-global-mode)))
 
 (use-package zerodark-theme
   :demand t
