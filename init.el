@@ -291,10 +291,10 @@
 (use-package flyspell
   :bind (:map flyspell-mode-map
               ("C-;" . nil))
-  :config
-  (add-hook 'prog-mode-hook #'flyspell-prog-mode)
-  (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
-    (add-hook mode-hook #'flyspell-mode)))
+  :init (progn
+          (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+          (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
+            (add-hook mode-hook #'flyspell-mode))))
 
 (use-package gnus-dired
   :bind (:map gnus-dired-mode-map
