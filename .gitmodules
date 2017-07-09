@@ -214,6 +214,11 @@
 [submodule "notmuch"]
 	path = lib/notmuch
 	load-path = emacs
+	info-path = doc/_build/texinfo
+	build-step = ./configure
+	build-step = make
+	build-step = make sphinx-texinfo
+	build-step = "(borg-makeinfo \"notmuch\")"
 	url = git://notmuchmail.org/git/notmuch
 [submodule "org"]
 	path = lib/org

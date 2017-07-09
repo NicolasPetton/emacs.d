@@ -6,6 +6,8 @@
 (require 'yasnippet)
 (require 'debbugs)
 
+(setq-default notmuch-command (expand-file-name "~/.emacs.d/lib/notmuch/notmuch"))
+
 ;; For existing org links, load mu4e anyway
 
 ;; use notmuch for sending emails
