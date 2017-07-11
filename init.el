@@ -157,10 +157,6 @@
          ("M-i" . counsel-imenu)
          ("M-y" . counsel-yank-pop)))
 
-(use-package counsel-projectile
-  :after projectile
-  :config (counsel-projectile-on))
-
 (use-package dabbrev
   :bind (("S-SPC" . dabbrev-expand)))
 
@@ -339,6 +335,7 @@ be global."
 
 (use-package ivy
   :diminish ""
+  :demand t
   :config (progn
             (ivy-mode 1)
             (setq ivy-use-virtual-buffers t)))
@@ -453,7 +450,10 @@ be global."
 (use-package projectile
   :demand t
   :diminish ""
-  :config (projectile-mode))
+  :config (progn
+            (projectile-mode)
+            (require 'counsel-projectile)
+            (counsel-projectile-on)))
 
 (use-package prog-mode
   :config (global-prettify-symbols-mode)
