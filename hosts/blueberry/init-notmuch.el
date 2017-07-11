@@ -272,7 +272,7 @@
       (user-error "No bug report on the current line"))
     (let ((address (format "%s@debbugs.gnu.org" id))
           (merged-addresses (string-join (mapcar (lambda (id)
-                                                   (format "%s@debbugs.gnu.org %s" id))
+                                                   (format "%s@debbugs.gnu.org" id))
                                                  merged)
                                          " ")))
       (notmuch-search (format "%s %s" address merged-addresses)))))
