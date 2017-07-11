@@ -151,11 +151,11 @@
             (setq company-dabbrev-downcase nil)))
 
 (use-package counsel
-  :config (progn
-            (global-set-key (kbd "M-x") #'counsel-M-x)
-            (global-set-key (kbd "C-x C-f") #'counsel-find-file)
-            (global-set-key (kbd "M-i") #'counsel-imenu)
-            (global-set-key (kbd "M-y") #'counsel-yank-pop)))
+  :demand t
+  :bind (("M-x" . counsel-M-x)
+         ("C-x C-f" . counsel-find-file)
+         ("M-i" . counsel-imenu)
+         ("M-y" . counsel-yank-pop)))
 
 (use-package counsel-projectile
   :after projectile
@@ -339,9 +339,9 @@ be global."
 
 (use-package ivy
   :diminish ""
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t))
+  :config (progn
+            (ivy-mode 1)
+            (setq ivy-use-virtual-buffers t)))
 
 (progn ;    `isearch'
   (setq isearch-allow-scroll t))
@@ -637,6 +637,12 @@ be global."
     (when (file-exists-p private-dir)
       (add-to-list 'load-path private-dir)
       (require 'private-modules nil t))))
+
+;; display line numbers in buffers visiting a file
+(dolist (mode-hook '(prog-mode-hook text-mode-hook))
+  (add-hook mode-hook (lambda ()
+                        (when buffer-file-name
+                          (setq display-line-numbers t)))))
 
 ;; Local Variables:
 ;; indent-tabs-mode: nil
