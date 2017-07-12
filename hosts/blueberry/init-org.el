@@ -85,10 +85,10 @@ buffer to the matched subtree."
 	       "* TODO %a"))
 (add-to-list 'org-capture-templates
              '("p" "Appointment" entry (file+headline nico/org-agenda-file "Appointment")
-	       "* APPT %i%? \n %U"))
+	       "* APPT %i%? \n %^t"))
 (add-to-list 'org-capture-templates
 	     '("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler")
-               "* %i%? \n %U"))
+               "* %i%? \n %^t"))
 (add-to-list 'org-capture-templates
              '("c" "Contacts" entry (file "~/org/contacts.org")
                "* %(org-contacts-template-name)
