@@ -644,6 +644,13 @@ be global."
                         (when buffer-file-name
                           (setq display-line-numbers t)))))
 
+(defun goto-line-with-line-numbers ()
+  (interactive)
+  (let ((display-line-numbers t))
+    (call-interactively #'goto-line)))
+
+(global-set-key [remap goto-line] #'goto-line-with-line-numbers)
+
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; eval: (flycheck-mode -1)
