@@ -330,6 +330,9 @@
 [submodule "websocket"]
 	path = lib/websocket
 	url = git@github.com:ahyatt/emacs-websocket.git
+[submodule "wgrep"]
+	path = lib/wgrep
+	url = git@github.com:mhayashi1120/Emacs-wgrep.git
 [submodule "widgetjs"]
 	path = lib/widgetjs
 	url = git@github.com:foretagsplatsen/emacs-js.git
