@@ -16,6 +16,9 @@
 [submodule "anzu"]
 	path = lib/anzu
 	url = git@github.com:syohex/emacs-anzu.git
+[submodule "assess"]
+	path = lib/assess
+	url = git@github.com:phillord/assess.git
 [submodule "auctex"]
 	path = lib/auctex
 	url = git@github.com:emacsmirror/auctex.git
@@ -190,6 +193,9 @@
 [submodule "less-css-mode"]
 	path = lib/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
+[submodule "m-buffer"]
+	path = lib/m-buffer
+	url = git@github.com:phillord/m-buffer-el.git
 [submodule "magit"]
 	path = lib/magit
 	url = git@github.com:magit/magit.git
@@ -249,6 +255,10 @@
 [submodule "password-store"]
 	path = lib/password-store
 	url = git@github.com:emacsmirror/password-store.git
+[submodule "pdf-tools"]
+	path = lib/pdf-tools
+	url = git@github.com:politza/pdf-tools.git
+	build-step = cd server && ./autogen.sh && ./configure && make
 [submodule "peg"]
 	path = lib/peg
 	url = git@github.com:ellerh/peg.el.git
@@ -300,6 +310,9 @@
 [submodule "systemd"]
 	path = lib/systemd
 	url = git@github.com:holomorph/systemd-mode.git
+[submodule "tablist"]
+	path = lib/tablist
+	url = git@github.com:politza/tablist.git
 [submodule "telepathy"]
 	path = lib/telepathy
 	url = git@github.com:NicolasPetton/telepathy.el.git

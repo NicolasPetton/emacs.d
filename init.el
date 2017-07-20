@@ -447,6 +447,11 @@ be global."
   :mode ("org/reference/password-store/" . pass-view-mode)
   :bind ("C-x p" . pass))
 
+(use-package pdf-tools
+  :init (progn
+          (setq pdf-info-epdfinfo-program
+                "~/.emacs.d/lib/pdf-tools/server/epdfinfo")))
+
 (use-package projectile
   :demand t
   :diminish ""
