@@ -285,6 +285,7 @@
   :init (add-hook 'prog-mode-hook #'flycheck-mode))
 
 (use-package flyspell
+  :diminish 'flyspell-mode
   :bind (:map flyspell-mode-map
               ("C-;" . nil))
   :init (progn

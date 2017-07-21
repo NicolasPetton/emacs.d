@@ -58,6 +58,9 @@
 [submodule "closql"]
 	path = lib/closql
 	url = git@github.com:emacscollective/closql.git
+[submodule "command-log-mode"]
+	path = lib/command-log-mode
+	url = git@github.com:lewang/command-log-mode.git
 [submodule "company"]
 	path = lib/company
 	url = git@github.com:company-mode/company-mode.git
