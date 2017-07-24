@@ -1,5 +1,12 @@
 ;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
 ;;; Early birds
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
 (progn ;     startup
   (defvar before-user-init-time (current-time)
     "Value of `current-time' when Emacs begins loading `user-init-file'.")
@@ -234,9 +241,6 @@
 
 (use-package eshell
   :config (progn
-            (setq eshell-banner-message (concat " Welcome to Eshell, "
-                                                user-login-name
-                                                "!\n       _\n     _|_|_\n     (o o)\n ooO--(_)--Ooo-\n\n Oh, Nice hat.\n\n"))
             (eval-after-load 'esh-opt
               '(progn
                  (require 'em-prompt)
@@ -530,7 +534,7 @@ be global."
   (setq uniquify-buffer-name-style 'forward))
 
 (use-package web-mode
-  :config
+  :init
   (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.htm\\'" . web-mode))
   (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
