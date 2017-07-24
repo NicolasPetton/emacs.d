@@ -472,7 +472,7 @@ be global."
   (add-hook 'prog-mode-hook #'indicate-buffer-boundaries-left))
 
 (use-package rainbow-mode
-  :config
+  :init
   (add-hook 'css-mode-hook 'rainbow-mode)
   (add-hook 'less-mode-hook 'rainbow-mode))
 
