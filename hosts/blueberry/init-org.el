@@ -15,7 +15,7 @@
 (require 's)
 
 (global-org-gnome-minor-mode 1)
-(add-hook 'org-mode-hook #'org-indent-mode)
+;; (add-hook 'org-mode-hook #'org-indent-mode)
 
 ;; preserve the indentation inside of source blocks
 (setq org-src-preserve-indentation t)
