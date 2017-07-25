@@ -236,6 +236,7 @@
  '(og-org-agenda-appt-headline "APPT")
  '(omnisharp-server-executable-path
    "C:\\Users\\nico\\omnisharp-server\\OmniSharp\\bin\\Debug\\OmniSharp.exe")
+ '(org-M-RET-may-split-line (quote ((default))))
  '(org-agenda-custom-commands
    (quote
     (("w" . "TODOs")
