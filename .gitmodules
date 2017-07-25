@@ -255,6 +255,9 @@
 [submodule "pass"]
 	path = lib/pass
 	url = git@github.com:NicolasPetton/pass.git
+[submodule "pass-secrets"]
+	path = lib/pass-secrets
+	url = git@gitlab.petton.fr:nico/pass-secrets.el.git
 [submodule "password-store"]
 	path = lib/password-store
 	url = git@github.com:emacsmirror/password-store.git
@@ -292,6 +295,9 @@
 [submodule "shell-switcher"]
 	path = lib/shell-switcher
 	url = git@github.com:DamienCassou/shell-switcher.git
+[submodule "skeletor"]
+	path = lib/skeletor
+	url = git@github.com:chrisbarrett/skeletor.el.git
 [submodule "slime"]
 	path = lib/slime
 	url = git@github.com:slime/slime.git
