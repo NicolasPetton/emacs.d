@@ -235,9 +235,9 @@
   :config (electric-indent-mode t))
 
 (use-package erc
-  :config (progn
-            (setq erc-email-userid "NicolasPetton"
-                  erc-autojoin-channels-alist '(("freenode.net" . ("#emacs"))))))
+  :init (progn
+          (setq erc-nick "NicolasPetton"
+                erc-autojoin-channels-alist '(("freenode.net" . ("#emacs"))))))
 
 (use-package eshell
   :config (progn
