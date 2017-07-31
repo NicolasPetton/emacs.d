@@ -83,6 +83,9 @@
 [submodule "debbugs"]
 	path = lib/debbugs
 	url = git@github.com:emacsmirror/debbugs.git
+[submodule "devdocs"]
+	path = lib/devdocs
+	url = git@github.com:xuchunyang/devdocs.el.git
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
@@ -180,6 +183,12 @@
 [submodule "js2-refactor"]
 	path = lib/js2-refactor
 	url = git@github.com:magnars/js2-refactor.el.git
+[submodule "json-navigator"]
+	path = lib/json-navigator
+	url = git@github.com:DamienCassou/json-navigator.git
+[submodule "jss"]
+	path = lib/jss
+	url = git@github.com:segv/jss.git
 [submodule "jump"]
 	path = lib/jump
 	url = git@github.com:eschulte/jump.el.git
@@ -233,7 +242,9 @@
 	path = lib/org
 	load-path = lisp
 	load-path = contrib/lisp
+	info-path = doc
 	url = git://orgmode.org/org-mode.git
+	build-step = make compile autoloads info ORG_ADD_CONTRIB="org-notmuch"
 [submodule "org-bullets"]
 	path = lib/org-bullets
 	url = git@github.com:emacsorphanage/org-bullets.git
