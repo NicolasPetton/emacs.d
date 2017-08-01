@@ -376,7 +376,7 @@ be global."
 
 (use-package klassified
   :diminish 'klassified-interaction-js-mode
-  :config (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
+  :init (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
 
 (use-package ftgp
   :demand t)
