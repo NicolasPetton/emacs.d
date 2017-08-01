@@ -86,6 +86,8 @@
 [submodule "devdocs"]
 	path = lib/devdocs
 	url = git@github.com:xuchunyang/devdocs.el.git
+	remote = "nico git@github.com:NicolasPetton/devdocs.el.git"
+	pushDefault = nico
 [submodule "diff-hl"]
 	path = lib/diff-hl
 	url = git@github.com:dgutov/diff-hl.git
