@@ -9,7 +9,7 @@
 <link rel='stylesheet' href='css/site.css?v=2' type='text/css'/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src='/js/jquery.js' type='text/javascript'></script>
-<link href='http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>")
+<link href='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>")
 
 (defvar nico-analytics-html
   "<script>
@@ -112,6 +112,6 @@ Built with %c.
 		 :rss-image-url "http://nicolas-petton.fr/images/nicolas-petton.png"
 		 :html-link-use-abs-url t)
 
-		("website" :components ("org" "blog" "rss" "ressource"))))
+		("website" :components ("org" "blog" "rss" "ressources"))))
 
 (provide 'init-org-publish)
