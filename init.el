@@ -462,7 +462,10 @@ be global."
   :config (progn
             (projectile-mode)
             (require 'counsel-projectile)
-            (counsel-projectile-on)))
+            (counsel-projectile-on)
+            (define-key projectile-mode-map
+              [remap projectile-ag]
+              #'counsel-projectile-rg)))
 
 (use-package prog-mode
   :config (global-prettify-symbols-mode)
