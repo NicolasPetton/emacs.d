@@ -223,6 +223,11 @@
             (setq ediff-window-setup-function 'ediff-setup-windows-plain
                   ediff-split-window-function 'split-window-horizontally)))
 
+(use-package editorconfig
+  :demand t
+  :diminish 'editorconfig-mode
+  :init (editorconfig-mode 1))
+
 (use-package eldoc
   :config (global-eldoc-mode))
 

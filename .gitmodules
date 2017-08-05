@@ -103,6 +103,9 @@
 [submodule "ecukes"]
 	path = lib/ecukes
 	url = git@github.com:ecukes/ecukes.git
+[submodule "editorconfig"]
+	path = lib/editorconfig
+	url = git@github.com:editorconfig/editorconfig-emacs.git
 [submodule "edn"]
 	path = lib/edn
 	url = git@github.com:expez/edn.el.git
