@@ -38,7 +38,7 @@
     (("\\.mp4" "totem")
      ("\\.mkv" "totem")
      ("\\.avi" "totem")
-     ("\\.html" "firefox")
+     ("\\.html" "nightly")
      ("\\.pdf" "evince")
      ("\\.svg" "inkscape")
      ("\\.png" "eog" "gimp")

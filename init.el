@@ -106,7 +106,7 @@
 
 (use-package browse-url
   :config
-  (setq browse-url-generic-program (executable-find "firefox")))
+  (setq browse-url-generic-program (executable-find "nightly")))
 
 (use-package buffer-move)
 
