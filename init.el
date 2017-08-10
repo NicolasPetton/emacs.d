@@ -263,7 +263,8 @@
                               '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))))
 
 (use-package exec-path-from-shell
-  :config (exec-path-from-shell-initialize))
+  :demand t
+  :init (exec-path-from-shell-initialize))
 
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
