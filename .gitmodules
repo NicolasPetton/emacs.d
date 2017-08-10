@@ -188,9 +188,18 @@
 [submodule "js2-refactor"]
 	path = lib/js2-refactor
 	url = git@github.com:magnars/js2-refactor.el.git
+[submodule "json-mode"]
+	path = lib/json-mode
+	url = git@github.com:joshwnj/json-mode.git
 [submodule "json-navigator"]
 	path = lib/json-navigator
 	url = git@github.com:DamienCassou/json-navigator.git
+[submodule "json-reformat"]
+	path = lib/json-reformat
+	url = git@github.com:gongo/json-reformat.git
+[submodule "json-snatcher"]
+	path = lib/json-snatcher
+	url = git@github.com:Sterlingg/json-snatcher.git
 [submodule "jss"]
 	path = lib/jss
 	url = git@github.com:segv/jss.git
@@ -299,6 +308,12 @@
 [submodule "rainbow-mode"]
 	path = lib/rainbow-mode
 	url = git@github.com:emacsmirror/rainbow-mode.git
+[submodule "realgud"]
+	path = lib/realgud
+	url = git@github.com:rocky/emacs-dbgr.git
+[submodule "request"]
+	path = lib/request
+	url = git@github.com:tkf/emacs-request.git
 [submodule "restclient"]
 	path = lib/restclient
 	url = git@github.com:pashky/restclient.el.git
@@ -358,9 +373,6 @@
 [submodule "wgrep"]
 	path = lib/wgrep
 	url = git@github.com:mhayashi1120/Emacs-wgrep.git
-[submodule "widgetjs"]
-	path = lib/widgetjs
-	url = git@github.com:foretagsplatsen/emacs-js.git
 [submodule "with-editor"]
 	path = lib/with-editor
 	url = git@github.com:magit/with-editor.git
