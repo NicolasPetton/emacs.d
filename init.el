@@ -171,14 +171,14 @@
 
 (use-package diminish
   :demand t
-  :config (progn
-            (diminish 'auto-revert-mode)
-            (diminish 'outline-minor-mode)
-            (diminish 'amd-mode)
-            (diminish 'js2-refactor-mode)
-            (diminish 'tern-mode)
-            (diminish 'eslintd-fix-mode)
-            (diminish 'widgetjs-mode)))
+  :init (progn
+          (diminish 'auto-revert-mode)
+          (diminish 'outline-minor-mode)
+          (diminish 'amd-mode)
+          (diminish 'js2-refactor-mode)
+          (diminish 'tern-mode)
+          (diminish 'eslintd-fix-mode)
+          (diminish 'widgetjs-mode)))
 
 (use-package dired
   :bind (:map dired-mode-map
@@ -279,7 +279,7 @@
   (setq backup-directory-alist
         `((".*" . ,(no-littering-expand-var-file-name "backup/"))))
   (setq auto-save-file-name-transforms
-      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
+        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
   (setq create-lockfiles nil))
 
 (use-package flycheck
