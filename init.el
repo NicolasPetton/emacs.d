@@ -275,12 +275,11 @@
   (setq delete-old-versions t
         kept-new-versions 6
         kept-old-versions 2
-        version-control t
-        nico/backup-directory "~/.tmp")
+        version-control t)
   (setq backup-directory-alist
-        `((".*" . ,nico/backup-directory)))
+        `((".*" . ,(no-littering-expand-var-file-name "backup/"))))
   (setq auto-save-file-name-transforms
-        `((".*" ,nico/backup-directory t)))
+      `((".*" ,(no-littering-expand-var-file-name "auto-save/") t))))
   (setq create-lockfiles nil))
 
 (use-package flycheck
