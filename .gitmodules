@@ -219,6 +219,12 @@
 [submodule "less-css-mode"]
 	path = lib/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
+[submodule "load-relative"]
+	path = lib/load-relative
+	url = git@github.com:rocky/emacs-load-relative.git
+[submodule "loc-changes"]
+	path = lib/loc-changes
+	url = git@github.com:rocky/emacs-loc-changes.git
 [submodule "m-buffer"]
 	path = lib/m-buffer
 	url = git@github.com:phillord/m-buffer-el.git
@@ -311,6 +317,9 @@
 [submodule "realgud"]
 	path = lib/realgud
 	url = git@github.com:rocky/emacs-dbgr.git
+[submodule "realgud-byebug"]
+	path = lib/realgud-byebug
+	url = git@github.com:rocky/realgud-byebug.git
 [submodule "request"]
 	path = lib/request
 	url = git@github.com:tkf/emacs-request.git
