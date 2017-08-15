@@ -269,19 +269,6 @@
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 
-(use-package files
-  :demand t
-  :config
-  (setq delete-old-versions t
-        kept-new-versions 6
-        kept-old-versions 2
-        version-control t)
-  (setq backup-directory-alist
-        `((".*" . ,(no-littering-expand-var-file-name "backup/"))))
-  (setq auto-save-file-name-transforms
-        `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
-  (setq create-lockfiles nil))
-
 (use-package flycheck
   :diminish 'flycheck-mode
   :commands (flycheck-mode)
@@ -407,9 +394,9 @@ be global."
   (magit-add-section-hook 'magit-status-sections-hook
                           'magit-insert-modules-unpushed-to-pushremote
                           'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-submodules
-                          'magit-insert-unpulled-from-upstream)
+  ;; (magit-add-section-hook 'magit-status-sections-hook
+  ;;                         'magit-insert-submodules
+  ;;                         'magit-insert-unpulled-from-upstream)
   (setq magit-default-tracking-name-function #'magit-default-tracking-name-branch-only))
 
 (use-package man
@@ -425,10 +412,19 @@ be global."
 
 (use-package no-littering
   :demand t
-  :config
-  (require 'recentf)
-  (add-to-list 'recentf-exclude no-littering-var-directory)
-  (add-to-list 'recentf-exclude no-littering-etc-directory))
+  :config (progn
+            (require 'recentf)
+            (add-to-list 'recentf-exclude no-littering-var-directory)
+            (add-to-list 'recentf-exclude no-littering-etc-directory)
+            (setq delete-old-versions t
+                  kept-new-versions 6
+                  kept-old-versions 2
+                  version-control t)
+            (setq backup-directory-alist
+                  `((".*" . ,(no-littering-expand-var-file-name "backup/"))))
+            (setq auto-save-file-name-transforms
+                  `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
+            (setq create-lockfiles nil)))
 
 (use-package open-url-at-point
   :bind ("C-c C-o" . open-url-at-point))
