@@ -381,23 +381,11 @@ be global."
          ("C-x M-g" . magit-dispatch-popup)
          :map magit-mode-map
          ("C" . magit-commit-add-log))
-  :config
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpulled-from-upstream
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpulled-from-pushremote
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpushed-to-upstream
-                          'magit-insert-unpulled-from-upstream)
-  (magit-add-section-hook 'magit-status-sections-hook
-                          'magit-insert-modules-unpushed-to-pushremote
-                          'magit-insert-unpulled-from-upstream)
-  ;; (magit-add-section-hook 'magit-status-sections-hook
-  ;;                         'magit-insert-submodules
-  ;;                         'magit-insert-unpulled-from-upstream)
-  (setq magit-default-tracking-name-function #'magit-default-tracking-name-branch-only))
+  :config (progn
+           (magit-add-section-hook 'magit-status-sections-hook
+                                   'magit-insert-modules
+                                   'magit-insert-unpulled-from-upstream)
+           (setq magit-default-tracking-name-function #'magit-default-tracking-name-branch-only)))
 
 (use-package man
   :config (setq Man-width 80))
