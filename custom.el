@@ -95,6 +95,7 @@
  '(indicate-buffer-boundaries (quote left))
  '(indicate-empty-lines nil)
  '(indium-chrome-executable "chromium-browser")
+ '(indium-update-script-on-save t)
  '(interleave--org-notes-dir-list (quote (".")))
  '(jade-chrome-executable "chromium-browser")
  '(js-switch-indent-offset 4)
@@ -383,6 +384,7 @@
      (sequence "BUG(b)" "|" "FIXED(x)")
      (sequence "APPT(p)" "|" "DONE(d)" "CANCELLED(a)")
      (sequence "WAITING(w!)" "|" "DONE(d)"))))
+ '(pass-show-keybindings nil)
  '(password-cache-expiry 300)
  '(password-store-password-length 25)
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
@@ -481,6 +483,7 @@
  '(xref-prompt-for-identifier
    (quote
     (not xref-find-references xref-find-definitions xref-find-definitions-other-window xref-find-definitions-other-frame)))
+ '(yas-global-mode t)
  '(zerodark-use-high-contrast-in-mode-line t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
