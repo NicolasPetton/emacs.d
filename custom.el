@@ -95,7 +95,6 @@
  '(indicate-buffer-boundaries (quote left))
  '(indicate-empty-lines nil)
  '(indium-chrome-executable "chromium-browser")
- '(indium-update-script-on-save t)
  '(interleave--org-notes-dir-list (quote (".")))
  '(jade-chrome-executable "chromium-browser")
  '(js-switch-indent-offset 4)
@@ -394,7 +393,9 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((eval ispell-change-dictionary "francais")
+    ((js2-strict-missing-semi-warning)
+     (js2-missing-semi-one-line-override)
+     (eval ispell-change-dictionary "francais")
      (checkdoc-package-keywords-flag)
      (eval when
 	   (and
