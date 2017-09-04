@@ -232,6 +232,9 @@
 	path = lib/magit
 	url = git@github.com:magit/magit.git
 	info-path = Documentation
+[submodule "make-it-so"]
+	path = lib/make-it-so
+	url = git@github.com:abo-abo/make-it-so.git
 [submodule "makey"]
 	path = lib/makey
 	url = git@github.com:mickeynp/makey.git
@@ -344,6 +347,9 @@
 [submodule "smex"]
 	path = lib/smex
 	url = git@github.com:nonsequitur/smex.git
+[submodule "solarized-theme"]
+	path = lib/solarized-theme
+	url = git@github.com:bbatsov/solarized-emacs.git
 [submodule "sourcemap"]
 	path = lib/sourcemap
 	url = git@github.com:syohex/emacs-sourcemap.git
@@ -391,6 +397,9 @@
 [submodule "xref-js2"]
 	path = lib/xref-js2
 	url = git@github.com:NicolasPetton/xref-js2.git
+[submodule "yaml-mode"]
+	path = lib/yaml-mode
+	url = git@github.com:yoshiki/yaml-mode.git
 [submodule "yasnippet"]
 	path = lib/yasnippet
 	url = git@github.com:joaotavora/yasnippet.git

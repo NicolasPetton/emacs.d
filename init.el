@@ -110,7 +110,8 @@
 
 (use-package buffer-move)
 
-(use-package buffer-watcher)
+(use-package buffer-watcher
+  :demand t)
 
 (use-package clojure-mode
   :mode "\\.clj\\'")
