@@ -376,6 +376,12 @@
 	load-path = emacs
 	build-step = npm install
 	url = git@github.com:ternjs/tern.git
+[submodule "tide"]
+	path = lib/tide
+	url = git@github.com:ananthakumaran/tide.git
+[submodule "typescript-mode"]
+	path = lib/typescript-mode
+	url = git@github.com:ananthakumaran/typescript.el.git
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git

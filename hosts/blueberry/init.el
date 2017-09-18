@@ -76,6 +76,14 @@
     :tags '(personal))
 
   (prodigy-define-service
+    :name "ftgp.se"
+    :cwd "/home/nico/work/ftgp/website/public"
+    :command "python"
+    :args '("-m" "SimpleHTTPServer" "4005")
+    :port 4005
+    :tags '(personal))
+
+  (prodigy-define-service
     :name "public/"
     :cwd "/home/nico/Public/"
     :command "python"
