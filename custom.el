@@ -330,6 +330,7 @@
     ("~/org/inbox.org" "~/org/agenda.org" "~/org/gtd.org" "~/org/tickler.org")))
  '(org-agenda-log-mode-items (quote (closed clock state)))
  '(org-agenda-restore-windows-after-quit t)
+ '(org-agenda-show-future-repeats nil)
  '(org-agenda-span (quote week))
  '(org-clock-clocked-in-display (quote mode-line))
  '(org-clock-in-resume t)
