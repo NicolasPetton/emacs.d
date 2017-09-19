@@ -86,11 +86,12 @@
   "Return the slack token from pass."
   (password-store-get "slack-token"))
 
-(defun slack-say (message)
-  "Send MESSAGE on the general channel."
+(defun slack-say (message &optional channel)
+  "Send a MESSAGE on Slack.
+Use CHANNEL if non-nil of the general channel if nil."
   (let ((token (slack-token))
         (team "foretagsplatsen")
-        (channel "C02N47RE1"))
+        (channel (or channel "C02N47RE1")))
     (url-retrieve (format "https://%s.slack.com/api/chat.postMessage?token=%s&channel=%s&text=%s&as_user=true"
                    team
                    token
