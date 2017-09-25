@@ -450,7 +450,14 @@ be global."
             (counsel-projectile-on)
             (define-key projectile-mode-map
               [remap projectile-ag]
-              #'counsel-projectile-rg)))
+              #'counsel-projectile-rg)
+
+            (projectile-register-project-type
+             'monitor
+             '("gulpfile.js")
+             :compile "cd monitor/Monitor.Web.Ui/Client && gulp lint:js"
+             :test "cd monitor/Monitor.Web.Ui/Client && gulp karma"
+             :test-suffix "-tests")))
 
 (use-package prog-mode
   :config (global-prettify-symbols-mode)
