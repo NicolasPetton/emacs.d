@@ -426,7 +426,8 @@ be global."
   :bind (:map paredit-mode-map
               ("M-s" . nil))
   :config
-  (add-hook 'emacs-lisp-mode-hook #'paredit-mode))
+  (add-hook 'emacs-lisp-mode-hook #'paredit-mode)
+  (add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode))
 
 (use-package paren
   :demand t
@@ -455,8 +456,8 @@ be global."
             (projectile-register-project-type
              'monitor
              '("gulpfile.js")
-             :compile "cd monitor/Monitor.Web.Ui/Client && gulp lint:js"
-             :test "cd monitor/Monitor.Web.Ui/Client && gulp karma"
+             :compile "cd ~/work/ftgp/monitor/monitor/Monitor.Web.Ui/Client && gulp lint"
+             :test "cd ~/work/ftgp/monitor/monitor/Monitor.Web.Ui/Client && gulp karma"
              :test-suffix "-tests")))
 
 (use-package prog-mode
