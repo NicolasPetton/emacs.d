@@ -173,13 +173,20 @@
 (use-package diminish
   :demand t
   :init (progn
-          (diminish 'auto-revert-mode)
-          (diminish 'outline-minor-mode)
-          (diminish 'amd-mode)
-          (diminish 'js2-refactor-mode)
-          (diminish 'tern-mode)
-          (diminish 'eslintd-fix-mode)
-          (diminish 'widgetjs-mode)))
+            (diminish 'auto-revert-mode)
+            (diminish 'outline-minor-mode)
+            (eval-after-load 'amd-mode
+              '(diminish 'amd-mode))
+            (eval-after-load 'js2-refactor
+              '(diminish 'js2-refactor-mode))
+            (eval-after-load 'tern
+              '(diminish 'tern-mode))
+            (eval-after-load 'eslintd-fix
+              '(diminish 'eslintd-fix-mode))
+            (eval-after-load 'widgetjs
+              '(diminish 'widgetjs-mode))
+            (eval-after-load 'indium
+              '(diminish 'indium-interaction-mode))))
 
 (use-package dired
   :bind (:map dired-mode-map
