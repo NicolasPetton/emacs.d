@@ -295,6 +295,9 @@
 [submodule "password-store"]
 	path = lib/password-store
 	url = git@github.com:emacsmirror/password-store.git
+[submodule "password-store-otp"]
+	path = lib/password-store-otp
+	url = git@github.com:volrath/password-store-otp.el.git
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = git@github.com:politza/pdf-tools.git
