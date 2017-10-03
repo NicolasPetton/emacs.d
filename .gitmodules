@@ -332,6 +332,9 @@
 [submodule "restclient"]
 	path = lib/restclient
 	url = git@github.com:pashky/restclient.el.git
+[submodule "rjsx-mode"]
+	path = lib/rjsx-mode
+	url = git@github.com:felipeochoa/rjsx-mode.git
 [submodule "s"]
 	path = lib/s
 	url = git@github.com:magnars/s.el.git
