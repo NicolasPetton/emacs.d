@@ -449,6 +449,9 @@ be global."
           (setq pdf-info-epdfinfo-program
                 "~/.emacs.d/lib/pdf-tools/server/epdfinfo")))
 
+(use-package pdf-view
+  :demand t)
+
 (use-package projectile
   :demand t
   :diminish ""
