@@ -85,7 +85,7 @@ buffer to the matched subtree."
 	       "* TODO %a"))
 (add-to-list 'org-capture-templates
              '("p" "Appointment" entry (file+headline nico/org-agenda-file "Appointment")
-	       "* APPT %i%? \n %^t"))
+	       "* APPT %i%? \n %^T"))
 (add-to-list 'org-capture-templates
 	     '("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler")
                "* %i%? \n %^t"))
