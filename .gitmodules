@@ -31,6 +31,9 @@
 [submodule "avy"]
 	path = lib/avy
 	url = git@github.com:abo-abo/avy.git
+[submodule "bash-completion"]
+	path = lib/bash-completion
+	url = git@github.com:szermatt/emacs-bash-completion.git
 [submodule "beginend"]
 	path = lib/beginend
 	url = git@github.com:DamienCassou/beginend.git

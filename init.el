@@ -48,6 +48,11 @@
   (add-hook 'auto-compile-inhibit-compile-hook
             'auto-compile-inhibit-compile-detached-git-head))
 
+(use-package bash-completion
+  :demand t
+  :config (progn
+            (bash-completion-setup)))
+
 (use-package epkg
   :init (setq epkg-repository
               (expand-file-name "var/epkgs/" user-emacs-directory)))
