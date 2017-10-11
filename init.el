@@ -454,7 +454,8 @@ be global."
           (setq pdf-info-epdfinfo-program
                 "~/.emacs.d/lib/pdf-tools/server/epdfinfo")))
 
-(use-package pdf-view
+(use-package pdf-tools
+  :init (pdf-tools-install)
   :demand t)
 
 (use-package projectile
