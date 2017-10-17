@@ -451,6 +451,10 @@
  '(term-default-bg-color "#002b36")
  '(term-default-fg-color "#839496")
  '(tool-bar-mode nil)
+ '(transmission-refresh-modes
+   (quote
+    (transmission-mode transmission-files-mode transmission-info-mode transmission-peers-mode)))
+ '(transmission-torrent-functions nil)
  '(vc-annotate-background nil)
  '(vc-annotate-background-mode nil)
  '(vc-annotate-color-map

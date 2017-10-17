@@ -388,6 +388,9 @@
 [submodule "tide"]
 	path = lib/tide
 	url = git@github.com:ananthakumaran/tide.git
+[submodule "transmission"]
+	path = lib/transmission
+	url = git@github.com:holomorph/transmission.git
 [submodule "typescript-mode"]
 	path = lib/typescript-mode
 	url = git@github.com:ananthakumaran/typescript.el.git
