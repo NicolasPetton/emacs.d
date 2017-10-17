@@ -540,6 +540,13 @@ be global."
             (add-to-list 'tramp-default-proxies-alist
                          (list (regexp-quote (system-name)) nil nil))))
 
+(use-package transmission
+  :config (progn
+            (defun transmission-add-magnet (url)
+              "Like `transmission-add', but with no file completion."
+              (interactive "sMagnet url: ")
+              (transmission-add url))))
+
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward))
