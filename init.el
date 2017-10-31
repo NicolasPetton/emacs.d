@@ -398,7 +398,9 @@ be global."
            (magit-add-section-hook 'magit-status-sections-hook
                                    'magit-insert-modules
                                    'magit-insert-unpulled-from-upstream)
-           (setq magit-default-tracking-name-function #'magit-default-tracking-name-branch-only)))
+           (setq magit-branch-prefer-remote-upstream '("master"))
+           (setq magit-branch-adjust-remote-upstream-alist '(("origin/master" "master")))
+           (setq magit-branch-arguments nil)))
 
 (use-package man
   :config (setq Man-width 80))
