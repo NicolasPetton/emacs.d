@@ -304,7 +304,10 @@
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = git@github.com:politza/pdf-tools.git
-	build-step = cd server && ./autogen.sh && ./configure && make
+	build-step = make install-server-deps
+	build-step = make -s
+	build-step = borg-update-autoloads
+	build-step = borg-byte-compile
 [submodule "peg"]
 	path = lib/peg
 	url = git@github.com:ellerh/peg.el.git

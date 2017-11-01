@@ -452,13 +452,9 @@ be global."
   :bind ("C-x p" . pass))
 
 (use-package pdf-tools
-  :init (progn
-          (setq pdf-info-epdfinfo-program
-                "~/.emacs.d/lib/pdf-tools/server/epdfinfo")))
-
-(use-package pdf-tools
-  :init (pdf-tools-install)
-  :demand t)
+  :demand t
+  :config (progn
+            (pdf-tools-install)))
 
 (use-package projectile
   :demand t
