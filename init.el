@@ -340,9 +340,11 @@ be global."
 (use-package ivy
   :diminish ""
   :demand t
+  :bind (("C-c r" . ivy-resume))
   :config (progn
             (ivy-mode 1)
-            (setq ivy-use-virtual-buffers t)))
+            (setq ivy-use-virtual-buffers t)
+            (setq ivy-count-format "(%d/%d) ")))
 
 (progn ;    `isearch'
   (setq isearch-allow-scroll t))
@@ -517,6 +519,9 @@ be global."
 (use-package subword
   :diminish 'subword-mode
   :init (global-subword-mode))
+
+(use-package swiper
+  :bind (("C-s" . swiper)))
 
 (use-package tabify
   :config
