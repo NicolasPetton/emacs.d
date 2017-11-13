@@ -39,8 +39,7 @@
     (slack-say (seq-random-elt messages))
     (slack-set-active)
     (org-revert-all-org-buffers)
-    (work-clock-in)
-    (work-send-weekly-email)))
+    (work-clock-in)))
 
 (defun work-stop ()
   "End of the day!"
@@ -161,23 +160,6 @@ Use CHANNEL if non-nil of the general channel if nil."
     (insert (format "subject: %s\n--text follows this line--\n" subject))
     (insert body)
     (message-send-mail)))
-
-(defun work-day-of-week ()
-  "Return the current day of week number."
-  (calendar-day-of-week (calendar-current-date)))
-
-(defun work-current-week-number ()
-  "Return the current week number of the year."
-  (org-days-to-iso-week (time-to-day-in-year (current-time))))
-
-(defun work-send-weekly-email ()
-  "Send a mail every monday about the coming week."
-  (interactive)
-  (when (= (work-day-of-week) 1) ;; send this email every Monday
-    (work-send-email "nicolas@petton.fr"
-                     "ftgp@googlegroups.com"
-                     (format "[Week %s] What does your week look like?" (work-current-week-number))
-                     "Dear FTGP-ers,\n\nNew week, new opportunities!\nWhat does your week look like?")))
 
 (provide 'workflow)
 ;;; workflow.el ends here
