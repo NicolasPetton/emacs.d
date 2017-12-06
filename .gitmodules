@@ -97,6 +97,9 @@
 [submodule "diminish"]
 	path = lib/diminish
 	url = git@github.com:myrjola/diminish.el.git
+[submodule "dired-du"]
+	path = lib/dired-du
+	url = git@github.com:emacsmirror/dired-du.git
 [submodule "drag-stuff"]
 	path = lib/drag-stuff
 	url = git@github.com:rejeep/drag-stuff.el.git
@@ -112,6 +115,9 @@
 [submodule "edn"]
 	path = lib/edn
 	url = git@github.com:expez/edn.el.git
+[submodule "elbank"]
+	path = lib/elbank
+	url = git@gitlab.petton.fr:nico/elbank.git
 [submodule "emacs-js"]
 	path = lib/emacs-js
 	load-path = .
@@ -301,6 +307,12 @@
 [submodule "password-store-otp"]
 	path = lib/password-store-otp
 	url = git@github.com:volrath/password-store-otp.el.git
+[submodule "pcmpl-git"]
+	path = lib/pcmpl-git
+	url = git@github.com:leoliu/pcmpl-git-el.git
+[submodule "pcomplete-extension"]
+	path = lib/pcomplete-extension
+	url = git@github.com:thierryvolpiatto/pcomplete-extension.git
 [submodule "pdf-tools"]
 	path = lib/pdf-tools
 	url = git@github.com:politza/pdf-tools.git

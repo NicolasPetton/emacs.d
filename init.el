@@ -204,6 +204,9 @@
             (setq dired-dwim-target t)
             (put 'dired-find-alternate-file 'disabled nil)))
 
+(use-package dired-du
+  :after dired)
+
 (use-package dired-x
   :after dired
   :init (progn
@@ -234,6 +237,8 @@
   :demand t
   :diminish 'editorconfig-mode
   :init (editorconfig-mode 1))
+
+(use-package elbank)
 
 (use-package eldoc
   :config (global-eldoc-mode))
@@ -274,6 +279,21 @@
                               '("gunzip" "gz\\'"))
                  (add-to-list 'eshell-command-completions-alist
                               '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))))
+
+(use-package pcomplete
+  :config (progn
+            (defvar pcomplete-man-user-commands
+              (split-string
+               (shell-command-to-string
+                "apropos -s 1 .|while read -r a b; do echo \" $a\";done;"))
+              "p-completion candidates for `man' command")
+
+            (defun pcomplete/man ()
+              "Completion rules for the `man' command."
+              (pcomplete-here pcomplete-man-user-commands))))
+
+(use-package pcmpl-git
+  :after pcomplete)
 
 (use-package exec-path-from-shell
   :demand t
