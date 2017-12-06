@@ -27,14 +27,25 @@
 (require 'json)
 
 (defun geoip (ip)
-  "Lookup the location of IP."
-  (interactive "sIp address: ")
-  (let ((contents (shell-command-to-string (format "curl -s %s/%s" "ipinfo.io" ip))))
+  "Lookup the location of IP.
+If IP is an empty string, lookup the location of the public IP of
+the host."
+  (interactive "sIp address (empty for host IP): ")
+  (let* ((ip (if (string-empty-p ip) (myip) ip))
+	 (contents (shell-command-to-string (format "curl -s %s/%s" "ipinfo.io" ip))))
     (switch-to-buffer (get-buffer-create "*geoip*"))
     (erase-buffer)
     (json-mode)
     (insert contents)
-    (json-pretty-print-buffer)))
+    (json-pretty-print-buffer)
+    (read-only-mode)))
+
+(defun myip ()
+  (interactive)
+  (let ((ip (shell-command-to-string "dig +short myip.opendns.com @resolver1.opendns.com")))
+    (if (called-interactively-p 'interactive)
+	(message ip)
+      ip)))
 
 (provide 'geoip)
 ;;; geoip.el ends here
