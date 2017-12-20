@@ -321,7 +321,7 @@
           (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
             (add-hook mode-hook #'flyspell-mode))))
 
-(use-package geiser-install
+(use-package geiser
   :demand t)
 
 (use-package gnus-dired
@@ -332,7 +332,7 @@
 (use-package help
   :config (temp-buffer-resize-mode))
 
-(use-package helpful
+ (use-package helpful
   :bind (("C-h ." . helpful-at-point)
          ("C-h k" . helpful-key)
          ("C-h v" . helpful-variable)
