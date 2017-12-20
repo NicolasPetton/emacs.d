@@ -89,14 +89,6 @@
     :command "python"
     :args '("-m" "SimpleHTTPServer" "4003")
     :port 4003
-    :tags '(personal))
-
-  (prodigy-define-service
-    :name "Amber documentation"
-    :cwd "/home/nico/work/smalltalk/amber-documentation/"
-    :command "jekyll"
-    :args '("serve" "--watch" "-P" "4001")
-    :port 4001
     :tags '(personal)))
 
 (when (window-system)

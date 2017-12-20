@@ -79,6 +79,10 @@
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
 
+(use-package ace-window
+  :bind ("C-c w" . ace-window)
+  :demand t)
+
 (use-package anzu
   :diminish 'anzu-mode
   :config (global-anzu-mode)
@@ -200,7 +204,7 @@
   :init (progn
           (add-hook 'dired-mode-hook #'dired-hide-details-mode))
   :config (progn
-            (setq dired-listing-switches "-al")
+            (setq dired-listing-switches "-alh")
             (setq dired-dwim-target t)
             (put 'dired-find-alternate-file 'disabled nil)))
 
@@ -208,6 +212,7 @@
   :after dired)
 
 (use-package dired-x
+  :demand t
   :after dired
   :init (progn
           (add-hook 'dired-mode-hook #'dired-omit-mode))
@@ -316,6 +321,9 @@
           (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
             (add-hook mode-hook #'flyspell-mode))))
 
+(use-package geiser-install
+  :demand t)
+
 (use-package gnus-dired
   :bind (:map gnus-dired-mode-map
               ("C-x C-a" . gnus-dired-attach))
@@ -323,6 +331,12 @@
 
 (use-package help
   :config (temp-buffer-resize-mode))
+
+(use-package helpful
+  :bind (("C-h ." . helpful-at-point)
+         ("C-h k" . helpful-key)
+         ("C-h v" . helpful-variable)
+         ("C-h f" . helpful-callable)))
 
 (use-package ibuffer
   :bind (("C-x C-b" . ibuffer)))
@@ -450,6 +464,21 @@ be global."
             (setq auto-save-file-name-transforms
                   `((".*" ,(no-littering-expand-var-file-name "auto-save/") t)))
             (setq create-lockfiles nil)))
+
+(use-package omnisharp
+  :after csharp-mode
+  :bind (:map omnisharp-mode-map
+              ("C-c r" . omnisharp-run-code-action-refactoring)
+              ("M-." . omnisharp-go-to-definition)
+              ;; ("M-." . omnisharp-find-implementations)
+              ("M-?" . omnisharp-find-usages))
+  :hook ((omnisharp-mode . configure-omnisharp)
+         (csharp-mode . omnisharp-mode))
+  :config
+  (progn
+    (defun configure-omnisharp ()
+      (add-to-list 'company-backends #'company-omnisharp)
+      (local-set-key (kbd "C-c C-c") #'recompile))))
 
 (use-package open-url-at-point
   :bind ("C-c C-o" . open-url-at-point))

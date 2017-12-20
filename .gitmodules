@@ -1,6 +1,9 @@
 [borg]
 	pushDefault = locutus
 	collective = emacsg
+[submodule "ace-window"]
+	path = lib/ace-window
+	url = git@github.com:abo-abo/ace-window.git
 [submodule "ag"]
 	path = lib/ag
 	url = git@github.com:Wilfred/ag.el.git
@@ -118,6 +121,9 @@
 [submodule "elbank"]
 	path = lib/elbank
 	url = git@gitlab.petton.fr:nico/elbank.git
+[submodule "elisp-refs"]
+	path = lib/elisp-refs
+	url = git@github.com:Wilfred/refs.el.git
 [submodule "emacs-js"]
 	path = lib/emacs-js
 	load-path = .
@@ -166,6 +172,14 @@
 [submodule "ftgp"]
 	path = lib/ftgp
 	url = git@gitlab.petton.fr:ftgp/emacs.git
+[submodule "geiser"]
+	path = lib/geiser
+	url = git@github.com:jaor/geiser.git
+	info-path = doc/
+	load-path = elisp
+	build-step = ./autogen.sh
+	build-step = ./configure
+	buid-step = make
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
@@ -178,6 +192,9 @@
 [submodule "gulp-task-runner"]
 	path = lib/gulp-task-runner
 	url = git@github.com:NicolasPetton/gulp-task-runner.git
+[submodule "helpful"]
+	path = lib/helpful
+	url = git@github.com:Wilfred/helpful.git
 [submodule "hierarchy"]
 	path = lib/hierarchy
 	url = git@github.com:DamienCassou/hierarchy.git
@@ -228,12 +245,18 @@
 [submodule "less-css-mode"]
 	path = lib/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
+[submodule "list-utils"]
+	path = lib/list-utils
+	url = git@github.com:rolandwalker/list-utils.git
 [submodule "load-relative"]
 	path = lib/load-relative
 	url = git@github.com:rocky/emacs-load-relative.git
 [submodule "loc-changes"]
 	path = lib/loc-changes
 	url = git@github.com:rocky/emacs-loc-changes.git
+[submodule "loop"]
+	path = lib/loop
+	url = git@github.com:Wilfred/loop.el.git
 [submodule "m-buffer"]
 	path = lib/m-buffer
 	url = git@github.com:phillord/m-buffer-el.git
@@ -273,6 +296,9 @@
 	build-step = make sphinx-texinfo
 	build-step = "(borg-makeinfo \"notmuch\")"
 	url = git://notmuchmail.org/git/notmuch
+[submodule "omnisharp"]
+	path = lib/omnisharp
+	url = git@github.com:OmniSharp/omnisharp-emacs.git
 [submodule "org"]
 	path = lib/org
 	load-path = lisp
@@ -329,6 +355,9 @@
 [submodule "pkg-info"]
 	path = lib/pkg-info
 	url = git@github.com:lunaryorn/pkg-info.el.git
+[submodule "popup"]
+	path = lib/popup
+	url = git@github.com:auto-complete/popup-el.git
 [submodule "prodigy"]
 	path = lib/prodigy
 	url = git@github.com:rejeep/prodigy.el.git
@@ -365,6 +394,12 @@
 [submodule "shell-switcher"]
 	path = lib/shell-switcher
 	url = git@github.com:DamienCassou/shell-switcher.git
+[submodule "shut-up"]
+	path = lib/shut-up
+	url = git@github.com:cask/shut-up.git
+[submodule "sicp"]
+	path = lib/sicp
+	url = git@github.com:webframp/sicp-info.git
 [submodule "skeletor"]
 	path = lib/skeletor
 	url = git@github.com:chrisbarrett/skeletor.el.git
