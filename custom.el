@@ -208,6 +208,15 @@
  '(main-line-color1 "#222232")
  '(main-line-color2 "#333343")
  '(markdown-command "kramdown")
+ '(mml-secure-key-preferences
+   (quote
+    ((OpenPGP
+      (sign)
+      (encrypt
+       ("nicolas@petton.fr" "3804B1F67E52555828C3573C0F6B896BAF707BBE")))
+     (CMS
+      (sign)
+      (encrypt)))))
  '(netstat-program-options (quote ("-auntpx")))
  '(notmuch-address-command nil)
  '(notmuch-crypto-process-mime t)

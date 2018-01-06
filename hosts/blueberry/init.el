@@ -3,9 +3,15 @@
 (use-package epg
   :demand t
   :config
-  (setq epg-gpg-program "gpg2")
-  (eval-after-load 'magit
-    '(setq magit-commit-arguments '("--gpg-sign=233587A47C207910"))))
+  (progn
+    (setq epg-gpg-program "gpg2")
+    (eval-after-load 'magit
+      '(setq magit-commit-arguments '("--gpg-sign=233587A47C207910")))
+    ;; Use gpg as ssh agent (for this to work in shells, also set the ENV var in
+    ;; $HOME/.profile or similar.
+    (setenv "SSH_AUTH_SOCK"
+        (string-trim
+         (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))))
 
 (use-package init-org
   :demand t)

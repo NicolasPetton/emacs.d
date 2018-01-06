@@ -27,7 +27,6 @@
 
 ;; Sign messages by default
 (add-hook 'message-setup-hook #'nico-maybe-sign-email)
-(add-hook 'message-setup-hook #'yas-minor-mode-on)
 
 (defun nico-maybe-sign-email ()
   "Sign the current buffer's email unless the message is sent to
@@ -37,7 +36,9 @@
                  (seq-some (lambda (regex)
                                (string-match regex email))
                              nico-pgp-sign-excluded-emails))
-      (mml-secure-sign-pgpmime))))
+      (mml-secure-message-sign))))
+
+(add-hook 'message-setup-hook #'yas-minor-mode-on)
 
 (define-key global-map (kbd "M-N") #'notmuch)
 

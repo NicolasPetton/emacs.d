@@ -500,7 +500,9 @@ be global."
 
 (use-package pass
   :mode ("org/reference/password-store/" . pass-view-mode)
-  :bind ("C-x p" . pass))
+  :bind ("C-x p" . pass)
+  :config (progn
+            (add-to-list 'auto-mode-alist '("\\<password-store\\>/.*\\.gpg\\'" . pass-view-mode))))
 
 (use-package pdf-tools
   :demand t
