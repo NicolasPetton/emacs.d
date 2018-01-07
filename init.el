@@ -84,7 +84,7 @@
   :demand t)
 
 (use-package anzu
-  :diminish 'anzu-mode
+  :diminish anzu-mode
   :config (global-anzu-mode)
   :bind (([remap query-replace] . anzu-query-replace)
          ([remap query-replace-regexp] . anzu-query-replace-regexp)
@@ -109,9 +109,9 @@
   :bind ("C-c C-j" . avy-goto-word-1))
 
 (use-package beginend
+  :diminish beginend-global-mode
   :config
-  (beginend-global-mode)
-  (diminish 'beginend-global-mode))
+  (beginend-global-mode))
 
 (use-package browse-url
   :config
@@ -221,7 +221,7 @@
 
 (use-package drag-stuff
   :demand t
-  :diminish 'drag-stuff-mode
+  :diminish drag-stuff-mode
   :config (progn
             (drag-stuff-global-mode t)
             (drag-stuff-define-keys)
@@ -240,7 +240,7 @@
 
 (use-package editorconfig
   :demand t
-  :diminish 'editorconfig-mode
+  :diminish editorconfig-mode
   :init (editorconfig-mode 1))
 
 (use-package elbank)
@@ -309,12 +309,12 @@
   :bind (("C-=" . er/expand-region)))
 
 (use-package flycheck
-  :diminish 'flycheck-mode
+  :diminish flycheck-mode
   :commands (flycheck-mode)
   :init (add-hook 'prog-mode-hook #'flycheck-mode))
 
 (use-package flyspell
-  :diminish 'flyspell-mode
+  :diminish flyspell-mode
   :bind (:map flyspell-mode-map
               ("C-;" . nil))
   :init (progn
@@ -411,7 +411,7 @@ be global."
     (add-hook 'js-mode-hook #'setup-js-buffer)))
 
 (use-package klassified
-  :diminish 'klassified-interaction-js-mode
+  :diminish klassified-interaction-js-mode
   :init (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
 
 (use-package ftgp
@@ -569,7 +569,7 @@ be global."
   (slime-setup))
 
 (use-package subword
-  :diminish 'subword-mode
+  :diminish subword-mode
   :init (global-subword-mode))
 
 (use-package swiper
@@ -654,7 +654,7 @@ be global."
   (add-hook 'prog-mode-hook #'ws-butler-mode))
 
 (use-package yasnippet
-  :diminish 'yas-minor-mode
+  :diminish yas-minor-mode
   :demand t
   :init (progn
           (yas-global-mode)))
