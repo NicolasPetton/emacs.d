@@ -1,5 +1,10 @@
 ;;; init.el --- init-file for blueberry           -*- lexical-binding: t -*-
 
+(use-package epa
+  :config
+  (progn
+    (setq epa-pinentry-mode 'loopback)))
+
 (use-package epg
   :demand t
   :config
@@ -11,7 +16,9 @@
     ;; $HOME/.profile or similar.
     (setenv "SSH_AUTH_SOCK"
         (string-trim
-         (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))))
+         (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))
+    ;; Use pinentry-emacs
+    (pinentry-start)))
 
 (use-package init-org
   :demand t)
@@ -20,6 +27,9 @@
   :demand t)
 
 (use-package init-notmuch
+  :demand t)
+
+(use-package init-exwm
   :demand t)
 
 (use-package ledger

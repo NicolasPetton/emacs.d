@@ -148,6 +148,9 @@
 [submodule "expand-region"]
 	path = lib/expand-region
 	url = git@github.com:magnars/expand-region.el.git
+[submodule "exwm"]
+	path = lib/exwm
+	url = git@github.com:ch11ng/exwm.git
 [submodule "f"]
 	path = lib/f
 	url = git@github.com:rejeep/f.el.git
@@ -465,6 +468,9 @@
 [submodule "ws-butler"]
 	path = lib/ws-butler
 	url = git@github.com:lewang/ws-butler.git
+[submodule "xelb"]
+	path = lib/xelb
+	url = git@github.com:ch11ng/xelb.git
 [submodule "xref-js2"]
 	path = lib/xref-js2
 	url = git@github.com:NicolasPetton/xref-js2.git

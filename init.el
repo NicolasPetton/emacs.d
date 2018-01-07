@@ -246,6 +246,7 @@
 (use-package elbank)
 
 (use-package eldoc
+  :diminish ""
   :config (global-eldoc-mode))
 
 (use-package elec-pair
