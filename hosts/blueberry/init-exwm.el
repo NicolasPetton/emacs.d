@@ -161,6 +161,13 @@
   (interactive)
   (shell-command-to-string "slock"))
 
+(defun start-redshift ()
+  (interactive)
+  (let ((bufname (generate-new-buffer-name "*redshift output*")))
+    (start-process-shell-command "redshift" bufname "redshift")))
+
+(add-hook 'exwm-init-hook #'start-redshift)
+
 (global-set-key (kbd "<XF86MonBrightnessUp>") #'increase-backlight)
 (global-set-key (kbd "<XF86MonBrightnessDown>") #'decrease-backlight)
 (global-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
