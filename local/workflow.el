@@ -38,8 +38,7 @@
                     "Hej Företagsplatsers!")))
     (slack-say (seq-random-elt messages))
     (slack-set-active)
-    (org-revert-all-org-buffers)
-    (work-clock-in)))
+    (mount-backup-disk)))
 
 (defun work-stop ()
   "End of the day!"
@@ -50,8 +49,8 @@
                     "Leaving, have a nice evening everyone :-)")))
     (slack-say (seq-random-elt messages))
     (slack-set-away)
-    (work-clock-out)
-    (save-some-buffers)))
+    (save-some-buffers)
+    (umount-backup-disk)))
 
 (defun work-lunch ()
   "Stop the clock for lunch."
@@ -60,8 +59,7 @@
                     "Food guys, see you!"
                     "Time to get some food")))
     (slack-set-away)
-    (slack-say (seq-random-elt messages)))
-  (work-clock-out))
+    (slack-say (seq-random-elt messages))))
 
 (defun work-back-from-lunch ()
   "Start the clock again when coming back from lunch."
@@ -71,13 +69,12 @@
                     "Back!"
                     "Back to business")))
     (slack-set-active)
-    (slack-say (seq-random-elt messages)))
-  (work-clock-in))
+    (slack-say (seq-random-elt messages))))
 
 (defun work-coffee ()
   "Send a \"Coffee break\"-like message on #general."
   (interactive)
-  (slack-say (seq-random-elt '("/me is getting a :coffee:"
+  (slack-say (seq-random-elt '("Getting a :coffee:"
 			       ":coffee: break"
 			       ":coffee:"))))
 
@@ -149,6 +146,12 @@ Use CHANNEL if non-nil of the general channel if nil."
 (dolist (hook '(org-pomodoro-killed-hook
                 org-pomodoro-finished-hook))
   (add-hook hook #'work-slack-say-pomodoro-finished))
+
+(defun mount-backup-disk ()
+  (shell-command-to-string "mount-backup.sh"))
+
+(defun umount-backup-disk ()
+  (shell-command-to-string "umount-backup.sh"))
 
 ;;; Send emails as recurring tasks
 
