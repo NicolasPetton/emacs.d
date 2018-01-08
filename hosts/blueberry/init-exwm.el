@@ -2,7 +2,7 @@
 (require 'exwm-config)
 
 ;; Set the initial number of workspaces.
-(setq exwm-workspace-number 1)
+(setq exwm-workspace-number 2)
 (setq exwm-workspace-show-all-buffers t)
 
 ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
@@ -168,6 +168,14 @@
 
 (add-hook 'exwm-init-hook #'start-redshift)
 
+(require 'exwm-randr)
+(setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2-1"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (start-process-shell-command
+             "xrandr" nil "xrandr --output DP-2-1 --right-of eDP-1 --auto")))
+(exwm-randr-enable)
+
 (global-set-key (kbd "<XF86MonBrightnessUp>") #'increase-backlight)
 (global-set-key (kbd "<XF86MonBrightnessDown>") #'decrease-backlight)
 (global-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
@@ -176,4 +184,5 @@
 (global-set-key (kbd "<print>") #'screenshot)
 (global-set-key (kbd "S-<print>") #'screenshot-part)
 (global-set-key (kbd "s-l") #'lock-screen)
+
 (provide 'init-exwm)
