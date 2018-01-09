@@ -106,7 +106,10 @@
         auto-revert-verbose nil))
 
 (use-package avy
-  :bind ("C-c C-j" . avy-goto-word-1))
+  :bind ("C-c C-j" . avy-goto-word-1)
+  :config
+  (progn
+    (setq avy-all-windows nil)))
 
 (use-package beginend
   :diminish beginend-global-mode

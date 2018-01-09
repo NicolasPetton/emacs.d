@@ -38,6 +38,9 @@
                     "Hej Företagsplatsers!")))
     (slack-say (seq-random-elt messages))
     (slack-set-active)
+    (start-process-shell-command "slack" nil "slack")
+    (start-process-shell-command "linphone" nil "linphone")
+    (start-process-shell-command "nightly" nil "nightly")
     (mount-backup-disk)))
 
 (defun work-stop ()
@@ -148,9 +151,11 @@ Use CHANNEL if non-nil of the general channel if nil."
   (add-hook hook #'work-slack-say-pomodoro-finished))
 
 (defun mount-backup-disk ()
+  (interactive)
   (shell-command-to-string "mount-backup.sh"))
 
 (defun umount-backup-disk ()
+  (interactive)
   (shell-command-to-string "umount-backup.sh"))
 
 ;;; Send emails as recurring tasks
