@@ -1,9 +1,11 @@
 (require 'exwm)
 (require 'exwm-config)
+(require 'seq)
 
 ;; Set the initial number of workspaces.
 (setq exwm-workspace-number 2)
 (setq exwm-workspace-show-all-buffers t)
+(setq exwm-layout-show-all-buffers t)
 
 ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
 ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
@@ -50,9 +52,6 @@
                     (lambda (command)
                       (interactive (list (read-shell-command "$ ")))
                       (start-process-shell-command command nil command)))
-;; + 'slock' is a simple X display locker provided by suckless tools.
-(exwm-input-set-key (kbd "s-<f2>")
-                    (lambda () (interactive) (start-process "" nil "slock")))
 
 ;; The following example demonstrates how to set a key binding only available
 ;; in line mode. It's simply done by first push the prefix key to
@@ -86,7 +85,9 @@
     ([?\M-w] . ?\C-c)
     ([?\C-y] . ?\C-v)
     ;; search
-    ([?\C-s] . ?\C-f)))
+    ([?\C-s] . ?\C-f)
+    ;; escape
+    ([?\C-g] . escape)))
 
 ;; You can hide the mode-line of floating X windows by uncommenting the
 ;; following lines
@@ -176,13 +177,31 @@
              "xrandr" nil "xrandr --output DP-2-1 --right-of eDP-1 --auto")))
 (exwm-randr-enable)
 
-(global-set-key (kbd "<XF86MonBrightnessUp>") #'increase-backlight)
-(global-set-key (kbd "<XF86MonBrightnessDown>") #'decrease-backlight)
-(global-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
-(global-set-key (kbd "<XF86AudioLowerVolume>") #'decrease-volume)
-(global-set-key (kbd "<XF86AudioMute>") #'toggle-volume)
-(global-set-key (kbd "<print>") #'screenshot)
-(global-set-key (kbd "S-<print>") #'screenshot-part)
-(global-set-key (kbd "s-l") #'lock-screen)
+(defun list-all-windows ()
+  (seq-mapcat (lambda (frame)
+		(window-list frame))
+	      (frame-list)))
+
+(defun nico-switch-to-window (bufname)
+  (interactive (list (completing-read "Select window: "
+                                      (seq-map #'buffer-name
+                                               (seq-map #'window-buffer
+                                                        (list-all-windows)))
+                                      t)))
+  (when-let ((window (seq-find (lambda (window)
+                                 (string= (buffer-name (window-buffer window))
+                                          bufname))
+                               (list-all-windows))))
+    (select-window window)))
+
+(exwm-input-set-key (kbd "<XF86MonBrightnessUp>") #'increase-backlight)
+(exwm-input-set-key (kbd "<XF86MonBrightnessDown>") #'decrease-backlight)
+(exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
+(exwm-input-set-key (kbd "<XF86AudioLowerVolume>") #'decrease-volume)
+(exwm-input-set-key (kbd "<XF86AudioMute>") #'toggle-volume)
+(exwm-input-set-key (kbd "<print>") #'screenshot)
+(exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
+(exwm-input-set-key (kbd "s-l") #'lock-screen)
+(exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
 
 (provide 'init-exwm)
