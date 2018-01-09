@@ -117,7 +117,11 @@
   :config
   (setq browse-url-generic-program (executable-find "nightly")))
 
-(use-package buffer-move)
+(use-package buffer-move
+  :bind (("<s-up>" . buf-move-up)
+         ("<s-down>" . buf-move-down)
+         ("<s-left>" . buf-move-left)
+         ("<s-right>" . buf-move-right)))
 
 (use-package buffer-watcher
   :demand t)
@@ -160,6 +164,16 @@
   :config (progn
             (setq company-dabbrev-ignore-case t)
             (setq company-dabbrev-downcase nil)))
+
+(use-package compile
+  :hook (compilation-filter . my/colorize-compilation-buffer)
+  :config
+  (progn
+    ;; http://stackoverflow.com/questions/13397737
+    (defun my/colorize-compilation-buffer ()
+      (require 'ansi-color)
+      (let ((inhibit-read-only t))
+        (ansi-color-apply-on-region compilation-filter-start (point))))))
 
 (use-package counsel
   :demand t
