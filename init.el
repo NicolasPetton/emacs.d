@@ -290,6 +290,7 @@
                  (require 'em-term)
                  (require 'em-cmpl)
                  (setenv "PAGER" "cat")
+                 (setenv "SUDO_ASKPASS" (executable-find "pass-root-password.sh"))
                  (add-hook 'eshell-mode-hook
                            #'company-mode)
 
@@ -424,7 +425,6 @@ be global."
           (set-buffer buf)
         (delete-region (point-min) (point-max))
         (insert node-contents)))))
-
 (use-package emacs-js
   :diminish (js2-refactor-mode js2-minor-mode js-lint-mode tern-mode)
   :commands (setup-js-buffer)
