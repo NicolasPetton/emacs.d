@@ -744,10 +744,10 @@ be global."
       (require 'private-modules nil t))))
 
 ;; display line numbers in buffers visiting a file
-(dolist (mode-hook '(prog-mode-hook text-mode-hook))
-  (add-hook mode-hook (lambda ()
-                        (when buffer-file-name
-                          (setq display-line-numbers t)))))
+;; (dolist (mode-hook '(prog-mode-hook text-mode-hook))
+;;   (add-hook mode-hook (lambda ()
+;;                         (when buffer-file-name
+;;                           (setq display-line-numbers t)))))
 
 (defun goto-line-with-line-numbers ()
   (interactive)
