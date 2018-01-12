@@ -1,11 +1,25 @@
 (require 'exwm)
+(require 'exwm-systemtray)
 (require 'exwm-config)
+
 (require 'seq)
+(require 'buffer-move)
+
+(exwm-systemtray-enable)
 
 ;; Set the initial number of workspaces.
 (setq exwm-workspace-number 2)
 (setq exwm-workspace-show-all-buffers t)
 (setq exwm-layout-show-all-buffers t)
+
+(defun start-clipboard-manager ()
+  "Start a clipboard manager, performing `kill-new' from xclip."
+  (interactive)
+  (start-process-shell-command "clipboard-manager"
+			       nil
+			       (locate-user-emacs-file "bin/clipboard-manager.sh")))
+
+(add-hook 'exwm-init-hook #'start-clipboard-manager)
 
 ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
 ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
@@ -80,10 +94,11 @@
     ([?\C-v] . next)
     ([?\C-d] . delete)
     ([?\C-k] . (S-end delete))
-    ;; cut/paste.
+    ;; cut/paste, selection
     ([?\C-w] . ?\C-x)
     ([?\M-w] . ?\C-c)
     ([?\C-y] . ?\C-v)
+    ([?\C-x h] . ?\C-a)
     ;; search
     ([?\C-s] . ?\C-f)
     ;; escape
@@ -151,12 +166,12 @@
 (defun screenshot ()
   (interactive)
   (let ((default-directory (expand-file-name "~/Pictures")))
-   (shell-command-to-string "scrot")))
+    (start-process-shell-command "scrot" nil "scrot")))
 
 (defun screenshot-part ()
   (interactive)
   (let ((default-directory (expand-file-name "~/Pictures")))
-    (shell-command-to-string "scrot -s")))
+    (start-process-shell-command "scrot -s" nil "scrot -s")))
 
 (defun lock-screen ()
   (interactive)
@@ -203,5 +218,10 @@
 (exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
 (exwm-input-set-key (kbd "s-l") #'lock-screen)
 (exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
+
+(exwm-input-set-key (kbd "<s-up>") #'buf-move-up)
+(exwm-input-set-key (kbd "<s-down>") #'buf-move-down)
+(exwm-input-set-key (kbd "<s-left>") #'buf-move-left)
+(exwm-input-set-key (kbd "<s-right>") #'buf-move-right)
 
 (provide 'init-exwm)
