@@ -538,7 +538,7 @@ be global."
   :config (progn
             (projectile-mode)
             (require 'counsel-projectile)
-            (counsel-projectile-on)
+            (counsel-projectile-mode)
             (define-key projectile-mode-map
               [remap projectile-ag]
               #'counsel-projectile-rg)
