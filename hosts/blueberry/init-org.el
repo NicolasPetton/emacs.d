@@ -195,4 +195,19 @@ buffer to the matched subtree."
  'org-babel-load-languages
  '((shell . t)))
 
+;; Notifications
+
+(appt-activate t)
+(setq appt-display-format 'window)
+(setq appt-disp-window-function #'appt-disp-window)
+(setq appt-display-mode-line t)
+
+(defun my-org-check-appt ()
+  (org-agenda-to-appt t `(:deadline
+			  :scheduled
+			  (headline ,og-org-agenda-appt-headline))))
+
+(my-org-check-appt)
+(run-at-time nil 600 #'my-org-check-appt)
+
 (provide 'init-org)
