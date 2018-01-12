@@ -406,6 +406,8 @@ be global."
 
 (use-package js2-mode
   :mode "\\.js\\'"
+  :config (progn
+            (define-key js2-mode-map (kbd "C-c C-o") nil))
   :config
   (defun js2-show-node-at-point ()
     (interactive)
