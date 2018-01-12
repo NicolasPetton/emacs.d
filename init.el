@@ -115,6 +115,7 @@
     (setq avy-all-windows t)))
 
 (use-package beginend
+  :demand t
   :diminish beginend-global-mode
   :config
   (beginend-global-mode))
