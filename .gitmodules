@@ -307,7 +307,7 @@
 	load-path = lisp
 	load-path = contrib/lisp
 	info-path = doc
-	url = git://orgmode.org/org-mode.git
+	url = git@code.orgmode.org:bzg/org-mode.git
 	build-step = make compile autoloads info ORG_ADD_CONTRIB="org-notmuch"
 [submodule "org-bullets"]
 	path = lib/org-bullets
