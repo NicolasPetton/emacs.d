@@ -759,5 +759,6 @@ be global."
 ;; Local Variables:
 ;; indent-tabs-mode: nil
 ;; eval: (flycheck-mode -1)
+;; no-byte-compile: t
 ;; End:
 ;;; init.el ends here
