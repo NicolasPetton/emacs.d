@@ -26,6 +26,7 @@
 
 (require 'json)
 
+;;;###autoload
 (defun geoip (ip)
   "Lookup the location of IP.
 If IP is an empty string, lookup the location of the public IP of
@@ -40,6 +41,7 @@ the host."
     (json-pretty-print-buffer)
     (read-only-mode)))
 
+;;;###autoload
 (defun myip ()
   (interactive)
   (let ((ip (shell-command-to-string "dig +short myip.opendns.com @resolver1.opendns.com")))

@@ -152,11 +152,11 @@ Use CHANNEL if non-nil of the general channel if nil."
 
 (defun mount-backup-disk ()
   (interactive)
-  (shell-command-to-string "mount-backup.sh"))
+  (start-process-shell-command "mount-backup.sh" nil "mount-backup.sh"))
 
 (defun umount-backup-disk ()
   (interactive)
-  (shell-command-to-string "umount-backup.sh"))
+  (start-process-shell-command "umount-backup.sh" nil "umount-backup.sh"))
 
 ;;; Send emails as recurring tasks
 
