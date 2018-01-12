@@ -3,10 +3,11 @@
 Open the url in a www browser or, when called with a prefix
 argument, in Emacs."
   (interactive "P")
-  (let ((url (browse-url-url-at-point)))
-   (if arg
-       (browse-url-emacs url)
-     (browse-url url))))
+  (let ((url (or (get-char-property (point) 'bug-reference-url)
+		 (browse-url-url-at-point))))
+    (if arg
+	(browse-url-emacs url)
+      (browse-url url))))
 
 (defun youtube-dl-at-point ()
   (interactive)
