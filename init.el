@@ -106,10 +106,13 @@
         auto-revert-verbose nil))
 
 (use-package avy
-  :bind ("C-c C-j" . avy-goto-word-1)
+  :bind ("C-c C-j" . avy-goto-char-2)
   :config
   (progn
-    (setq avy-all-windows nil)))
+     ;; Home row
+    (setq avy-keys '(?a ?r ?s ?t ?d ?h ?n ?e ?i ?o))
+    (setq avy-style 'at-full)
+    (setq avy-all-windows t)))
 
 (use-package beginend
   :diminish beginend-global-mode
