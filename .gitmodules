@@ -297,7 +297,7 @@
 	build-step = ./configure
 	build-step = make
 	build-step = make sphinx-texinfo
-	build-step = "(borg-makeinfo \"notmuch\")"
+	build-step = borg-makeinfo
 	url = git://notmuchmail.org/git/notmuch
 [submodule "omnisharp"]
 	path = lib/omnisharp
@@ -308,7 +308,7 @@
 	load-path = contrib/lisp
 	info-path = doc
 	url = git@code.orgmode.org:bzg/org-mode.git
-	build-step = make compile autoloads info ORG_ADD_CONTRIB="org-notmuch"
+	build-step = make compile autoloads info
 [submodule "org-bullets"]
 	path = lib/org-bullets
 	url = git@github.com:emacsorphanage/org-bullets.git
