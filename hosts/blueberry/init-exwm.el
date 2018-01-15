@@ -3,6 +3,7 @@
 (require 'exwm-config)
 
 (require 'seq)
+(require 'counsel)
 (require 'buffer-move)
 
 (exwm-systemtray-enable)
@@ -19,7 +20,27 @@
 			       nil
 			       (locate-user-emacs-file "bin/clipboard-manager.sh")))
 
+;; Watch smartcard to lock the screen
+(defun watch-smartcard ()
+  (make-process :name "indium-nodejs-process"
+		:buffer "*smartcard watcher*"
+		:filter #'smartcard-lock-screen
+		:command (list shell-file-name
+			       shell-command-switch
+			       "journalctl --follow | grep \"Stopped target Smart Card\"")))
+
+(defun smartcard-lock-screen (process output)
+  "Filter function for PROCESS.
+Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
+  ;; Append output to the process buffer
+  (with-current-buffer (process-buffer process)
+    (goto-char (point-max))
+    (insert output))
+  (ignore-errors
+    (lock-screen)))
+
 (add-hook 'exwm-init-hook #'start-clipboard-manager)
+(add-hook 'exwm-init-hook #'watch-smartcard)
 
 ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
 ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
@@ -80,7 +101,7 @@
 ;; DEST is what EXWM actually sends to application. Note that SRC must be a key
 ;; sequence (of type vector or string), while DEST can also be a single key.
 (exwm-input-set-simulation-keys
- '(
+ `(
     ;; movement
     ([?\C-b] . left)
     ([?\M-b] . C-left)
@@ -98,7 +119,7 @@
     ([?\C-w] . ?\C-x)
     ([?\M-w] . ?\C-c)
     ([?\C-y] . ?\C-v)
-    ([?\C-x h] . ?\C-a)
+    ([?\C-x ?h] . ?\C-a)
     ;; search
     ([?\C-s] . ?\C-f)
     ;; escape
@@ -216,12 +237,14 @@
 (exwm-input-set-key (kbd "<XF86AudioMute>") #'toggle-volume)
 (exwm-input-set-key (kbd "<print>") #'screenshot)
 (exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
-(exwm-input-set-key (kbd "s-l") #'lock-screen)
 (exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
+;; Unplug the smartcard instead
+;; (exwm-input-set-key (kbd "s-l") #'lock-screen)
 
 (exwm-input-set-key (kbd "<s-up>") #'buf-move-up)
 (exwm-input-set-key (kbd "<s-down>") #'buf-move-down)
 (exwm-input-set-key (kbd "<s-left>") #'buf-move-left)
 (exwm-input-set-key (kbd "<s-right>") #'buf-move-right)
+(exwm-input-set-key (kbd "s-!") #'counsel-linux-app)
 
 (provide 'init-exwm)
