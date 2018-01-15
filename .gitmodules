@@ -182,7 +182,7 @@
 	load-path = elisp
 	build-step = ./autogen.sh
 	build-step = ./configure
-	buid-step = make
+	build-step = make
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
