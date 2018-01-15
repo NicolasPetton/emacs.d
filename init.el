@@ -187,7 +187,10 @@
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("M-i" . counsel-imenu)
-         ("M-y" . counsel-yank-pop)))
+         ("M-y" . counsel-yank-pop))
+  :init (progn
+          (setq counsel-linux-app-format-function
+                #'counsel-linux-app-format-function-name-only)))
 
 (use-package dabbrev
   :bind (("S-SPC" . dabbrev-expand)))
