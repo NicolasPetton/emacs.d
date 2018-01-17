@@ -22,7 +22,7 @@
 
 ;; Watch smartcard to lock the screen
 (defun watch-smartcard ()
-  (make-process :name "indium-nodejs-process"
+  (make-process :name "smartcard-watcher"
 		:buffer "*smartcard watcher*"
 		:filter #'smartcard-lock-screen
 		:command (list shell-file-name
