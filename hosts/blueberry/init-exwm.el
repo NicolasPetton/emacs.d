@@ -202,13 +202,6 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
   (interactive)
   (shell-command-to-string "slock"))
 
-(defun start-redshift ()
-  (interactive)
-  (let ((bufname (generate-new-buffer-name "*redshift output*")))
-    (start-process-shell-command "redshift" bufname "redshift")))
-
-(add-hook 'exwm-init-hook #'start-redshift)
-
 (require 'exwm-randr)
 (setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2-1"))
 (add-hook 'exwm-randr-screen-change-hook
