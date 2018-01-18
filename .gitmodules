@@ -16,9 +16,6 @@
 [submodule "amd-mode"]
 	path = lib/amd-mode
 	url = git@github.com:NicolasPetton/amd-mode.el.git
-[submodule "anzu"]
-	path = lib/anzu
-	url = git@github.com:syohex/emacs-anzu.git
 [submodule "assess"]
 	path = lib/assess
 	url = git@github.com:phillord/assess.git

@@ -83,17 +83,6 @@
   :bind ("C-c w" . ace-window)
   :demand t)
 
-(use-package anzu
-  :diminish anzu-mode
-  :config (global-anzu-mode)
-  :bind (([remap query-replace] . anzu-query-replace)
-         ([remap query-replace-regexp] . anzu-query-replace-regexp)
-         :map isearch-mode-map
-         ([remap isearch-query-replace] . anzu-isearch-query-replace)
-         ([remap isearch-query-replace-regexp] . anzu-isearch-query-replace-regexp)))
-
-(use-package apg)
-
 (use-package auth-password-store
   :config (auth-pass-enable))
 
