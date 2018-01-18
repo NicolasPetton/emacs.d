@@ -106,7 +106,8 @@
         auto-revert-verbose nil))
 
 (use-package avy
-  :bind ("C-c C-j" . avy-goto-char-2)
+  :bind (("C-c C-j" . avy-goto-char-2)
+         ("M-g g" . avy-goto-line))
   :config
   (progn
      ;; Home row

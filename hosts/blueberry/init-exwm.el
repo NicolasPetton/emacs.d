@@ -17,7 +17,7 @@
   "Start a clipboard manager, performing `kill-new' from xclip."
   (interactive)
   (start-process-shell-command "clipboard-manager"
-			       nil
+			       nil ;; We don't want all cuts to be logged
 			       (locate-user-emacs-file "bin/clipboard-manager.sh")))
 
 ;; Watch smartcard to lock the screen
@@ -114,12 +114,16 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
     ([?\M-v] . prior)
     ([?\C-v] . next)
     ([?\C-d] . delete)
-    ([?\C-k] . (S-end delete))
+    ([?\C-k] . (S-end ?\C-x))
+    ([?\M-<] . C-home)
+    ([?\M->] . C-end)
     ;; cut/paste, selection
     ([?\C-w] . ?\C-x)
     ([?\M-w] . ?\C-c)
     ([?\C-y] . ?\C-v)
     ([?\C-x ?h] . ?\C-a)
+    ([?\M-d] . (C-S-right ?\C-x))
+    ([M-backspace] . (C-S-left ?\C-x))
     ;; search
     ([?\C-s] . ?\C-f)
     ;; escape
