@@ -52,6 +52,8 @@
                     "Leaving, have a nice evening everyone :-)")))
     (slack-say (seq-random-elt messages))
     (slack-set-away)
+    (shell-command "pkill slack")
+    (shell-command "pkill linphone")
     (save-some-buffers)
     (umount-backup-disk)))
 
@@ -152,11 +154,15 @@ Use CHANNEL if non-nil of the general channel if nil."
 
 (defun mount-backup-disk ()
   (interactive)
-  (start-process-shell-command "mount-backup.sh" nil "mount-backup.sh"))
+  (start-process-shell-command "mount-backup.sh"
+			       "*mount-backup*"
+			       (executable-find "mount-backup.sh")))
 
 (defun umount-backup-disk ()
   (interactive)
-  (start-process-shell-command "umount-backup.sh" nil "umount-backup.sh"))
+  (start-process-shell-command "umount-backup.sh"
+			       "*umount-backup*"
+			       (executable-find "umount-backup.sh")))
 
 ;;; Send emails as recurring tasks
 
