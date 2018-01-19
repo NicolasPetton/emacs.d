@@ -19,6 +19,9 @@
 [submodule "assess"]
 	path = lib/assess
 	url = git@github.com:phillord/assess.git
+[submodule "async"]
+	path = lib/async
+	url = git@github.com:jwiegley/emacs-async.git
 [submodule "auctex"]
 	path = lib/auctex
 	url = git@github.com:emacsmirror/auctex.git
