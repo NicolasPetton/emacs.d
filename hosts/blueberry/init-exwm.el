@@ -24,12 +24,12 @@
 (defun watch-smartcard ()
   (make-process :name "smartcard-watcher"
 		:buffer "*smartcard watcher*"
-		:filter #'smartcard-lock-screen
+		:filter #'smartcard-lockscreen
 		:command (list shell-file-name
 			       shell-command-switch
 			       "journalctl --follow | grep \"Stopped target Smart Card\"")))
 
-(defun smartcard-lock-screen (process output)
+(defun smartcard-lockscreen (process output)
   "Filter function for PROCESS.
 Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
   ;; Append output to the process buffer
@@ -37,7 +37,7 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
     (goto-char (point-max))
     (insert output))
   (ignore-errors
-    (lock-screen)))
+    (lockscreen)))
 
 (add-hook 'exwm-init-hook #'start-clipboard-manager)
 (add-hook 'exwm-init-hook #'watch-smartcard)
@@ -198,9 +198,9 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
   (let ((default-directory (expand-file-name "~/Pictures")))
     (start-process-shell-command "scrot -s" nil "scrot -s")))
 
-(defun lock-screen ()
+(defun lockscreen ()
   (interactive)
-  (shell-command-to-string "slock"))
+  (shell-command-to-string "lockscreen"))
 
 (require 'exwm-randr)
 (setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2-1"))
@@ -236,7 +236,7 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
 (exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
 ;; Unplug the smartcard instead
-;; (exwm-input-set-key (kbd "s-l") #'lock-screen)
+;; (exwm-input-set-key (kbd "s-l") #'lockscreen)
 
 (exwm-input-set-key (kbd "<s-up>") #'buf-move-up)
 (exwm-input-set-key (kbd "<s-down>") #'buf-move-down)
