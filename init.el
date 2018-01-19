@@ -276,30 +276,40 @@
           (setq erc-nick "NicolasPetton"
                 erc-autojoin-channels-alist '(("freenode.net" . ("#emacs"))))))
 
-(use-package eshell
-  :config (progn
-            (eval-after-load 'esh-opt
-              '(progn
-                 (require 'em-prompt)
-                 (require 'em-term)
-                 (require 'em-cmpl)
-                 (setenv "PAGER" "cat")
-                 (setenv "SUDO_ASKPASS" (executable-find "pass-root-password.sh"))
-                 (add-hook 'eshell-mode-hook
-                           #'company-mode)
+(use-package esh-mode
+  :hook (eshell-mode . my/configure-esh-mode)
+  :config
+  (progn
+    ;; We can't use use-package's :bind here as eshell insists on
+    ;; recreating a fresh eshell-mode-map for each new eshell buffer.
+    (defun my/configure-esh-mode ()
+      (bind-key "M-p" #'counsel-esh-history eshell-mode-map))))
 
-                 (add-to-list 'eshell-visual-commands "ssh")
-                 (add-to-list 'eshell-visual-commands "htop")
-                 (add-to-list 'eshell-visual-commands "top")
-                 (add-to-list 'eshell-visual-commands "tail")
-                 (add-to-list 'eshell-visual-commands "vim")
-                 (add-to-list 'eshell-visual-commands "bower")
-                 (add-to-list 'eshell-visual-commands "npm")
+(use-package em-cmpl
+  :hook (eshell-mode . eshell-cmpl-initialize))
 
-                 (add-to-list 'eshell-command-completions-alist
-                              '("gunzip" "gz\\'"))
-                 (add-to-list 'eshell-command-completions-alist
-                              '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))))))
+(use-package em-smart
+  :hook (eshell-mode . eshell-smart-initialize)
+  :config
+  (progn
+    (add-to-list 'eshell-smart-display-navigate-list #'counsel-esh-history)))
+
+(use-package em-term
+  :config
+  (progn
+    (nconc eshell-visual-commands
+           '("bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh"))
+    (nconc eshell-visual-subcommands
+           '(("docker" "build")
+             ("git" "log" "diff" "show")
+             ("npm" "init" "install")
+             ("yarn" "init" "install")))
+    (add-to-list 'eshell-command-completions-alist
+                 '("gunzip" "gz\\'"))
+    (add-to-list 'eshell-command-completions-alist
+                 '("tar" "\\(\\.tar|\\.tgz\\|\\.tar\\.gz\\)\\'"))
+    (setenv "PAGER" "cat")
+    (setenv "SUDO_ASKPASS" (executable-find "pass-root-password.sh"))))
 
 (use-package pcomplete
   :config (progn
@@ -316,9 +326,9 @@
 (use-package pcmpl-git
   :after pcomplete)
 
-(use-package exec-path-from-shell
-  :demand t
-  :init (exec-path-from-shell-initialize))
+;; (use-package exec-path-from-shell
+;;   :demand t
+;;   :init (exec-path-from-shell-initialize))
 
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
@@ -600,6 +610,21 @@ be global."
   (defun untabify-buffer ()
     (interactive)
     (untabify (point-min) (point-max))))
+
+(use-package term
+  :bind (
+         :map term-mode-map
+         ("C-c C-t" . my/term-toggle-line-mode)
+         :map term-raw-map
+         ("C-c C-t" . my/term-toggle-line-mode))
+  :init
+  (progn
+    (defun my/term-toggle-line-mode ()
+      "Toggle between char and line modes."
+      (interactive)
+      (if (term-in-char-mode)
+          (term-line-mode)
+        (term-char-mode)))))
 
 (progn ;    `text-mode'
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
