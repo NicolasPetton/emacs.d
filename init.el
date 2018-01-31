@@ -641,6 +641,17 @@ be global."
 (progn ;    `text-mode'
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
 
+(use-package time-stamp
+  :init (progn
+          (defvar-local time-stamp-target nil
+            "File in which time-stamps should be written.")
+          (defun time-stamp-target ()
+            "Update the time-stamp in `time-stamp-target' if non-nil."
+            (when (and time-stamp-target
+                       (file-exists-p time-stamp-target))
+              (with-current-buffer (find-file-noselect time-stamp-target)
+                (time-stamp))))))
+
 (use-package tramp
   :config (progn
             (add-to-list 'tramp-default-proxies-alist '(nil "\\`root\\'" "/ssh:%h:"))
