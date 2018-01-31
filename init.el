@@ -513,7 +513,9 @@ be global."
 (use-package open-url-at-point
   :bind ("C-c C-o" . open-url-at-point))
 
-(use-package org)
+(use-package ox-twbs
+  :demand t
+  :after org)
 
 (use-package paredit
   :demand t
