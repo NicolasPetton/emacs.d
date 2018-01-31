@@ -570,7 +570,14 @@ be global."
 
 (use-package recentf
   :demand t
-  :config (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?:"))
+  :init
+  (progn
+    (setq recentf-auto-cleanup 300)
+    (setq recentf-max-saved-items 4000))
+  :config
+  (progn
+    (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?:")
+    (recentf-mode)))
 
 (use-package restclient
   :config
