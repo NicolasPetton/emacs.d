@@ -163,6 +163,9 @@
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = git@github.com:flycheck/flycheck.git
+[submodule "flyspell-correct"]
+	path = lib/flyspell-correct
+	url = git@github.com:d12frosted/flyspell-correct.git
 [submodule "font-lock+"]
 	path = lib/font-lock+
 	url = git@github.com:emacsmirror/font-lock-plus.git
@@ -321,6 +324,9 @@
 [submodule "org-pomodoro"]
 	path = lib/org-pomodoro
 	url = git@github.com:lolownia/org-pomodoro.git
+[submodule "ox-twbs"]
+	path = lib/ox-twbs
+	url = git@github.com:marsmining/ox-twbs.git
 [submodule "packed"]
 	path = lib/packed
 	url = git@github.com:tarsius/packed.git

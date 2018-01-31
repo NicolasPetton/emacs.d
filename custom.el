@@ -74,7 +74,7 @@
  '(eshell-history-size 1000)
  '(eshell-visual-commands
    (quote
-    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm")))
+    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
  '(fci-rule-color "#073642")
  '(fetch-email-interval 600)
  '(fill-column 80)
@@ -426,7 +426,17 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((js2-strict-missing-semi-warning)
+    ((time-stamp-target . "../../../../scripts/system/51-setup-rainloop.sh")
+     (time-stamp-target . "../../../../scripts/system/50-setup-postfix.sh")
+     (eval add-hook
+	   (quote before-save-hook)
+	   (function time-stamp-target)
+	   nil t)
+     (eval add-hook
+	   (quote before-save-hook)
+	   (function time-stamp)
+	   nil t)
+     (js2-strict-missing-semi-warning)
      (js2-missing-semi-one-line-override)
      (eval ispell-change-dictionary "francais")
      (checkdoc-package-keywords-flag)
