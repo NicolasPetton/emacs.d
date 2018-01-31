@@ -326,10 +326,6 @@
 (use-package pcmpl-git
   :after pcomplete)
 
-;; (use-package exec-path-from-shell
-;;   :demand t
-;;   :init (exec-path-from-shell-initialize))
-
 (use-package expand-region
   :bind (("C-=" . er/expand-region)))
 

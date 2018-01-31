@@ -142,9 +142,6 @@
 [submodule "eslintd-fix"]
 	path = lib/eslintd-fix
 	url = git@github.com:aaronjensen/eslintd-fix.git
-[submodule "exec-path-from-shell"]
-	path = lib/exec-path-from-shell
-	url = git@github.com:purcell/exec-path-from-shell.git
 [submodule "expand-region"]
 	path = lib/expand-region
 	url = git@github.com:magnars/expand-region.el.git
@@ -310,7 +307,7 @@
 	load-path = lisp
 	load-path = contrib/lisp
 	info-path = doc
-	url = git@code.orgmode.org:bzg/org-mode.git
+	url = https://code.orgmode.org/bzg/org-mode.git
 	build-step = make compile autoloads info
 [submodule "org-bullets"]
 	path = lib/org-bullets
