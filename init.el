@@ -343,9 +343,12 @@
   :bind (:map flyspell-mode-map
               ("C-;" . nil))
   :init (progn
-          (add-hook 'prog-mode-hook #'flyspell-prog-mode)
+          ;; (add-hook 'prog-mode-hook #'flyspell-prog-mode)
           (dolist (mode-hook '(text-mode-hook org-mode-hook LaTeX-mode-hook))
             (add-hook mode-hook #'flyspell-mode))))
+
+(use-package flyspell-correct-ivy
+  :bind* (("C-." . flyspell-correct-word-generic)))
 
 (use-package geiser
   :demand t)
