@@ -94,6 +94,7 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 ;; The example shorten 'C-c q' to 'C-q'.
 (push ?\C-q exwm-input-prefix-keys)
 (define-key exwm-mode-map [?\C-q] #'exwm-input-send-next-key)
+(push ?\C-' exwm-input-prefix-keys)
 
 ;; The following example demonstrates how to use simulation keys to mimic the
 ;; behavior of Emacs. The argument to `exwm-input-set-simulation-keys' is a
