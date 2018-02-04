@@ -189,6 +189,10 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
   (interactive)
   (shell-command-to-string "exec amixer set Master toggle"))
 
+(defun toggle-microphone ()
+  (interactive)
+  (shell-command-to-string "exec amixer set Capture toggle"))
+
 (defun screenshot ()
   (interactive)
   (let ((default-directory (expand-file-name "~/Pictures")))
@@ -233,6 +237,7 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
 (exwm-input-set-key (kbd "<XF86AudioLowerVolume>") #'decrease-volume)
 (exwm-input-set-key (kbd "<XF86AudioMute>") #'toggle-volume)
+(exwm-input-set-key (kbd "<XF86AudioMicMute>") #'toggle-microphone)
 (exwm-input-set-key (kbd "<print>") #'screenshot)
 (exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
 (exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
