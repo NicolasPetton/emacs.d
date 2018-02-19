@@ -106,7 +106,21 @@
 
 (use-package beginend
   :demand t
-  :diminish beginend-global-mode
+  :diminish (beginend-bs-mode
+             beginend-prog-mode
+             beginend-dired-mode
+             beginend-occur-mode
+             beginend-global-mode
+             beginend-vc-dir-mode
+             beginend-ibuffer-mode
+             beginend-message-mode
+             beginend-prodigy-mode
+             beginend-org-agenda-mode
+             beginend-compilation-mode
+             beginend-magit-status-mode
+             beginend-elfeed-search-mode
+             beginend-notmuch-search-mode
+             beginend-recentf-dialog-mode)
   :config
   (beginend-global-mode))
 
@@ -534,6 +548,8 @@ be global."
 
 (use-package pdf-tools
   :demand t
+  :bind (:map pdf-view-mode-map
+              ("C-s" . isearch-forward))
   :config (progn
             (pdf-tools-install)))
 
