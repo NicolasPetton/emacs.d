@@ -2,6 +2,7 @@
 (require 'org-element)
 (require 'org-pomodoro)
 (require 'org-contacts)
+(require 'org-drill)
 (require 'org-jira-protocol)
 (require 'org-gogs-protocol)
 (require 'org-sip-protocol)
