@@ -15,7 +15,7 @@
     (("yomaco less" less-css-mode "/home/nico/work/ftgp/yomaco" "lessc --line-numbers=comments themes/foretagsplatsen/less/foretagsplatsen.less > css/foretagsplatsen.css && blessc css/foretagsplatsen.css -f")
      ("monitor less" less-css-mode "/home/nico/work/ftgp/monitor/monitor/Monitor.Web.Ui/Client" "gulp css")
      ("teamwall less" less-css-mode "/home/nico/work/clojure/teamwall/" "lessc --line-numbers=comments resources/less/page.less > resources/public/css/page.css")
-     ("researchr less" less-css-mode "/home/nico/work/aurelia/researchr/" "lessc researchr.less --line-numbers=comments > ../css/researchr.css "))))
+     ("researchr less" less-css-mode "/home/nico/Download/Researchr/" "lessc researchr.less --line-numbers=comments > ../css/researchr.css "))))
  '(company-backends
    (quote
     (company-tern company-elisp company-nxml company-css company-semantic company-clang company-cmake company-capf
@@ -50,7 +50,7 @@
  '(elbank-saved-monthly-reports
    (quote
     (("Income statement (by category)" "" category amount
-      (date label amount)
+      (date label account amount)
       nil)
      ("Expenses by day" "" date date
       (date label category amount)
@@ -63,8 +63,8 @@
     (("Loan" "Loan" nil nil
       (date label amount)
       nil)
-     ("Balance" "" category amount
-      (date label amount)
+     ("Balance sheet" "" category amount
+      (date label account amount)
       nil)
      ("Receivables" "Receivables" nil date
       (date label category amount)
@@ -426,7 +426,8 @@
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote
-    ((time-stamp-target . "../../../../scripts/system/51-setup-rainloop.sh")
+    ((time-stamp-target . "../../../../../scripts/system/51-setup-rainloop.sh")
+     (time-stamp-target . "../../../../scripts/system/51-setup-rainloop.sh")
      (time-stamp-target . "../../../../scripts/system/50-setup-postfix.sh")
      (eval add-hook
 	   (quote before-save-hook)
