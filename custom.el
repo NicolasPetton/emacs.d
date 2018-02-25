@@ -74,7 +74,7 @@
  '(eshell-history-size 1000)
  '(eshell-visual-commands
    (quote
-    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
+    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
  '(fci-rule-color "#073642")
  '(fetch-email-interval 600)
  '(fill-column 80)
@@ -231,6 +231,7 @@
      (:name "all mail" :query "*" :key "*")
      (:name "Grifon" :query "to:grifon@grifon.fr and tag:unread" :key "g")
      (:name "amber" :query "amber+tag:unread" :key "a")
+     (:name "indium" :query "indium+tag:unread" :key "i")
      (:name "emacs" :query "emacs+tag:unread" :key "e")
      (:name "Debbugs" :query "bug\\# and tag:unread" :key "b")
      (:name "Emacs diffs" :query "[Emacs-diffs] and tag:unread" :key "D")
