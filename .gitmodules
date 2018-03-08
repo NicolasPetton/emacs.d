@@ -183,6 +183,9 @@
 	build-step = ./autogen.sh
 	build-step = ./configure
 	build-step = make
+[submodule "ghub"]
+	path = lib/ghub
+	url = git@github.com:magit/ghub.git
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
