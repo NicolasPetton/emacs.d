@@ -17,7 +17,7 @@
   "Start a clipboard manager, performing `kill-new' from xclip."
   (interactive)
   (start-process-shell-command "clipboard-manager"
-			       nil ;; We don't want all cuts to be logged
+			       "*clipboard-manager*"
 			       (locate-user-emacs-file "bin/clipboard-manager.sh")))
 
 ;; Watch smartcard to lock the screen
