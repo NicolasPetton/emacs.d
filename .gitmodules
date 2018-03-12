@@ -142,6 +142,9 @@
 [submodule "eslintd-fix"]
 	path = lib/eslintd-fix
 	url = git@github.com:aaronjensen/eslintd-fix.git
+[submodule "esxml"]
+	path = lib/esxml
+	url = git@github.com:tali713/esxml.git
 [submodule "expand-region"]
 	path = lib/expand-region
 	url = git@github.com:magnars/expand-region.el.git
@@ -238,6 +241,9 @@
 [submodule "jump"]
 	path = lib/jump
 	url = git@github.com:eschulte/jump.el.git
+[submodule "justify-kp"]
+	path = lib/justify-kp
+	url = git@github.com:Fuco1/justify-kp.git
 [submodule "klassified"]
 	path = lib/klassified
 	url = https://github.com/DamienCassou/klassified.el.git
@@ -305,6 +311,9 @@
 	build-step = make sphinx-texinfo
 	build-step = borg-makeinfo
 	url = git://notmuchmail.org/git/notmuch
+[submodule "nov"]
+	path = lib/nov
+	url = git@github.com:wasamasa/nov.el.git
 [submodule "omnisharp"]
 	path = lib/omnisharp
 	url = git@github.com:OmniSharp/omnisharp-emacs.git
