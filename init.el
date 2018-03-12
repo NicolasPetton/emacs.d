@@ -74,7 +74,6 @@
 ;;; Long tail
 
 (use-package abbrev
-  :diminish ""
   :config
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
@@ -106,21 +105,6 @@
 
 (use-package beginend
   :demand t
-  :diminish (beginend-bs-mode
-             beginend-prog-mode
-             beginend-dired-mode
-             beginend-occur-mode
-             beginend-global-mode
-             beginend-vc-dir-mode
-             beginend-ibuffer-mode
-             beginend-message-mode
-             beginend-prodigy-mode
-             beginend-org-agenda-mode
-             beginend-compilation-mode
-             beginend-magit-status-mode
-             beginend-elfeed-search-mode
-             beginend-notmuch-search-mode
-             beginend-recentf-dialog-mode)
   :config
   (beginend-global-mode))
 
@@ -162,7 +146,6 @@
   :config (cljr-add-keybindings-with-prefix "C-c C-r"))
 
 (use-package company
-  :diminish ""
   :init (progn
           (add-hook 'prog-mode-hook 'company-mode))
   :config (progn
@@ -207,24 +190,6 @@
             (global-diff-hl-mode)
             (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)))
 
-(use-package diminish
-  :demand t
-  :init (progn
-            (diminish 'auto-revert-mode)
-            (diminish 'outline-minor-mode)
-            (eval-after-load 'amd-mode
-              '(diminish 'amd-mode))
-            (eval-after-load 'js2-refactor
-              '(diminish 'js2-refactor-mode))
-            (eval-after-load 'tern
-              '(diminish 'tern-mode))
-            (eval-after-load 'eslintd-fix
-              '(diminish 'eslintd-fix-mode))
-            (eval-after-load 'widgetjs
-              '(diminish 'widgetjs-mode))
-            (eval-after-load 'indium
-              '(diminish 'indium-interaction-mode))))
-
 (use-package dired
   :bind (:map dired-mode-map
               ("M-s" . find-name-dired)
@@ -249,7 +214,6 @@
 
 (use-package drag-stuff
   :demand t
-  :diminish drag-stuff-mode
   :config (progn
             (drag-stuff-global-mode t)
             (drag-stuff-define-keys)
@@ -268,13 +232,11 @@
 
 (use-package editorconfig
   :demand t
-  :diminish editorconfig-mode
   :init (editorconfig-mode 1))
 
 (use-package elbank)
 
 (use-package eldoc
-  :diminish ""
   :config (global-eldoc-mode))
 
 (use-package elec-pair
@@ -344,12 +306,10 @@
   :bind (("C-=" . er/expand-region)))
 
 (use-package flycheck
-  :diminish flycheck-mode
   :commands (flycheck-mode)
   :init (add-hook 'prog-mode-hook #'flycheck-mode))
 
 (use-package flyspell
-  :diminish flyspell-mode
   :bind (:map flyspell-mode-map
               ("C-;" . nil))
   :init (progn
@@ -411,7 +371,6 @@ be global."
   (define-key ctl-x-map "\C-i" #'ispell-word-then-abbrev))
 
 (use-package ivy
-  :diminish ""
   :demand t
   :bind (("C-c r" . ivy-resume))
   :config (progn
@@ -443,14 +402,12 @@ be global."
         (delete-region (point-min) (point-max))
         (insert node-contents)))))
 (use-package emacs-js
-  :diminish (js2-refactor-mode js2-minor-mode js-lint-mode tern-mode)
   :commands (setup-js-buffer)
   :init
   (progn
     (add-hook 'js-mode-hook #'setup-js-buffer)))
 
 (use-package klassified
-  :diminish klassified-interaction-js-mode
   :init (add-hook 'js2-mode-hook #'klassified-interaction-js-mode))
 
 (use-package ftgp
@@ -480,6 +437,10 @@ be global."
 
 (use-package man
   :config (setq Man-width 80))
+
+(use-package minions
+  :demand t
+  :config (minions-mode))
 
 (use-package multiple-cursors
   :bind (("M-RET" . mc/edit-lines)
@@ -529,7 +490,6 @@ be global."
 
 (use-package paredit
   :demand t
-  :diminish ""
   :bind (:map paredit-mode-map
               ("M-s" . nil))
   :config
@@ -555,7 +515,6 @@ be global."
 
 (use-package projectile
   :demand t
-  :diminish ""
   :config (progn
             (projectile-mode)
             (require 'counsel-projectile)
@@ -619,7 +578,6 @@ be global."
   (slime-setup))
 
 (use-package subword
-  :diminish subword-mode
   :init (global-subword-mode))
 
 (use-package swiper
@@ -726,12 +684,10 @@ be global."
              work-send-weekly-email))
 
 (use-package ws-butler
-  :diminish ""
   :init
   (add-hook 'prog-mode-hook #'ws-butler-mode))
 
 (use-package yasnippet
-  :diminish yas-minor-mode
   :demand t
   :init (progn
           (yas-global-mode)))
