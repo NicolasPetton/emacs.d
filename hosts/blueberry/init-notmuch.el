@@ -38,6 +38,31 @@
                              nico-pgp-sign-excluded-emails))
       (mml-secure-message-sign))))
 
+;; Encrypt messages if there is a pubkey for all recipients
+
+(defun my/can-encrypt-message-p ()
+  "Return non-nil if current message can be encrypted.
+I.e., the keyring has a public key for each recipient."
+  (let ((recipients (seq-map #'cadr
+                             (seq-mapcat (lambda (header)
+                                           (let ((header-value (message-fetch-field header)))
+                                             (and
+                                              header-value
+                                              (mail-extract-address-components header-value t))))
+                                         '("To" "CC" "BCC"))))
+        (context (epg-make-context epa-protocol)))
+    (seq-every-p (lambda (recipient)
+                   (not (seq-empty-p (epg-list-keys context recipient))))
+                 recipients)))
+
+(defun my/add-encryption-mark-if-possible ()
+  "Add MML tag to encrypt message when there is a key for each recipient."
+  (when (my/can-encrypt-message-p)
+    (mml-secure-message-sign-encrypt)))
+
+(add-hook 'message-send-hook #'my/add-encryption-mark-if-possible)
+
+
 (add-hook 'message-setup-hook #'yas-minor-mode-on)
 
 (define-key global-map (kbd "M-N") #'notmuch)
@@ -107,6 +132,8 @@
 (defvar nico-notmuch-account-alist
   '(("nicolas@petton.fr"
      (user-mail-address "nicolas@petton.fr"))
+    ("nico@emacs.world"
+     (user-mail-address "nico@emacs.world"))
     ("nicolas@foretagsplatsen.se"
      (user-mail-address "nicolas@foretagsplatsen.se"))))
 
@@ -262,7 +289,7 @@
     (message "rlt=%s" rlt)
     rlt))
 
-(advice-add 'debbugs-gnu-select-report :override #'debbugs-notmuch-select-report)
+;; (advice-add 'debbugs-gnu-select-report :override #'debbugs-notmuch-select-report)
 
 (defun debbugs-notmuch-select-report (&rest _)
   (let* ((status (debbugs-gnu-current-status))
