@@ -186,9 +186,8 @@
   :config (dash-enable-font-lock))
 
 (use-package diff-hl
-  :config (progn
-            (global-diff-hl-mode)
-            (add-hook 'magit-post-refresh-hook 'diff-hl-magit-post-refresh t)))
+  :hook ((prog-mode . diff-hl-mode)
+         (magit-post-refresh . diff-hl-magit-post-refresh)))
 
 (use-package dired
   :bind (:map dired-mode-map
