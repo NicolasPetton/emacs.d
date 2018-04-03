@@ -437,10 +437,6 @@ be global."
 (use-package man
   :config (setq Man-width 80))
 
-(use-package minions
-  :demand t
-  :config (minions-mode))
-
 (use-package multiple-cursors
   :bind (("M-RET" . mc/edit-lines)
          ("C-<" . mc/mark-previous-like-this)
@@ -747,6 +743,11 @@ be global."
       (zerodark-setup-modeline-format)
       (set-selected-frame-dark)
       (setq frame-title-format '(buffer-file-name "%f" ("%b"))))))
+
+(use-package minions
+  :demand t
+  :config (unless minions-mode
+            (minions-mode)))
 
 (use-package zoom-frm
   :bind (("C-+" . zoom-frm-in)
