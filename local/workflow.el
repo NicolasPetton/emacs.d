@@ -39,7 +39,6 @@
     (slack-say (seq-random-elt messages))
     (slack-set-active)
     (start-process-shell-command "slack" nil "slack")
-    (start-process-shell-command "linphone" nil "linphone")
     (start-process-shell-command "nightly" nil "nightly")
     (mount-backup-disk)))
 
@@ -53,7 +52,6 @@
     (slack-say (seq-random-elt messages))
     (slack-set-away)
     (shell-command "pkill slack")
-    (shell-command "pkill linphone")
     (save-some-buffers)
     (umount-backup-disk)))
 
