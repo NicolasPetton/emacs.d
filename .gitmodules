@@ -192,6 +192,9 @@
 [submodule "git-modes"]
 	path = lib/git-modes
 	url = git@github.com:magit/git-modes.git
+[submodule "git-timemachine"]
+	path = lib/git-timemachine
+	url = git@github.com:pidu/git-timemachine.git
 [submodule "gnome-calendar"]
 	path = lib/gnome-calendar
 	url = git@github.com:NicolasPetton/gnome-calendar.el.git
@@ -336,6 +339,9 @@
 [submodule "org-pomodoro"]
 	path = lib/org-pomodoro
 	url = git@github.com:lolownia/org-pomodoro.git
+[submodule "org-vcard"]
+	path = lib/org-vcard
+	url = git@github.com:flexibeast/org-vcard.git
 [submodule "ox-twbs"]
 	path = lib/ox-twbs
 	url = git@github.com:marsmining/ox-twbs.git
