@@ -79,17 +79,17 @@ buffer to the matched subtree."
 ;; org-capture
 (setq org-capture-templates '())
 (add-to-list 'org-capture-templates
-	     '("t" "Todo [inbox]" entry (file+headline org-default-notes-file "Tasks")
+	     '("t" "Todo [inbox]" entry (file org-default-notes-file)
 	       "* TODO %i%?"))
 (add-to-list 'org-capture-templates
-	     '("l" "Todo (with link) [inbox]" entry (file+headline org-default-notes-file "Tasks")
-	       "* TODO %a"))
+	     '("l" "Todo (with link) [inbox]" entry (file org-default-notes-file)
+	       "* TODO %? %a"))
 (add-to-list 'org-capture-templates
-             '("p" "Appointment" entry (file+headline nico/org-agenda-file "Appointment")
-	       "* APPT %i%? \n %^T"))
+             '("p" "Appt [agenda]" entry (file+headline nico/org-agenda-file "Appointment")
+	       "* APPT %i%? \nSCHEDULED: %^T"))
 (add-to-list 'org-capture-templates
 	     '("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler")
-               "* %i%? \n %^t"))
+               "* %i%? \nSCHEDULED: %^t"))
 (add-to-list 'org-capture-templates
              '("c" "Contacts" entry (file "~/org/contacts.org")
                "* %(org-contacts-template-name)
