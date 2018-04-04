@@ -386,9 +386,9 @@
  '(org-habit-graph-column 52)
  '(org-hide-leading-stars t)
  '(org-highlight-latex-and-related (quote (latex)))
+ '(org-indent-indentation-per-level 1)
  '(org-log-done (quote time))
  '(org-log-into-drawer t)
- '(org-mobile-force-id-on-agenda-items nil)
  '(org-modules
    (quote
     (org-bibtex org-docview org-gnus org-habit org-info org-protocol org-jsinfo org-habit org-irc org-mew org-mhe org-protocol org-rmail org-vm org-wl org-w3m org-bookmark)))
