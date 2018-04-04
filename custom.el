@@ -270,7 +270,11 @@
  '(org-M-RET-may-split-line (quote ((default))))
  '(org-agenda-custom-commands
    (quote
-    (("w" . "TODOs")
+    (("a" "Agenda for the current week with Stoic quote"
+      ((my-stoic-quote "" nil)
+       (agenda "" nil))
+      nil nil)
+     ("w" . "TODOs")
      ("d" "30 days deadlines" agenda ""
       ((org-agenda-entry-types
 	(quote

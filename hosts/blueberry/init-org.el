@@ -14,6 +14,7 @@
 (require 'ivy)
 (require 'org-gnome)
 (require 's)
+(require 'seq)
 
 ;; (global-org-gnome-minor-mode 1)
 ;; (add-hook 'org-mode-hook #'org-indent-mode)
@@ -75,6 +76,21 @@ buffer to the matched subtree."
 
 ;; Export TODO items in iCal too
 (setq org-icalendar-include-todo t)
+
+(defun my-stoic-quote (&rest _)
+  "Insert a random quote from quotes.org."
+  (let ((quotes (with-current-buffer (find-file-noselect "~/org/quotes.org")
+		  (split-string (buffer-string) "\n" t)))
+	(beg (point)))
+    (newline)
+    (insert (seq-random-elt quotes))
+    (fill-paragraph)
+    (save-excursion
+      (when (search-backward "—" nil t)
+	(newline 2)
+	(insert "  ")))
+    (put-text-property beg (point) 'face 'bold)
+    (newline)))
 
 ;; org-capture
 (setq org-capture-templates '())
