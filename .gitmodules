@@ -324,12 +324,6 @@
 	info-path = doc
 	url = https://code.orgmode.org/bzg/org-mode.git
 	build-step = make compile autoloads info
-[submodule "org-gnome"]
-	path = lib/org-gnome
-	url = git@github.com:NicolasPetton/org-gnome.el.git
-[submodule "org-gnome-calendar"]
-	path = lib/org-gnome-calendar
-	url = git@github.com:llvilanova/org-gnome-calendar.git
 [submodule "org-pomodoro"]
 	path = lib/org-pomodoro
 	url = git@github.com:lolownia/org-pomodoro.git
