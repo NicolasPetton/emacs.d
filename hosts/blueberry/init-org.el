@@ -7,17 +7,12 @@
 (require 'org-gogs-protocol)
 (require 'org-sip-protocol)
 (require 'org-debbugs-protocol)
-(require 'org-bullets)
 (require 'ob-js)
 (require 'ox-md)
 (require 'avy)
 (require 'ivy)
-(require 'org-gnome)
 (require 's)
 (require 'seq)
-
-;; (global-org-gnome-minor-mode 1)
-;; (add-hook 'org-mode-hook #'org-indent-mode)
 
 ;; preserve the indentation inside of source blocks
 (setq org-src-preserve-indentation t)
@@ -218,13 +213,5 @@ buffer to the matched subtree."
 (setq appt-display-format 'window)
 (setq appt-disp-window-function #'appt-disp-window)
 (setq appt-display-mode-line t)
-
-(defun my-org-check-appt ()
-  (org-agenda-to-appt t `(:deadline
-			  :scheduled
-			  (headline ,og-org-agenda-appt-headline))))
-
-(my-org-check-appt)
-(run-at-time nil 600 #'my-org-check-appt)
 
 (provide 'init-org)
