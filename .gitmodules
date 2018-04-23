@@ -367,6 +367,9 @@
 [submodule "peg"]
 	path = lib/peg
 	url = git@github.com:ellerh/peg.el.git
+[submodule "pinentry"]
+	path = lib/pinentry
+	url = git@github.com:ueno/pinentry-el.git
 [submodule "pkg-info"]
 	path = lib/pkg-info
 	url = git@github.com:lunaryorn/pkg-info.el.git
