@@ -13,14 +13,7 @@
 (setq exwm-workspace-show-all-buffers t)
 (setq exwm-layout-show-all-buffers t)
 
-(defun start-clipboard-manager ()
-  "Start a clipboard manager, performing `kill-new' from xclip."
-  (interactive)
-  (start-process-shell-command "clipboard-manager"
-			       "*clipboard-manager*"
-			       (locate-user-emacs-file "bin/clipboard-manager.sh")))
-
-;; Watch smartcard to lock the screen
+;; Watch smartcard to lock/unlock the screen
 (defun watch-smartcard ()
   (make-process :name "smartcard-watcher"
 		:buffer "*smartcard watcher*"
@@ -28,6 +21,14 @@
 		:command (list shell-file-name
 			       shell-command-switch
 			       "journalctl --follow | grep \"Stopped target Smart Card\"")))
+
+(defun watch-smartcard-removed ()
+  (make-process :name "smartcard-removed-watcher"
+		:buffer "*smartcard removed watcher*"
+		:filter #'smartcard-unlock-gpg-key
+		:command (list shell-file-name
+			       shell-command-switch
+			       "journalctl --follow | grep \"Reached target Smart Card\"")))
 
 (defun smartcard-lockscreen (process output)
   "Filter function for PROCESS.
@@ -39,8 +40,15 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
   (ignore-errors
     (lockscreen)))
 
-(add-hook 'exwm-init-hook #'start-clipboard-manager)
+(defun smartcard-unlock-gpg-key (process output)
+  (with-current-buffer (process-buffer process)
+    (goto-char (point-max))
+    (insert output))
+  (ignore-errors
+    (unlock-gpg-key)))
+
 (add-hook 'exwm-init-hook #'watch-smartcard)
+(add-hook 'exwm-init-hook #'watch-smartcard-removed)
 
 ;; All buffers created in EXWM mode are named "*EXWM*". You may want to change
 ;; it in `exwm-update-class-hook' and `exwm-update-title-hook', which are run
@@ -145,6 +153,19 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (add-hook 'exwm-init-hook #'display-battery-mode)
 (add-hook 'exwm-init-hook #'display-time-mode)
 
+(add-hook 'exwm-init-hook #'gpastel-start-listening)
+(exwm-input-set-key (kbd "M-y") #'my/exwm-counsel-yank-pop)
+
+(defun my/exwm-counsel-yank-pop ()
+  "Same as `counsel-yank-pop' and paste into exwm buffer."
+  (interactive)
+  (let ((inhibit-read-only t)
+        ;; Make sure we send selected yank-pop candidate to
+        ;; clipboard:
+        (yank-pop-change-selection t))
+    (call-interactively #'counsel-yank-pop))
+  (when (derived-mode-p 'exwm-mode)
+    (exwm-input--fake-key ?\C-v)))
 
 ;; Commands
 
@@ -206,6 +227,12 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (defun lockscreen ()
   (interactive)
   (shell-command-to-string "lockscreen"))
+
+(defun unlock-gpg-key ()
+  (let ((dummy-file "~/.gnupg/dummy.gpg")
+	(tmp-file (make-temp-file "dummy")))
+    (when (file-exists-p dummy-file)
+      (epa-decrypt-file dummy-file tmp-file))))
 
 (require 'exwm-randr)
 (setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2-1"))

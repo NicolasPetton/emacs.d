@@ -195,6 +195,9 @@
 [submodule "gnome-calendar"]
 	path = lib/gnome-calendar
 	url = git@github.com:NicolasPetton/gnome-calendar.el.git
+[submodule "gpastel"]
+	path = lib/gpastel
+	url = git@github.com:DamienCassou/gpastel.git
 [submodule "grunt"]
 	path = lib/grunt
 	url = git@github.com:gempesaw/grunt.el.git
