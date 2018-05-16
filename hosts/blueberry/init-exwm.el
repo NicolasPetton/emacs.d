@@ -7,6 +7,7 @@
 (require 'buffer-move)
 
 (exwm-systemtray-enable)
+(desktop-environment-mode)
 
 ;; Set the initial number of workspaces.
 (setq exwm-workspace-number 2)
@@ -14,16 +15,16 @@
 (setq exwm-layout-show-all-buffers t)
 
 ;; Watch smartcard to lock/unlock the screen
-(defun watch-smartcard ()
-  (make-process :name "smartcard-watcher"
+(defun watch-smartcard-removed ()
+  (make-process :name "smartcard-removed-watcher"
 		:buffer "*smartcard watcher*"
 		:filter #'smartcard-lockscreen
 		:command (list shell-file-name
 			       shell-command-switch
 			       "journalctl --follow | grep \"Stopped target Smart Card\"")))
 
-(defun watch-smartcard-removed ()
-  (make-process :name "smartcard-removed-watcher"
+(defun watch-smartcard ()
+  (make-process :name "smartcard-watcher"
 		:buffer "*smartcard removed watcher*"
 		:filter #'smartcard-unlock-gpg-key
 		:command (list shell-file-name
@@ -157,72 +158,17 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (exwm-input-set-key (kbd "M-y") #'my/exwm-counsel-yank-pop)
 
 (defun my/exwm-counsel-yank-pop ()
-  "Same as `counsel-yank-pop' and paste into exwm buffer."
-  (interactive)
-  (let ((inhibit-read-only t)
-        ;; Make sure we send selected yank-pop candidate to
-        ;; clipboard:
-        (yank-pop-change-selection t))
-    (call-interactively #'counsel-yank-pop))
-  (when (derived-mode-p 'exwm-mode)
-    (exwm-input--fake-key ?\C-v)))
-
-;; Commands
-
-(defun adjust-backlight (delta)
-  (shell-command-to-string (format "brightnessctl s %s" delta)))
-
-(defun brightness-get ()
-  (let ((output (shell-command-to-string "brightnessctl")))
-    (string-match "\\([0-9]+%\\)" output)
-    (match-string 0 output)))
-
-(defun increase-backlight ()
-  (interactive)
-  (adjust-backlight "10%+")
-  (message "Backlight: %s" (brightness-get)))
-
-(defun decrease-backlight ()
-  (interactive)
-  (adjust-backlight "10%-")
-  (message "Backlight: %s" (brightness-get)))
-
-(defun volume-get ()
-  (let ((output (shell-command-to-string "amixer get Master")))
-    (string-match "\\([0-9]+%\\)" output)
-    (match-string 0 output)))
-
-(defun adjust-volume (delta)
-  "DELTA should be like \"5%+\"."
-  (shell-command-to-string (format "amixer set Master %s" delta))
-  ;; (shell-command-to-string "aplay ~/.stumpwm.d/sounds/drip.ogg")
-  (message "Volume: %s" (volume-get)))
-
-(defun increase-volume ()
-  (interactive)
-  (adjust-volume "5%+"))
-
-(defun decrease-volume ()
-  (interactive)
-  (adjust-volume "5%-"))
-
-(defun toggle-volume ()
-  (interactive)
-  (shell-command-to-string "exec amixer set Master toggle"))
-
-(defun toggle-microphone ()
-  (interactive)
-  (shell-command-to-string "exec amixer set Capture toggle"))
-
-(defun screenshot ()
-  (interactive)
-  (let ((default-directory (expand-file-name "~/Pictures")))
-    (start-process-shell-command "scrot" nil "scrot")))
-
-(defun screenshot-part ()
-  (interactive)
-  (let ((default-directory (expand-file-name "~/Pictures")))
-    (start-process-shell-command "scrot -s" nil "scrot -s")))
+     "Same as `counsel-yank-pop' and paste into exwm buffer."
+     (interactive)
+     (let ((inhibit-read-only t)
+           ;; Make sure we send selected yank-pop candidate to
+           ;; clipboard:
+           (yank-pop-change-selection t))
+       (call-interactively #'counsel-yank-pop))
+     (when (derived-mode-p 'exwm-mode)
+       ;; https://github.com/ch11ng/exwm/issues/413#issuecomment-386858496
+       (exwm-input--set-focus (exwm--buffer->id (window-buffer (selected-window))))
+       (exwm-input--fake-key ?\C-v)))
 
 (defun lockscreen ()
   (interactive)
@@ -235,11 +181,11 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
       (epa-decrypt-file dummy-file tmp-file))))
 
 (require 'exwm-randr)
-(setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2-1"))
+(setq exwm-randr-workspace-output-plist '(0 "eDP-1" 1 "DP-2"))
 (add-hook 'exwm-randr-screen-change-hook
           (lambda ()
             (start-process-shell-command
-             "xrandr" nil "xrandr --output DP-2-1 --right-of eDP-1 --auto")))
+             "xrandr" nil "xrandr --output DP-2 --right-of eDP-1 --auto")))
 (exwm-randr-enable)
 
 (defun list-all-windows ()
@@ -259,14 +205,6 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
                                (list-all-windows))))
     (select-window window)))
 
-(exwm-input-set-key (kbd "<XF86MonBrightnessUp>") #'increase-backlight)
-(exwm-input-set-key (kbd "<XF86MonBrightnessDown>") #'decrease-backlight)
-(exwm-input-set-key (kbd "<XF86AudioRaiseVolume>") #'increase-volume)
-(exwm-input-set-key (kbd "<XF86AudioLowerVolume>") #'decrease-volume)
-(exwm-input-set-key (kbd "<XF86AudioMute>") #'toggle-volume)
-(exwm-input-set-key (kbd "<XF86AudioMicMute>") #'toggle-microphone)
-(exwm-input-set-key (kbd "<print>") #'screenshot)
-(exwm-input-set-key (kbd "S-<print>") #'screenshot-part)
 (exwm-input-set-key (kbd "C-x w") #'nico-switch-to-window)
 ;; Unplug the smartcard instead
 ;; (exwm-input-set-key (kbd "s-l") #'lockscreen)
@@ -277,6 +215,5 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (exwm-input-set-key (kbd "<s-right>") #'buf-move-right)
 (exwm-input-set-key (kbd "s-!") #'counsel-linux-app)
 (exwm-input-set-key (kbd "C-'") #'shell-switcher-switch-buffer)
-
 
 (provide 'init-exwm)
