@@ -39,7 +39,7 @@
     (("\\.mp4" "totem")
      ("\\.mkv" "totem")
      ("\\.avi" "totem")
-     ("\\.html" "nightly")
+     ("\\.html" "firefox")
      ("\\.pdf" "evince")
      ("\\.svg" "inkscape")
      ("\\.png" "eog" "gimp")
@@ -74,7 +74,7 @@
  '(eshell-history-size 1000)
  '(eshell-visual-commands
    (quote
-    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
+    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
  '(fci-rule-color "#073642")
  '(fetch-email-interval 600)
  '(fill-column 80)
@@ -306,46 +306,55 @@
 	     ((org-agenda-skip-function
 	       (quote
 		(org-agenda-skip-all-siblings-but-first)))
-	      (org-agenda-overriding-header "FTGP next actions")))
+	      (org-agenda-overriding-header "FTGP next actions")
+	      (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags "emacs"
 	     ((org-agenda-overriding-header "Emacs next actions")
 	      (org-agenda-skip-function
 	       (quote
-		(org-agenda-skip-all-siblings-but-first)))))
+		(org-agenda-skip-all-siblings-but-first)))
+	      (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@phone"
 		  ((org-agenda-overriding-header "Phone calls")
 		   (org-agenda-skip-function
 		    (quote
 		     (org-agenda-skip-entry-if
 		      (quote todo)
-		      (quote done))))))
+		      (quote done))))
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (todo "WAITING"
-	     ((org-agenda-overriding-header "Waiting")))
+	     ((org-agenda-overriding-header "Waiting")
+	      (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@work"
 		  ((org-agenda-skip-function
 		    (quote
 		     (org-agenda-skip-all-siblings-but-first)))
-		   (org-agenda-overriding-header "At work")))
+		   (org-agenda-overriding-header "At work")
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@plourin"
 		  ((org-agenda-overriding-header "At Plourin")
 		   (org-agenda-skip-function
 		    (quote
-		     (org-agenda-skip-all-siblings-but-first)))))
+		     (org-agenda-skip-all-siblings-but-first)))
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@stmartin"
 		  ((org-agenda-overriding-header "At Saint Martin")
 		   (org-agenda-skip-function
 		    (quote
-		     (org-agenda-skip-all-siblings-but-first)))))
+		     (org-agenda-skip-all-siblings-but-first)))
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@stockholm"
 		  ((org-agenda-overriding-header "At Stockholm")
 		   (org-agenda-skip-function
 		    (quote
-		     (org-agenda-skip-all-siblings-but-first)))))
+		     (org-agenda-skip-all-siblings-but-first)))
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)")))
        (tags-todo "@home"
 		  ((org-agenda-overriding-header "At Home")
 		   (org-agenda-skip-function
 		    (quote
-		     (org-agenda-skip-all-siblings-but-first))))))
+		     (org-agenda-skip-all-siblings-but-first)))
+		   (org-agenda-prefix-format "%-32:(org-agenda-format-parent 30)"))))
       nil nil))))
  '(org-agenda-default-appointment-duration 60)
  '(org-agenda-files
@@ -1076,6 +1085,7 @@
  '(pos-tip-background-color "#073642")
  '(pos-tip-foreground-color "#93a1a1")
  '(projectile-completion-system (quote ivy))
+ '(recentf-max-saved-items 200)
  '(ring-bell-function (quote ignore))
  '(safe-local-variable-values
    (quote

@@ -86,6 +86,9 @@
 [submodule "debbugs"]
 	path = lib/debbugs
 	url = git@github.com:emacsmirror/debbugs.git
+[submodule "desktop-environment"]
+	path = lib/desktop-environment
+	url = git@github.com:DamienCassou/desktop-environment.git
 [submodule "devdocs"]
 	path = lib/devdocs
 	url = git@github.com:xuchunyang/devdocs.el.git
