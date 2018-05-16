@@ -82,8 +82,12 @@
   :bind ("C-c w" . ace-window)
   :demand t)
 
-(use-package auth-password-store
-  :config (auth-pass-enable))
+(use-package auth-source-pass
+  :demand t
+  :after auth-source
+  :init
+  (progn
+    (setq auth-sources '(password-store))))
 
 (use-package autorevert
   :config
