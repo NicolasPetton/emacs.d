@@ -103,6 +103,9 @@
 [submodule "dired-du"]
 	path = lib/dired-du
 	url = git@github.com:emacsmirror/dired-du.git
+[submodule "dired-rsync"]
+	path = lib/dired-rsync
+	url = git@github.com:stsquad/dired-rsync.git
 [submodule "drag-stuff"]
 	path = lib/drag-stuff
 	url = git@github.com:rejeep/drag-stuff.el.git
