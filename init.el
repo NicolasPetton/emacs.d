@@ -78,10 +78,6 @@
   (setq save-abbrevs 'silently)
   (setq-default abbrev-mode t))
 
-(use-package ace-window
-  :bind ("C-c w" . ace-window)
-  :demand t)
-
 (use-package auth-source-pass
   :demand t
   :after auth-source
