@@ -127,73 +127,29 @@
  '(ledger-clear-whole-transactions t)
  '(ledger-occur-use-face-shown nil)
  '(ledger-post-amount-alignment-at :decimal)
- '(ledger-reconcile-default-commodity "€")
+ '(ledger-reconcile-default-commodity "EUR")
  '(ledger-report-auto-refresh-sticky-cursor t)
+ '(ledger-report-format-specifiers
+   (quote
+    (("ledger-file" . ledger-report-ledger-file-format-specifier)
+     ("binary" lambda nil ledger-binary-path)
+     ("payee" . ledger-report-payee-format-specifier)
+     ("account" . ledger-report-account-format-specifier)
+     ("tagname" . ledger-report-tagname-format-specifier)
+     ("tagvalue" . ledger-report-tagvalue-format-specifier))))
+ '(ledger-report-links-in-register t)
+ '(ledger-report-use-header-line t)
+ '(ledger-report-use-native-highlighting t)
  '(ledger-reports
    (quote
-    ((#("Vacations" 0 1
-	(idx 0))
-      "ledger reg -f ledger.dat ^Assets:Vacation")
-     (#("prices" 0 1
-	(idx 1))
-      "ledger -f ledger.dat prices €")
-     (#("trading SEK" 0 1
-	(idx 2))
-      "ledger reg -f ledger.dat trading -X €")
-     (#("Forecast" 0 1
-	(idx 3))
-      "ledger -M -X € -f /home/nico/org/reference/ledger/ledger.dat --forecast \"d<[2017]\" bal ^assets ^liab")
-     (#("Budget (with unbudgeted expenses/income)" 0 1
-	(idx 4))
-      "ledger -p \"this month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --unbudgeted --invert")
-     (#("Budget (of the year)" 0 1
-	(idx 5))
-      "ledger -p \"this year\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses --budget --invert")
-     (#("Budget (last month)" 0 1
-	(idx 6))
-      "ledger -p \"last month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --invert")
-     (#("Budget" 0 1
-	(idx 7))
-      "ledger -p \"this month\" -M -X € -f /home/nico/org/reference/ledger/ledger.dat reg ^expenses ^income --budget --invert")
-     (#("Account statement Swedish Checking" 0 1
-	(idx 8))
-      "ledger reg -f ledger.dat Assets:Checking:Nordea")
-     (#("Account statement Checking" 0 1
-	(idx 9))
-      "ledger reg -f ledger.dat ^Assets:Checking:CE")
-     (#("Income statement (last month)" 0 1
-	(idx 10))
-      "ledger --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X € -p \"last month\"")
-     (#("Income statement" 0 1
-	(idx 11))
-      "ledger --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X € -p \"this month\"")
-     (#("Cash Flow" 0 1
-	(idx 12))
-      "ledger reg -f ledger.dat Assets:Swedish Assets:Checking")
-     (#("Cash Flow (in €)" 0 1
-	(idx 13))
-      "ledger reg -f ledger.dat Assets:Swedish Assets:Checking -X €")
-     (#("List of accounts" 0 1
-	(idx 14))
-      "ledger -f /home/nico/org/reference/ledger/ledger.dat accounts")
-     (#("Balance sheet" 0 1
-	(idx 15))
-      "ledger -f /home/nico/org/reference/ledger/ledger.dat bal ^assets ^liabilities ^equity")
-     (#("Balance sheet (in euros)" 0 1
-	(idx 16))
-      "ledger -f /home/nico/org/reference/ledger/ledger.dat bal ^assets ^liabilities ^equity -X €")
-     (#("Income statement (all time)" 0 1
-	(idx 17))
-      "ledger -M --invert -S T -f /home/nico/org/reference/ledger/ledger.dat bal ^income ^expenses -X €")
-     (#("Account statement Savings" 0 1
-	(idx 18))
-      "ledger reg -f ledger.dat ^Assets:Savings")
-     (#("Equity" 0 1
-	(idx 19))
-      "ledger -f ledger.dat equity")
-     (#("Cleared" 0 1
-	(idx 20))
-      "ledger cleared -f ledger.dat"))))
+    (("Cash Flow" "%(binary) --explicit --pedantic --real --related --invert [[ledger-mode-flags]] reg ^assets:bank -f %(ledger-file) -p \"this month\"")
+     ("Vacations" "%(binary) --explicit --pedantic [[ledger-mode-flags]] reg -f %(ledger-file) ^Assets:Vacation")
+     ("Income statement" "%(binary) --explicit --pedantic --invert --real -S T [[ledger-mode-flags]] -f %(ledger-file) bal ^income ^expenses -p \"this month\"")
+     ("Balance sheet" "%(binary) --explicit --pedantic --real [[ledger-mode-flags]] -f %(ledger-file) bal ^assets ^liabilities ^equity")
+     ("Account statement" "%(binary) reg --explicit --pedantic --real [[ledger-mode-flags]] -f %(ledger-file) ^%(account)")
+     ("Equity" "%(binary) --explicit --pedantic --real [[ledger-mode-flags]] -f %(ledger-file) equity")
+     ("Cleared" "%(binary) --explicit --pedantic cleared [[ledger-mode-flags]] -f %(ledger-file)")
+     ("Budget" "%(binary) --explicit --pedantic --empty -S -T [[ledger-mode-flags]] -f %(ledger-file) bal ^assets:bank ^assets:budget"))))
  '(line-spacing nil)
  '(linum-format "%4d ")
  '(locate-ls-subdir-switches "-lhl")
