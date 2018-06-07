@@ -752,9 +752,11 @@ be global."
           (tab-mark 9 [9655 9] [92 9]) ; tab, ▷
           )))
 
+(progn ;; `window'
+  (bind-key "C-;" #'other-window))
+
 (use-package winner
-  :bind (("C-|".  winner-undo)
-         ("C-;" . other-window)))
+  :bind (("C-|".  winner-undo)))
 
 (use-package workflow
   :commands (work-clock-out
