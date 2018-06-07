@@ -36,9 +36,9 @@
  '(dired-du-size-format t)
  '(dired-guess-shell-alist-user
    (quote
-    (("\\.mp4" "totem")
-     ("\\.mkv" "totem")
-     ("\\.avi" "totem")
+    (("\\.mp4" "mplayer")
+     ("\\.mkv" "mplayer")
+     ("\\.avi" "mplayer")
      ("\\.html" "firefox")
      ("\\.pdf" "evince")
      ("\\.svg" "inkscape")
