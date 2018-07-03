@@ -32,6 +32,12 @@
 (use-package init-exwm
   :demand t)
 
+(use-package flycheck-ledger
+  :demand t
+  :after (flycheck ledger-mode)
+  :init (progn
+          (add-hook 'ledger-mode-hook #'flycheck-mode)))
+
 (use-package ledger
   :init (progn
           (add-hook 'ledger-mode-hook #'company-mode)
@@ -56,13 +62,19 @@
                                        (car acc)
                                        boobank-ledger-import-since
                                        (car acc)))
-                (message "Converting transactions for account %s" (car acc))
-                (shell-command (format "ledger-autosync -l %s /tmp/%s -a %s --fid %s"
-                                       boobank-ledger-file
-                                       (car acc)
-                                       (cdr acc)
-                                       fid)
-                               t))))))
+                (with-current-buffer (find-file-noselect (format "/tmp/%s" (car acc)))
+                  (save-match-data
+                    (while (re-search-forward "[^[:ascii:]]" nil t)
+                      (replace-match ""))
+                    (save-buffer)
+                    (kill-buffer)))
+              (message "Converting transactions for account %s" (car acc))
+              (shell-command (format "ledger-autosync --assertions -l %s /tmp/%s -a %s --fid %s"
+                                     boobank-ledger-file
+                                     (car acc)
+                                     (cdr acc)
+                                     fid)
+                             t))))))
 
 (use-package prodigy
   :config
