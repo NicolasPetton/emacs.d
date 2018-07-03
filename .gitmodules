@@ -19,6 +19,9 @@
 [submodule "async"]
 	path = lib/async
 	url = git@github.com:jwiegley/emacs-async.git
+[submodule "auctex"]
+	path = lib/auctex
+	url = https://git.savannah.gnu.org/git/auctex.git
 [submodule "auth-password-store"]
 	path = lib/auth-password-store
 	url = git@github.com:DamienCassou/auth-password-store.git
@@ -163,6 +166,9 @@
 [submodule "flycheck"]
 	path = lib/flycheck
 	url = git@github.com:flycheck/flycheck.git
+[submodule "flycheck-ledger"]
+	path = lib/flycheck-ledger
+	url = git@github.com:purcell/flycheck-ledger.git
 [submodule "flyspell-correct"]
 	path = lib/flyspell-correct
 	url = git@github.com:d12frosted/flyspell-correct.git
@@ -213,6 +219,9 @@
 [submodule "hierarchy"]
 	path = lib/hierarchy
 	url = git@github.com:DamienCassou/hierarchy.git
+[submodule "htmlize"]
+	path = lib/htmlize
+	url = git@github.com:hniksic/emacs-htmlize.git
 [submodule "hydra"]
 	path = lib/hydra
 	url = git@github.com:abo-abo/hydra.git
