@@ -143,9 +143,9 @@
  '(ledger-report-use-native-highlighting t)
  '(ledger-reports
    (quote
-    (("AOM days" "ledger --explicit --pedantic --real --related --invert [[ledger-mode-flags]] reg ^expenses -f /home/nico/org/reference/ledger/journal.ledger -S -d")
-     ("Monthly cash flow" "ledger --explicit --pedantic --real [[ledger-mode-flags]] reg ^assets:bank -f /home/nico/org/reference/ledger/journal.ledger --monthly --collapse")
-     ("Monthly balance" "ledger --explicit --pedantic --real [[ledger-mode-flags]] -f /home/nico/org/reference/ledger/journal.ledger reg  ^assets ^liabilities ^equity --monthly --collapse")
+    (("AOM days" "ledger --explicit --pedantic --real --related --invert [[ledger-mode-flags]] reg ^expenses -f %(ledger-file) -S -d")
+     ("Monthly cash flow" "ledger --explicit --pedantic --real [[ledger-mode-flags]] reg ^assets:bank -f %(ledger-file) --monthly --collapse")
+     ("Monthly balance" "ledger --explicit --pedantic --real [[ledger-mode-flags]] -f %(ledger-file) reg  ^assets ^liabilities ^equity --monthly --collapse")
      ("Cash Flow" "%(binary) --explicit --pedantic --real --related --invert [[ledger-mode-flags]] reg ^assets:bank -f %(ledger-file) -p \"this month\"")
      ("Vacations" "%(binary) --explicit --pedantic [[ledger-mode-flags]] reg -f %(ledger-file) ^Assets:Vacation")
      ("Income statement" "%(binary) --explicit --pedantic --invert --real -S T [[ledger-mode-flags]] -f %(ledger-file) bal ^income ^expenses -p \"this month\"")
