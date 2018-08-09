@@ -375,7 +375,8 @@ be global."
   :config (progn
             (ivy-mode 1)
             (setq ivy-use-virtual-buffers t)
-            (setq ivy-count-format "(%d/%d) ")))
+            (setq ivy-count-format "(%d/%d) ")
+            (setq ivy-use-selectable-prompt t)))
 
 (progn ;    `isearch'
   (setq isearch-allow-scroll t))
@@ -719,6 +720,11 @@ be global."
 (use-package uniquify
   :config
   (setq uniquify-buffer-name-style 'forward))
+
+(use-package url-vars
+  :init
+  (progn
+    (setq url-privacy-level 'paranoid)))
 
 (use-package web-mode
   :init
