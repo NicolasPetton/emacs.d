@@ -124,6 +124,9 @@
 [submodule "elbank"]
 	path = lib/elbank
 	url = git@gitlab.petton.fr:nico/elbank.git
+[submodule "elcouch"]
+	path = lib/elcouch
+	url = git@github.com:DamienCassou/elcouch.git
 [submodule "elisp-refs"]
 	path = lib/elisp-refs
 	url = git@github.com:Wilfred/refs.el.git
@@ -227,7 +230,7 @@
 	url = git@github.com:abo-abo/hydra.git
 [submodule "indium"]
 	path = lib/indium
-	url = git@github.com:NicolasPetton/Indium.git
+	url = git@gitlab.petton.fr:nico/Indium.git
 	info-path = doc
 [submodule "ivy"]
 	path = lib/ivy
@@ -272,6 +275,9 @@
 [submodule "less-css-mode"]
 	path = lib/less-css-mode
 	url = git@github.com:purcell/less-css-mode.git
+[submodule "libelcouch"]
+	path = lib/libelcouch
+	url = git@github.com:DamienCassou/libelcouch.git
 [submodule "list-utils"]
 	path = lib/list-utils
 	url = git@github.com:rolandwalker/list-utils.git
@@ -409,6 +415,9 @@
 [submodule "realgud-byebug"]
 	path = lib/realgud-byebug
 	url = git@github.com:rocky/realgud-byebug.git
+[submodule "realgud-node-inspect"]
+	path = lib/realgud-node-inspect
+	url = https://github.com/realgud/realgud-node-inspect.git
 [submodule "request"]
 	path = lib/request
 	url = git@github.com:tkf/emacs-request.git
