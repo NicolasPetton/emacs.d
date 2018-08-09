@@ -215,5 +215,11 @@ Append OUTPUT to the PROCESS buffer, and lock the screen when there is output."
 (exwm-input-set-key (kbd "<s-right>") #'buf-move-right)
 (exwm-input-set-key (kbd "s-!") #'counsel-linux-app)
 (exwm-input-set-key (kbd "C-'") #'shell-switcher-switch-buffer)
+(exwm-input-set-key (kbd "C-;") #'other-window)
+(exwm-input-set-key (kbd "s-;") #'other-frame)
+
+(exwm-input-set-key (kbd "C-|") #'winner-undo)
+
+(exwm-input-set-key (kbd "M-N") #'notmuch)
 
 (provide 'init-exwm)
