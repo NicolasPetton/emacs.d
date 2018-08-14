@@ -28,7 +28,9 @@
 (require 'seq)
 (require 'password-store)
 (require 'org-pomodoro)
+(require 'htmlize)
 
+;;;###autoload
 (defun work-start ()
   "Start the work day."
   (interactive)
@@ -42,6 +44,7 @@
     (start-process-shell-command "nightly" nil "nightly")
     (mount-backup-disk)))
 
+;;;###autoload
 (defun work-stop ()
   "End of the day!"
   (interactive)
@@ -55,6 +58,7 @@
     (save-some-buffers)
     (umount-backup-disk)))
 
+;;;###autoload
 (defun work-lunch ()
   "Stop the clock for lunch."
   (interactive)
@@ -64,6 +68,7 @@
     (slack-set-away)
     (slack-say (seq-random-elt messages))))
 
+;;;###autoload
 (defun work-back-from-lunch ()
   "Start the clock again when coming back from lunch."
   (interactive)
@@ -74,6 +79,7 @@
     (slack-set-active)
     (slack-say (seq-random-elt messages))))
 
+;;;###autoload
 (defun work-coffee ()
   "Send a \"Coffee break\"-like message on #general."
   (interactive)
@@ -116,6 +122,7 @@ Use CHANNEL if non-nil of the general channel if nil."
   "Set the slack presence to active."
   (slack-set-presence "active"))
 
+;;;###autoload
 (defun work-clock-in ()
   (interactive)
   (with-current-buffer (find-file-noselect "~/org/gtd.org")
@@ -125,6 +132,7 @@ Use CHANNEL if non-nil of the general channel if nil."
         (goto-char (org-find-entry-with-id "work-clock"))
         (org-clock-in)))))
 
+;;;###autoload
 (defun work-clock-out ()
   (interactive)
   (with-current-buffer (find-file-noselect "~/org/gtd.org")
@@ -150,12 +158,14 @@ Use CHANNEL if non-nil of the general channel if nil."
                 org-pomodoro-finished-hook))
   (add-hook hook #'work-slack-say-pomodoro-finished))
 
+;;;###autoload
 (defun mount-backup-disk ()
   (interactive)
   (start-process-shell-command "mount-backup.sh"
 			       "*mount-backup*"
 			       (executable-find "mount-backup.sh")))
 
+;;;###autoload
 (defun umount-backup-disk ()
   (interactive)
   (start-process-shell-command "umount-backup.sh"
@@ -172,6 +182,28 @@ Use CHANNEL if non-nil of the general channel if nil."
     (insert (format "subject: %s\n--text follows this line--\n" subject))
     (insert body)
     (message-send-mail)))
+
+;;;###autoload
+(defun send-budget-email ()
+  (interactive)
+  (let ((ledger-file "~/org/reference/ledger/journal.ledger")
+	(budget-filename (format "/tmp/%s"(make-temp-name "ledger-budget")))
+	(html-filename (format "/tmp/%s.html" (make-temp-name "budget-html"))))
+    (with-current-buffer (find-file-noselect ledger-file)
+      (ledger-report "Budget" nil))
+    (with-current-buffer "*Ledger Report*"
+      (write-file budget-filename))
+    (htmlize-file budget-filename html-filename)
+    (let ((from "nicolas@petton.fr")
+	  (to "aurelia@saout.fr")
+	  (subject (format "Budget %s" (format-time-string "%d/%m/%Y"))))
+      (with-temp-buffer
+	(insert (format "From: %s\n" from))
+	(insert (format "to: %s\n" to))
+	(insert (format "subject: %s\n--text follows this line--\n" subject))
+	(insert (format "<#part type=\"text/html\" filename=\"%s\" disposition=attachment><#/part>"
+			html-filename))
+	(message-send-mail)))))
 
 (provide 'workflow)
 ;;; workflow.el ends here
