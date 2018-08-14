@@ -246,6 +246,10 @@
   :demand t
   :config (electric-indent-mode t))
 
+(use-package embrace
+  :bind (("C-c e" . embrace-commander))
+  :hook (emacs-lisp-mode . embrace-emacs-lisp-mode-hook))
+
 (use-package erc
   :init (progn
           (setq erc-nick "NicolasPetton"
@@ -318,9 +322,6 @@
 
 (use-package flyspell-correct-ivy
   :bind* (("C-." . flyspell-correct-word-generic)))
-
-(use-package geiser
-  :demand t)
 
 (use-package gnus-dired
   :bind (:map gnus-dired-mode-map
@@ -431,6 +432,8 @@ be global."
            (magit-add-section-hook 'magit-status-sections-hook
                                    'magit-insert-modules
                                    'magit-insert-unpulled-from-upstream)
+           (magit-define-popup-action 'magit-commit-popup
+             ?x "Absorb" #'magit-commit-absorb-popup)
            (setq magit-branch-prefer-remote-upstream '("master"))
            (setq magit-branch-adjust-remote-upstream-alist '(("origin/master" "master")))
            (setq magit-branch-arguments nil)))
@@ -593,16 +596,21 @@ be global."
   :config (progn
             (pdf-tools-install)))
 
-(use-package projectile
+(use-package counsel-projectile
   :demand t
+  :after projectile
   :config (progn
-            (projectile-mode)
-            (require 'counsel-projectile)
             (counsel-projectile-mode)
             (define-key projectile-mode-map
               [remap projectile-ag]
-              #'counsel-projectile-rg)
+              #'counsel-projectile-rg)))
 
+(use-package projectile
+  :demand t
+  :bind (:map projectile-mode-map
+              ("C-c p" . projectile-command-map))
+  :config (progn
+            (projectile-mode)
             (projectile-register-project-type
              'monitor
              '("gulpfile.js")
