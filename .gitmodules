@@ -139,6 +139,9 @@
 	path = lib/emacsql
 	url = git@github.com:skeeto/emacsql.git
 	no-byte-compile = emacsql-pg.el
+[submodule "embrace"]
+	path = lib/embrace
+	url = git@github.com:cute-jumper/embrace.el.git
 [submodule "epkg"]
 	path = lib/epkg
 	url = git@github.com:emacscollective/epkg.git
@@ -203,7 +206,7 @@
 	url = git@github.com:magit/git-modes.git
 [submodule "git-timemachine"]
 	path = lib/git-timemachine
-	url = git@github.com:pidu/git-timemachine.git
+	url = https://gitlab.com/pidu/git-timemachine.git
 [submodule "gnome-calendar"]
 	path = lib/gnome-calendar
 	url = git@github.com:NicolasPetton/gnome-calendar.el.git
@@ -430,6 +433,9 @@
 [submodule "s"]
 	path = lib/s
 	url = git@github.com:magnars/s.el.git
+[submodule "sesman"]
+	path = lib/sesman
+	url = git@github.com:vspinu/sesman.git
 [submodule "shell-switcher"]
 	path = lib/shell-switcher
 	url = git@github.com:DamienCassou/shell-switcher.git
