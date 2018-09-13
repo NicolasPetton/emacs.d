@@ -1,9 +1,16 @@
 ;;; init.el --- init-file for blueberry           -*- lexical-binding: t -*-
 
-(use-package epa
-  :config
-  (progn
-    (setq epa-pinentry-mode 'loopback)))
+;; (use-package epa
+;;   :config
+;;   (progn
+;;     (setq epa-pinentry-mode 'loopback)))
+
+(use-package vdirel
+  :after message
+  :bind (:map message-mode-map
+              ("C-c TAB" . vdirel-helm-select-email))
+  :init (progn
+          (setq vdirel-repository "~/org/contacts/contacts")))
 
 (use-package epg
   :demand t
@@ -18,7 +25,8 @@
         (string-trim
          (shell-command-to-string "gpgconf --list-dirs agent-ssh-socket")))
     ;; Use pinentry-emacs
-    (pinentry-start)))
+    ;; (pinentry-start)
+    ))
 
 (use-package init-org
   :demand t)
@@ -36,7 +44,10 @@
   :demand t
   :after (flycheck ledger-mode)
   :init (progn
-          (add-hook 'ledger-mode-hook #'flycheck-mode)))
+          (add-hook 'ledger-mode-hook #'flycheck-mode)
+          (setq flycheck-ledger-zero-accounts '("Assets:Budget:Available"
+                                                "Assets:Budget:Unbudgeted"
+                                                "Assets:Expenses:InternalTransfer"))))
 
 (use-package ledger
   :init (progn

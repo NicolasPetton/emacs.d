@@ -1,7 +1,6 @@
 (require 'org)
 (require 'org-element)
 (require 'org-pomodoro)
-(require 'org-contacts)
 (require 'org-drill)
 (require 'org-jira-protocol)
 (require 'org-gogs-protocol)
@@ -29,7 +28,6 @@
 (define-key global-map "\C-cc" #'org-capture)
 (define-key global-map "\C-cp" #'org-pomodoro)
 (define-key org-mode-map (kbd "C-c C-j") #'avy-goto-word-1)
-(define-key org-mode-map (kbd "C-c M-m") #'org-contacts-view-send-email)
 (define-key org-agenda-mode-map (kbd "C-c C-j") #'avy-goto-word-1)
 (define-key org-mode-map (kbd "M-i") #'nico-org-imenu)
 
@@ -57,13 +55,15 @@ buffer to the matched subtree."
 (setq org-agenda-files `(,org-default-notes-file
                          ,nico/org-agenda-file
                          "~/org/gtd.org"
+			 "~/org/shared.org"
                          "~/org/tickler.org"))
 
 (setq org-refile-targets `(("~/org/gtd.org" :maxlevel . 3)
                            ("~/org/someday.org" :level . 1)
                            (,nico/org-agenda-file :level . 1)
                            ("~/org/tickler.org" :maxlevel . 2)
-                           ("~/org/inbox.org" :maxlevel . 1)))
+                           ("~/org/inbox.org" :maxlevel . 1)
+			   ("~/org/shared.org" :maxlevel . 1)))
 
 (defun nico/find-notes-file ()
   (interactive)
@@ -101,12 +101,6 @@ buffer to the matched subtree."
 (add-to-list 'org-capture-templates
 	     '("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler")
                "* %i%? \nSCHEDULED: %^t"))
-(add-to-list 'org-capture-templates
-             '("c" "Contacts" entry (file "~/org/contacts.org")
-               "* %(org-contacts-template-name)
-:PROPERTIES:
-:EMAIL: %(org-contacts-template-email)
-:END:"))
 
 (defvar french-holiday
   '((holiday-fixed 1 1 "Jour de l'an")

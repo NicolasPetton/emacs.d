@@ -1,14 +1,13 @@
 (require 'notmuch)
 (require 'seq)
 (require 'org-notmuch)
+(require 'org-caldav)
 (require 'fetch-email)
 (require 'alert)
 (require 'yasnippet)
 (require 'debbugs)
 
 (setq-default notmuch-command (expand-file-name "~/.emacs.d/lib/notmuch/notmuch"))
-
-;; For existing org links, load mu4e anyway
 
 ;; use notmuch for sending emails
 (global-set-key (kbd "C-x m") #'notmuch-mua-new-mail)
@@ -195,6 +194,22 @@ I.e., the keyring has a public key for each recipient."
 (define-key notmuch-show-part-map "w" #'nico-notmuch-view-part-in-webkit)
 (define-key notmuch-show-part-map "p" #'nico-notmuch-apply-git-patch)
 (define-key notmuch-show-part-map "a" #'nico-notmuch-git-am-patch)
+(define-key notmuch-show-part-map "d" #'nico-notmuch-show-ics-to-org-part)
+
+(defun nico-mm-ics-to-org-part (handle &optional prompt)
+  "Add message part HANDLE to org."
+  (ignore prompt)
+  (mm-with-unibyte-buffer
+    (mm-insert-part handle)
+    (mm-add-meta-html-tag handle)
+    (require 'org-caldav)
+    (let ((org-caldav-inbox "~/org/agenda.org"))
+     (org-caldav-import-ics-buffer-to-org))))
+
+(defun nico-notmuch-show-ics-to-org-part ()
+  "Save the .ics MIME part containing point to an org file."
+  (interactive)
+  (notmuch-show-apply-to-current-part-handle #'nico-mm-ics-to-org-part))
 
 (defun nico-notmuch-view-part-in-emacs ()
   "View the MIME part containing point from within Emacs."

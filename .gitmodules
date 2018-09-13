@@ -219,6 +219,9 @@
 [submodule "gulp-task-runner"]
 	path = lib/gulp-task-runner
 	url = git@github.com:NicolasPetton/gulp-task-runner.git
+[submodule "helm"]
+	path = lib/helm
+	url = git@github.com:emacs-helm/helm.git
 [submodule "helpful"]
 	path = lib/helpful
 	url = git@github.com:Wilfred/helpful.git
@@ -348,15 +351,9 @@
 	info-path = doc
 	url = https://code.orgmode.org/bzg/org-mode.git
 	build-step = make compile autoloads info
-[submodule "org-caldav"]
-	path = lib/org-caldav
-	url = git@github.com:dengste/org-caldav.git
 [submodule "org-pomodoro"]
 	path = lib/org-pomodoro
 	url = git@github.com:lolownia/org-pomodoro.git
-[submodule "org-vcard"]
-	path = lib/org-vcard
-	url = git@github.com:flexibeast/org-vcard.git
 [submodule "ox-twbs"]
 	path = lib/ox-twbs
 	url = git@github.com:marsmining/ox-twbs.git
@@ -498,6 +495,9 @@
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
+[submodule "vdirel"]
+	path = lib/vdirel
+	url = git@github.com:DamienCassou/vdirel.git
 [submodule "web-mode"]
 	path = lib/web-mode
 	url = git@github.com:fxbois/web-mode.git

@@ -522,51 +522,6 @@ be global."
 (use-package open-url-at-point
   :bind ("C-c C-o" . open-url-at-point))
 
-(use-package org-vcard
-  :init (progn
-          (setq org-vcard-default-export-file (expand-file-name "~/org/contacts.vcf"))
-          (setq org-vcard-default-property-for-heading "N")
-          (setq org-vcard-default-version "3.0")
-          (setq org-vcard-styles-languages-mappings
-                '(("flat" (("en" (("3.0" (("ADDRESS" . "ADR;TYPE=HOME")
-			                  ("ADDRESS_HOME" . "ADR;TYPE=home")
-			                  ("ADDRESS_WORK" . "ADR;TYPE=work")
-			                  ("ALIAS" . "NICKNAME")
-			                  ("BIRTHDAY" . "BDAY")
-			                  ("CATEGORIES" . "CATEGORIES")
-			                  ("CELL" . "TEL;TYPE=cell")
-			                  ("CELL_HOME" . "TEL;TYPE=cell,home")
-			                  ("CELL_WORK" . "TEL;TYPE=cell,work")
-			                  ("EMAIL" . "EMAIL")
-			                  ("EMAIL_HOME" . "EMAIL;TYPE=home")
-			                  ("EMAIL_WORK" . "EMAIL;TYPE=work")
-			                  ("FAX" . "TEL;TYPE=fax")
-			                  ("FAX_HOME" . "TEL;TYPE=fax,home")
-			                  ("FAX_WORK" . "TEL;TYPE=fax,work")
-			                  ("ICON" . "PHOTO")
-			                  ("IMPP" . "IMPP:sip")
-			                  ("IMPP_HOME" . "IMPP:sip;TYPE=home")
-			                  ("IMPP_WORK" . "IMPP:sip;TYPE=work")
-			                  ("LANDLINE" . "TEL;TYPE=voice")
-			                  ("LANDLINE_HOME" . "TEL;TYPE=voice,home")
-			                  ("LANDLINE_WORK" . "TEL;TYPE=voice,work")
-			                  ("MOBILE" . "TEL;TYPE=cell")
-			                  ("MOBILE_HOME" . "TEL;TYPE=cell,home")
-			                  ("MOBILE_WORK" . "TEL;TYPE=cell,work")
-			                  ("N" . "N")
-			                  ("NICKNAME" . "NICKNAME")
-			                  ("NOTE" . "NOTE")
-			                  ("ORG" . "ORG")
-			                  ("PHONE" . "TEL")
-			                  ("PHONE" . "TEL;TYPE=voice")
-			                  ("PHONE_HOME" . "TEL;TYPE=voice,home")
-			                  ("PHONE_WORK" . "TEL;TYPE=voice,work")
-			                  ("PHOTO" . "PHOTO")
-			                  ("ROLE" . "ROLE")
-			                  ("TITLE" . "TITLE")
-			                  ("URL" . "URL")
-			                  ("VERSION" . "VERSION")))))))))))
-
 (use-package ox-twbs
   :demand t
   :after org)
@@ -732,7 +687,7 @@ be global."
 (use-package url-vars
   :init
   (progn
-    (setq url-privacy-level 'paranoid)))
+    (setq url-privacy-level 'high)))
 
 (use-package web-mode
   :init

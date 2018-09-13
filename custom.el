@@ -324,7 +324,6 @@
  '(org-clock-persist t)
  '(org-columns-default-format "%60ITEM(Task) %10Effort(Estimated Effort){:} %10CLOCKSUM")
  '(org-completion-use-ido t)
- '(org-contacts-files (quote ("~/org/contacts.org")))
  '(org-deadline-warning-days 10)
  '(org-default-notes-file "~/org/inbox.org")
  '(org-ditaa-jar-path "~/bin/ditaa/ditaa.jar")
