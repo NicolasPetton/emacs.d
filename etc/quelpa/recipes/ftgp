@@ -1,0 +1,1 @@
+(ftgp :fetcher git :url "git@gitlab.petton.fr:ftgp/emacs.git")

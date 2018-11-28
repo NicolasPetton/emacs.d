@@ -1,3 +1,9 @@
+(require 'cl-lib)
+
+;; For org-drill
+(unless (fboundp 'copy-list)
+ (defalias 'copy-list #'cl-copy-list))
+
 (require 'org)
 (require 'org-element)
 (require 'org-pomodoro)

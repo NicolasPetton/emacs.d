@@ -34,8 +34,8 @@
 (use-package init-notmuch
   :demand t)
 
-(use-package init-exwm
-  :demand t)
+;; (use-package init-exwm
+;;   :demand t)
 
 (use-package flycheck-ledger
   :demand t

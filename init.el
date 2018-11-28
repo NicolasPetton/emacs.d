@@ -1,7 +1,15 @@
 ;;; init.el --- user-init-file                    -*- lexical-binding: t -*-
-;;; Early birds
+
+;; Bootstrap quelpa
+;; (package-initialize)
+;; (unless (require 'quelpa nil t)
+;;   (with-temp-buffer
+;;     (url-insert-file-contents "https://framagit.org/steckerhalter/quelpa/raw/master/bootstrap.el")
+;;     (eval-buffer)))
 
 (progn ;     startup
+  (package-initialize)
+  (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
   (defvar before-user-init-time (current-time)
     "Value of `current-time' when Emacs begins loading `user-init-file'.")
   (message "Loading Emacs...done (%.3fs)"
@@ -10,7 +18,6 @@
   (setq user-init-file (or load-file-name buffer-file-name))
   (setq user-emacs-directory (file-name-directory user-init-file))
   (message "Loading %s..." user-init-file)
-  (setq package-enable-at-startup nil)
   (setq inhibit-startup-buffer-menu t)
   (setq inhibit-startup-screen t)
   (setq inhibit-startup-echo-area-message "locutus")
@@ -23,11 +30,6 @@
   (menu-bar-mode 0)
   (delete-selection-mode 1)
   (column-number-mode 1))
-
-(progn ;    `borg'
-  (add-to-list 'load-path (expand-file-name "lib/borg" user-emacs-directory))
-  (require  'borg)
-  (borg-initialize))
 
 (progn ;    `use-package'
   (require  'use-package)
@@ -52,10 +54,6 @@
   :demand t
   :config (progn
             (bash-completion-setup)))
-
-(use-package epkg
-  :init (setq epkg-repository
-              (expand-file-name "var/epkgs/" user-emacs-directory)))
 
 (use-package custom
   :config
@@ -578,6 +576,11 @@ be global."
   (defun indicate-buffer-boundaries-left ()
     (setq indicate-buffer-boundaries 'left))
   (add-hook 'prog-mode-hook #'indicate-buffer-boundaries-left))
+
+(use-package quelpa
+  :config (progn
+          (setq quelpa-upgrade-p t)
+          (add-to-list 'quelpa-melpa-recipe-stores "~/.emacs.d/etc/quelpa/recipes/")))
 
 (use-package rainbow-mode
   :init
