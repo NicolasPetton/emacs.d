@@ -1,7 +1,6 @@
 (require 'notmuch)
 (require 'seq)
 (require 'org-notmuch)
-(require 'org-caldav)
 (require 'fetch-email)
 (require 'alert)
 (require 'yasnippet)

@@ -208,4 +208,17 @@ buffer to the matched subtree."
 (setq appt-disp-window-function #'appt-disp-window)
 (setq appt-display-mode-line t)
 
+;; Caldav
+
+(use-package org-caldav
+  :bind (("C-c S"   . org-caldav-sync))
+  :config
+  (progn
+    (setq org-caldav-url "https://nico@petton.fr/nextcloud/remote.php/dav/calendars/nico"
+	  org-caldav-calendar-id "personal"
+	  org-caldav-inbox "~/org/shared.org"
+	  org-caldav-files '()
+	  org-icalendar-timezone "Europe/Paris"
+	  org-caldav-sync-changes-to-org 'all)))
+
 (provide 'init-org)
