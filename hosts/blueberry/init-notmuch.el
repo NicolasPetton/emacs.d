@@ -6,8 +6,6 @@
 (require 'yasnippet)
 (require 'debbugs)
 
-(setq-default notmuch-command (expand-file-name "~/.emacs.d/lib/notmuch/notmuch"))
-
 ;; use notmuch for sending emails
 (global-set-key (kbd "C-x m") #'notmuch-mua-new-mail)
 
