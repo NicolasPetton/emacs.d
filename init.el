@@ -274,8 +274,6 @@
 (use-package em-term
   :config
   (progn
-    (nconc eshell-visual-commands
-           '("bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh"))
     (nconc eshell-visual-subcommands
            '(("docker" "build")
              ("git" "log" "diff" "show")
