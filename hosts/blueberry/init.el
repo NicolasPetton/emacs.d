@@ -48,41 +48,7 @@
 
 (use-package ledger
   :init (progn
-          (add-hook 'ledger-mode-hook #'company-mode)
-
-          (defvar boobank-ledger-accounts nil
-            "Alist of Boobank-account-id -> Ledger account used when importing from Boobank.")
-          (defvar boobank-ledger-file nil
-            "Path to the ledger file.")
-          (defvar boobank-ledger-import-since "2018-05-30")
-
-          (defun boobank-ledger-import ()
-            "Import transactions from boobank in Ledger format using \"ledger-autosync\"."
-            (interactive)
-            (let ((fid "10"))
-              (switch-to-buffer (get-buffer-create "*ledger sync*"))
-              (erase-buffer)
-              (ledger-mode)
-              (dolist (acc boobank-ledger-accounts)
-                (goto-char (point-max))
-                (message "Fetching transactions for account %s" (car acc))
-                (shell-command (format "boobank -f ofx history %s %s > /tmp/%s"
-                                       (car acc)
-                                       boobank-ledger-import-since
-                                       (car acc)))
-                (with-current-buffer (find-file-noselect (format "/tmp/%s" (car acc)))
-                  (save-match-data
-                    (while (re-search-forward "[^[:ascii:]]" nil t)
-                      (replace-match ""))
-                    (save-buffer)
-                    (kill-buffer)))
-              (message "Converting transactions for account %s" (car acc))
-              (shell-command (format "ledger-autosync --assertions -l %s /tmp/%s -a %s --fid %s"
-                                     boobank-ledger-file
-                                     (car acc)
-                                     (cdr acc)
-                                     fid)
-                             t))))))
+          (add-hook 'ledger-mode-hook #'company-mode)))
 
 (use-package prodigy
   :config

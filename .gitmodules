@@ -216,6 +216,9 @@
 [submodule "gpastel"]
 	path = lib/gpastel
 	url = git@github.com:DamienCassou/gpastel.git
+[submodule "graphql"]
+	path = lib/graphql
+	url = git@github.com:vermiculus/graphql.el.git
 [submodule "grunt"]
 	path = lib/grunt
 	url = git@github.com:gempesaw/grunt.el.git
@@ -281,6 +284,9 @@
 	path = lib/know-your-http-well
 	load-path = emacs
 	url = git@github.com:for-GET/know-your-http-well.git
+[submodule "ledger-import"]
+	path = lib/ledger-import
+	url = git@github.com:DamienCassou/ledger-import.git
 [submodule "ledger-mode"]
 	path = lib/ledger-mode
 	url = git@github.com:ledger/ledger-mode.git
@@ -501,6 +507,9 @@
 [submodule "transmission"]
 	path = lib/transmission
 	url = git@github.com:holomorph/transmission.git
+[submodule "treepy"]
+	path = lib/treepy
+	url = git@github.com:volrath/treepy.el.git
 [submodule "typescript-mode"]
 	path = lib/typescript-mode
 	url = git@github.com:ananthakumaran/typescript.el.git
@@ -540,9 +549,3 @@
 [submodule "zoom-frm"]
 	path = lib/zoom-frm
 	url = git@github.com:emacsmirror/zoom-frm.git
-[submodule "graphql"]
-	path = lib/graphql
-	url = git@github.com:vermiculus/graphql.el.git
-[submodule "treepy"]
-	path = lib/treepy
-	url = git@github.com:volrath/treepy.el.git
