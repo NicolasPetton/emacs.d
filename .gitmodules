@@ -540,3 +540,9 @@
 [submodule "zoom-frm"]
 	path = lib/zoom-frm
 	url = git@github.com:emacsmirror/zoom-frm.git
+[submodule "graphql"]
+	path = lib/graphql
+	url = git@github.com:vermiculus/graphql.el.git
+[submodule "treepy"]
+	path = lib/treepy
+	url = git@github.com:volrath/treepy.el.git
