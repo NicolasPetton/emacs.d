@@ -210,6 +210,9 @@
 [submodule "gnome-calendar"]
 	path = lib/gnome-calendar
 	url = git@github.com:NicolasPetton/gnome-calendar.el.git
+[submodule "gnuplot"]
+	path = lib/gnuplot
+	url = git@github.com:bruceravel/gnuplot-mode.git
 [submodule "gpastel"]
 	path = lib/gpastel
 	url = git@github.com:DamienCassou/gpastel.git
@@ -268,6 +271,9 @@
 [submodule "justify-kp"]
 	path = lib/justify-kp
 	url = git@github.com:Fuco1/justify-kp.git
+[submodule "khardel"]
+	path = lib/khardel
+	url = https://gitlab.petton.fr/DamienCassou/khardel.git
 [submodule "klassified"]
 	path = lib/klassified
 	url = https://github.com/DamienCassou/klassified.el.git
@@ -351,9 +357,15 @@
 	info-path = doc
 	url = https://code.orgmode.org/bzg/org-mode.git
 	build-step = make compile autoloads info
+[submodule "org-caldav"]
+	path = lib/org-caldav
+	url = git@github.com:dengste/org-caldav.git
 [submodule "org-pomodoro"]
 	path = lib/org-pomodoro
 	url = git@github.com:lolownia/org-pomodoro.git
+[submodule "org-vcard"]
+	path = lib/org-vcard
+	url = git@github.com:flexibeast/org-vcard.git
 [submodule "ox-twbs"]
 	path = lib/ox-twbs
 	url = git@github.com:marsmining/ox-twbs.git
@@ -495,9 +507,6 @@
 [submodule "use-package"]
 	path = lib/use-package
 	url = git@github.com:jwiegley/use-package.git
-[submodule "vdirel"]
-	path = lib/vdirel
-	url = git@github.com:DamienCassou/vdirel.git
 [submodule "web-mode"]
 	path = lib/web-mode
 	url = git@github.com:fxbois/web-mode.git

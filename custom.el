@@ -74,7 +74,7 @@
  '(eshell-history-size 1000)
  '(eshell-visual-commands
    (quote
-    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
+    ("vim" "tail" "htop" "ssh" "vi" "screen" "top" "less" "more" "lynx" "ncftp" "pine" "tin" "trn" "elm" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh" "bower" "htop" "jest" "ncdu" "npm" "pinentry-curses" "tail" "top" "vim" "watch" "yarn" "ssh")))
  '(fci-rule-color "#073642")
  '(fetch-email-interval 600)
  '(fill-column 80)
@@ -135,17 +135,39 @@
  '(ledger-report-use-native-highlighting t)
  '(ledger-reports
    (quote
-    (("Budget" "%(binary) bal -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --empty -S -T ^assets:budget --balance-format='%(ansify_if(justify(scrub(display_total), 20, 20 + int(prepend_width), true, color), bold if should_bold)) %-(ansify_if(ansify_if(justify(depth_spacer + partial_account(), 30, 30, false, color), blue if color), bold if should_bold)) %(ansify_if(note, yellow if color)) \\n%/ %$1\\n%/ %(prepend_width ? \" \" * int(prepend_width) : \"\") --------------------\\n'")
-     ("Monthly expenses" "%(binary) reg -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --real ^expenses --monthly --collapse")
-     ("AOM days" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^expenses -S -d")
-     ("Monthly cash flow" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^assets:bank --monthly --collapse")
-     ("Monthly balance" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real  ^assets ^liabilities ^equity --monthly --collapse")
-     ("Cash Flow" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^assets:bank -p %(month)")
-     ("Vacations" "%(binary) reg -f %(ledger-file) --explicit --pedantic ^Assets:Vacation")
-     ("Income statement" "%(binary) bal -f %(ledger-file) --explicit --pedantic --invert --real -S T ^income ^expenses -p %(month)")
-     ("Balance sheet" "%(binary) bal -f %(ledger-file) --explicit --pedantic --real ^assets ^liabilities ^equity")
-     ("Account statement" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^%(account)")
-     ("Equity" "%(binary) equity -f %(ledger-file) --explicit --pedantic --real"))))
+    ((#("Budget" 0 1
+	(idx 3))
+      "%(binary) bal -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --empty -S -T ^assets:budget --balance-format='%(ansify_if(justify(scrub(display_total), 20, 20 + int(prepend_width), true, color), bold if should_bold)) %-(ansify_if(ansify_if(justify(depth_spacer + partial_account(), 30, 30, false, color), blue if color), bold if should_bold)) %(ansify_if(note, yellow if color)) \\n%/ %$1\\n%/ %(prepend_width ? \" \" * int(prepend_width) : \"\") --------------------\\n'")
+     (#("Monthly expenses" 0 1
+	(idx 9))
+      "%(binary) reg -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --real ^expenses --monthly --collapse")
+     (#("AOM days" 0 1
+	(idx 0))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^expenses -S -d")
+     (#("Monthly cash flow" 0 1
+	(idx 8))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^assets:bank --monthly --collapse")
+     (#("Monthly balance" 0 1
+	(idx 7))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real  ^assets ^liabilities ^equity --monthly --collapse")
+     (#("Cash Flow" 0 1
+	(idx 4))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^assets:bank -p %(month)")
+     (#("Vacations" 0 1
+	(idx 10))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic ^Assets:Vacation")
+     (#("Income statement" 0 1
+	(idx 6))
+      "%(binary) bal -f %(ledger-file) --explicit --pedantic --invert --real -S T ^income ^expenses -p %(month)")
+     (#("Balance sheet" 0 1
+	(idx 2))
+      "%(binary) bal -f %(ledger-file) --explicit --pedantic --real ^assets ^liabilities ^equity")
+     (#("Account statement" 0 1
+	(idx 1))
+      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^%(account)")
+     (#("Equity" 0 1
+	(idx 5))
+      "%(binary) equity -f %(ledger-file) --explicit --pedantic --real"))))
  '(line-spacing nil)
  '(linum-format "%4d ")
  '(locate-ls-subdir-switches "-lhl")
@@ -1028,7 +1050,7 @@
 	   ("role" . "ROLE")
 	   ("title" . "TITLE")
 	   ("url" . "URL")
-	   ("version" . "VERSION"))))))))) t)
+	   ("version" . "VERSION"))))))))))
  '(pass-show-keybindings nil)
  '(password-cache-expiry 300)
  '(password-store-password-length 25)
