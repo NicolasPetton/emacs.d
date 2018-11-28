@@ -6,7 +6,7 @@
 (defvar nico-website-html-head
   "<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
 <link rel='stylesheet' href='https://code.cdn.mozilla.net/fonts/fira.css'>
-<link rel='stylesheet' href='css/site.css?v=2' type='text/css'/>
+<link rel='stylesheet' href='css/site.css?v=3' type='text/css'/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src='/js/jquery.js' type='text/javascript'></script>
 <link href='https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css' rel='stylesheet'>")
@@ -25,7 +25,7 @@
 (defvar nico-website-html-blog-head
   "<link href='/images/favicon.ico' rel='shortcut icon' type='image/x-icon'>
 <link rel='stylesheet' href='https://code.cdn.mozilla.net/fonts/fira.css'>
-<link rel='stylesheet' href='../css/site.css?v=2' type='text/css'/>
+<link rel='stylesheet' href='../css/site.css?v=3' type='text/css'/>
 <link rel='stylesheet' href='../css/blog.css?v=2' type='text/css'/>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 <script src='/js/jquery.js' type='text/javascript'></script>
@@ -43,10 +43,10 @@
 <li><a href='/'>Home</a>–</li>
 <li><a href='/blog/index.html'>Blog</a>–</li>
 <li><a href='https://emacs.cafe'>Emacs Café</a>–</li>
-<li><a href='https://petton.fr/git/nico'>GitLab</a>–</li>
-<li><a href='http://github.com/NicolasPetton'>GitHub</a>–</li>
-<li><a href='http://twitter.com/NicolasPetton'>Twitter</a>–</li>
-<li><a href='/contact.html'>Contact</a></li>
+<li><a href='/contact.html'>Contact</a>–</li>
+<li><a href='http://github.com/NicolasPetton'><i class=\"fa fa-github\"></i></a>–</li>
+<li><a href='http://instagram.com/nicolas_petton'><i class=\"fa fa-instagram\"></i></a>–</li>
+<li><a href='http://twitter.com/NicolasPetton'><i class=\"fa fa-twitter\"></i></a></li>
 </ul>
 </div>
 ")
