@@ -5,12 +5,9 @@
 ;;   (progn
 ;;     (setq epa-pinentry-mode 'loopback)))
 
-(use-package vdirel
-  :after message
+(use-package khardel
   :bind (:map message-mode-map
-              ("C-c TAB" . vdirel-helm-select-email))
-  :init (progn
-          (setq vdirel-repository "~/org/contacts/contacts")))
+              ("C-c TAB" . khardel-insert-email)))
 
 (use-package epg
   :demand t
