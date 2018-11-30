@@ -118,6 +118,7 @@
  '(indicate-buffer-boundaries (quote left))
  '(indicate-empty-lines nil)
  '(indium-chrome-executable "chromium-browser")
+ '(indium-client-executable "~/.emacs.d/quelpa/build/indium/server/bin/indium")
  '(indium-nodejs-inspect-brk t)
  '(interleave--org-notes-dir-list (quote (".")))
  '(jade-chrome-executable "chromium-browser")
