@@ -1,1 +1,3 @@
-(emacs-js :fetcher git :url "git@github.com:foretagsplatsen/emacs-js.git")
+(emacs-js :fetcher git
+	  :url "git@github.com:foretagsplatsen/emacs-js.git"
+	  :files (:defaults "snippets"))
