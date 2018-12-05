@@ -570,10 +570,11 @@ be global."
              :test-suffix "-tests")))
 
 (use-package prog-mode
-  :config (global-prettify-symbols-mode)
-  (defun indicate-buffer-boundaries-left ()
-    (setq indicate-buffer-boundaries 'left))
-  (add-hook 'prog-mode-hook #'indicate-buffer-boundaries-left))
+  :config (progn
+            (global-prettify-symbols-mode)
+            (defun indicate-buffer-boundaries-left ()
+              (setq indicate-buffer-boundaries 'left))
+            (add-hook 'prog-mode-hook #'indicate-buffer-boundaries-left)))
 
 (use-package quelpa
   :config (progn
@@ -581,9 +582,9 @@ be global."
           (add-to-list 'quelpa-melpa-recipe-stores "~/.emacs.d/etc/quelpa/recipes/")))
 
 (use-package rainbow-mode
-  :init
-  (add-hook 'css-mode-hook 'rainbow-mode)
-  (add-hook 'less-mode-hook 'rainbow-mode))
+  :init (progn
+          (add-hook 'css-mode-hook 'rainbow-mode)
+          (add-hook 'less-mode-hook 'rainbow-mode)))
 
 (use-package recentf
   :demand t
@@ -596,12 +597,11 @@ be global."
     (add-to-list 'recentf-exclude "^/\\(?:ssh\\|su\\|sudo\\)?:")
     (recentf-mode)))
 
-(use-package restclient
-  :config
-  (use-package company-restclient
-    :config
-    (add-to-list 'company-backend 'company-restclient)
-    (add-hook 'restclient-mode-hook #'company-mode-on)))
+(use-package company-restclient
+  :after restclient
+  :config (progn
+            (add-to-list 'company-backend 'company-restclient)
+            (add-hook 'restclient-mode-hook #'company-mode-on)))
 
 (use-package savehist
   :config (savehist-mode))
@@ -617,9 +617,9 @@ be global."
   :config (column-number-mode))
 
 (use-package slime
-  :config
-  (setq inferior-lisp-program "/usr/bin/sbcl")
-  (slime-setup))
+  :config (progn
+            (setq inferior-lisp-program "/usr/bin/sbcl")
+            (slime-setup)))
 
 (use-package subword
   :init (global-subword-mode))
@@ -643,14 +643,13 @@ be global."
          ("C-c C-t" . my/term-toggle-line-mode)
          :map term-raw-map
          ("C-c C-t" . my/term-toggle-line-mode))
-  :init
-  (progn
-    (defun my/term-toggle-line-mode ()
-      "Toggle between char and line modes."
-      (interactive)
-      (if (term-in-char-mode)
-          (term-line-mode)
-        (term-char-mode)))))
+  :init (progn
+          (defun my/term-toggle-line-mode ()
+            "Toggle between char and line modes."
+            (interactive)
+            (if (term-in-char-mode)
+                (term-line-mode)
+              (term-char-mode)))))
 
 (progn ;    `text-mode'
   (add-hook 'text-mode-hook #'indicate-buffer-boundaries-left))
@@ -691,16 +690,16 @@ be global."
     (setq url-privacy-level 'high)))
 
 (use-package web-mode
-  :init
-  (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.htm\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-  (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+  :init (progn
+          (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.htm\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+          (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode)))
 
   (setq web-mode-css-indent-offset 2))
 
