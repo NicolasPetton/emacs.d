@@ -145,4 +145,4 @@
 			nil "/home/nico/.emacs.d/etc/yasnippet/snippets/html-mode/table/table" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jul 28 15:00:24 2017
+;;; Do not edit! File generated at Sat Dec  1 14:41:41 2018

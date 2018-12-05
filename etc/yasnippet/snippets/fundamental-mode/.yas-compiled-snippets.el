@@ -7,4 +7,4 @@
 		       ("email" "`user-mail-address`ftgp" "(user's email)" nil nil nil "/home/nico/.emacs.d/etc/yasnippet/snippets/fundamental-mode/email" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jul 28 15:00:24 2017
+;;; Do not edit! File generated at Sat Dec  1 14:41:41 2018

@@ -23,4 +23,4 @@
 		       ("com" "(comment\n  $0\n  )" "com" nil nil nil "/home/nico/.emacs.d/etc/yasnippet/snippets/clojure-mode/com.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Fri Jul 28 15:00:24 2017
+;;; Do not edit! File generated at Sat Dec  1 14:41:40 2018
