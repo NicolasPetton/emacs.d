@@ -7,7 +7,13 @@
 
 (use-package khardel
   :bind (:map message-mode-map
-              ("C-c TAB" . khardel-insert-email)))
+              ("C-c TAB" . khardel-insert-email))
+  :config (progn
+            (defun my-vdirsyncer-sync ()
+              (message "Syncing contacts...")
+              (shell-command "vdirsyncer sync"))
+            (add-hook 'khardel-edit-finished-hook #'my-vdirsyncer-sync)
+            (add-hook 'khardel-edit-finished-hook #'khardel-flush-caches)))
 
 (use-package epg
   :demand t
