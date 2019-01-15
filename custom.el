@@ -136,39 +136,18 @@
  '(ledger-report-use-native-highlighting t)
  '(ledger-reports
    (quote
-    ((#("Budget" 0 1
-	(idx 3))
-      "%(binary) bal -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --empty -S -T ^assets:budget --balance-format='%(ansify_if(justify(scrub(display_total), 20, 20 + int(prepend_width), true, color), bold if should_bold)) %-(ansify_if(ansify_if(justify(depth_spacer + partial_account(), 30, 30, false, color), blue if color), bold if should_bold)) %(ansify_if(note, yellow if color)) \\n%/ %$1\\n%/ %(prepend_width ? \" \" * int(prepend_width) : \"\") --------------------\\n'")
-     (#("Monthly expenses" 0 1
-	(idx 9))
-      "%(binary) reg -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --real ^expenses --monthly --collapse")
-     (#("AOM days" 0 1
-	(idx 0))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^expenses -S -d")
-     (#("Monthly cash flow" 0 1
-	(idx 8))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^assets:bank --monthly --collapse")
-     (#("Monthly balance" 0 1
-	(idx 7))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real  ^assets ^liabilities ^equity --monthly --collapse")
-     (#("Cash Flow" 0 1
-	(idx 4))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^assets:bank -p %(month)")
-     (#("Vacations" 0 1
-	(idx 10))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic ^Assets:Vacation")
-     (#("Income statement" 0 1
-	(idx 6))
-      "%(binary) bal -f %(ledger-file) --explicit --pedantic --invert --real -S T ^income ^expenses -p %(month)")
-     (#("Balance sheet" 0 1
-	(idx 2))
-      "%(binary) bal -f %(ledger-file) --explicit --pedantic --real ^assets ^liabilities ^equity")
-     (#("Account statement" 0 1
-	(idx 1))
-      "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^%(account)")
-     (#("Equity" 0 1
-	(idx 5))
-      "%(binary) equity -f %(ledger-file) --explicit --pedantic --real"))))
+    (("Budget" "%(binary) bal -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --empty -S -T ^assets:budget --balance-format='%(ansify_if(justify(scrub(display_total), 20, 20 + int(prepend_width), true, color), bold if should_bold)) %-(ansify_if(ansify_if(justify(depth_spacer + partial_account(), 30, 30, false, color), blue if color), bold if should_bold)) %(ansify_if(note, yellow if color)) \\n%/ %$1\\n%/ %(prepend_width ? \" \" * int(prepend_width) : \"\") --------------------\\n'")
+     ("Monthly expenses" "%(binary) reg -f /home/nico/org/reference/ledger/journal.ledger --explicit --pedantic --real ^expenses --monthly --collapse")
+     ("AOM days" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^expenses -S -d")
+     ("Monthly cash flow" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^assets:bank --monthly --collapse")
+     ("Monthly balance" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real  ^assets ^liabilities ^equity --monthly --collapse")
+     ("Cash Flow" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real --related --invert ^assets:bank -p %(month)")
+     ("Vacations" "%(binary) reg -f %(ledger-file) --explicit --pedantic ^Assets:Vacation")
+     ("Income statement" "%(binary) bal -f %(ledger-file) --explicit --pedantic --invert --real -S T ^income ^expenses ^profit -p %(month)")
+     ("Balance sheet" "%(binary) bal -f %(ledger-file) --explicit --pedantic --real ^assets ^liabilities ^equity")
+     ("Account statement" "%(binary) reg -f %(ledger-file) --explicit --pedantic --real ^%(account)")
+     ("Equity" "%(binary) equity -f %(ledger-file) --explicit --pedantic --real")
+     ("Budget balance" "%(binary) bal -f %(ledger-file) --explicit --pedantic ^assets:current ^assets:receivables ^liabilities:payables ^Equity:Budget"))))
  '(line-spacing nil)
  '(linum-format "%4d ")
  '(locate-ls-subdir-switches "-lhl")
@@ -245,11 +224,7 @@
  '(org-M-RET-may-split-line (quote ((default))))
  '(org-agenda-custom-commands
    (quote
-    (("a" "Agenda for the current week with Stoic quote"
-      ((my-stoic-quote "" nil)
-       (agenda "" nil))
-      nil nil)
-     ("w" . "TODOs")
+    (("w" . "TODOs")
      ("d" "30 days deadlines" agenda ""
       ((org-agenda-entry-types
 	(quote
@@ -1054,7 +1029,7 @@
 	   ("version" . "VERSION"))))))))))
  '(package-selected-packages
    (quote
-    (zoom-frm frame-cmds frame-fns markdown-mode ledger-import quelpa smex rjsx-mode json-mode json-snatcher json-reformat org-caldav emacs-js klassified hierarchy gulp-task-runner eslintd-fix indium debbugs notmuch bash-completion org-plus-contrib org-pomodoro alert log4e gntp buffer-move prodigy flycheck-ledger ledger-mode khardel yaml-mode minions zerodark-theme all-the-icons memoize ws-butler web-mode transmission slime macrostep shell-switcher pass password-store-otp password-store pdf-tools tablist counsel-projectile ox-twbs omnisharp csharp-mode auto-complete popup nov esxml no-littering less-css-mode ftgp xref-js2 company-tern widgetjs tern amd-mode makey projectile js2-refactor js2-mode helpful shut-up elisp-refs loop dash-functional flyspell-correct-ivy flyspell-correct flycheck embrace expand-region editorconfig duplicate-thing drag-stuff diff-hl counsel swiper ivy queue company multiple-cursors paredit yasnippet sesman pkg-info epl clojure-mode magit magit-popup git-commit with-editor ghub treepy graphql async buffer-watcher f dash s beginend avy auth-source-pass auto-compile packed use-package bind-key)))
+    (package-lint sudo-edit org-mime htmlize ox-jira forge closql emacsql-sqlite emacsql devdocs stream realgud test-simple loc-changes load-relative buttercup assess m-buffer zoom-frm frame-cmds frame-fns markdown-mode ledger-import quelpa smex rjsx-mode json-mode json-snatcher json-reformat org-caldav emacs-js klassified hierarchy gulp-task-runner eslintd-fix indium debbugs notmuch bash-completion org-plus-contrib org-pomodoro alert log4e gntp buffer-move prodigy flycheck-ledger ledger-mode khardel yaml-mode minions zerodark-theme all-the-icons memoize ws-butler web-mode transmission slime macrostep shell-switcher pass password-store-otp password-store pdf-tools tablist counsel-projectile ox-twbs omnisharp csharp-mode auto-complete popup nov esxml no-littering less-css-mode ftgp xref-js2 company-tern widgetjs tern amd-mode makey projectile js2-refactor js2-mode helpful shut-up elisp-refs loop dash-functional flyspell-correct-ivy flyspell-correct flycheck embrace expand-region editorconfig duplicate-thing drag-stuff diff-hl counsel swiper ivy queue company multiple-cursors paredit yasnippet sesman pkg-info epl clojure-mode magit magit-popup git-commit with-editor ghub treepy graphql async buffer-watcher f dash s beginend avy auth-source-pass auto-compile packed use-package bind-key)))
  '(pass-show-keybindings nil)
  '(password-cache-expiry 300)
  '(password-store-password-length 25)
