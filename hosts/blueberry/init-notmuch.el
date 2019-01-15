@@ -2,7 +2,6 @@
 (require 'seq)
 (require 'org-notmuch)
 (require 'fetch-email)
-(require 'alert)
 (require 'yasnippet)
 (require 'debbugs)
 
@@ -39,7 +38,8 @@
 (defun my/can-encrypt-message-p ()
   "Return non-nil if current message can be encrypted.
 I.e., the keyring has a public key for each recipient."
-  (let ((recipients (seq-map #'cadr
+  (let ((from (cadr (mail-extract-address-components (message-fetch-field "From"))))
+	(recipients (seq-map #'cadr
                              (seq-mapcat (lambda (header)
                                            (let ((header-value (message-fetch-field header)))
                                              (and
@@ -47,9 +47,10 @@ I.e., the keyring has a public key for each recipient."
                                               (mail-extract-address-components header-value t))))
                                          '("To" "CC" "BCC"))))
         (context (epg-make-context epa-protocol)))
-    (seq-every-p (lambda (recipient)
-                   (not (seq-empty-p (epg-list-keys context recipient))))
-                 recipients)))
+    (and (string= from "nicolas@petton.fr")
+	 (seq-every-p (lambda (recipient)
+			(not (seq-empty-p (epg-list-keys context recipient))))
+                      recipients))))
 
 (defun my/add-encryption-mark-if-possible ()
   "Add MML tag to encrypt message when there is a key for each recipient."
@@ -128,13 +129,14 @@ I.e., the keyring has a public key for each recipient."
 (defvar nico-notmuch-account-alist
   '(("nicolas@petton.fr"
      (user-mail-address "nicolas@petton.fr"))
-    ("nico@emacs.world"
-     (user-mail-address "nico@emacs.world"))
+    ("Nicolas.Petton@wolterskluwer.com"
+     (user-mail-address "Nicolas.Petton@wolterskluwer.com"))
     ("nicolas@foretagsplatsen.se"
      (user-mail-address "nicolas@foretagsplatsen.se"))))
 
 (setq notmuch-fcc-dirs '(("nicolas@petton.fr" . "petton/Sent -unread")
-			 ("nicolas@foretagsplatsen.se" . "\"ftgp/Sent Items\" -unread")))
+			 ("nicolas@foretagsplatsen.se" . "foretagsplatsen/Sent -unread")
+			 ("Nicolas.Petton@wolterskluwer.com" . "wolterskluwer/Sent -unread")))
 
 (defun nico-setup-mail-account (account)
   (let ((account-vars (cdr (assoc account nico-notmuch-account-alist))))
@@ -165,26 +167,6 @@ I.e., the keyring has a public key for each recipient."
   (insert (format "%s <%s>" user-full-name user-mail-address)))
 
 (nico-setup-mail-account "nicolas@petton.fr")
-
-(setq smtpmail-debug-info t)
-
-;; notifications
-(defvar nico-notmuch-refresh-count 0)
-
-(defun nico-notmuch-refresh-status-message ()
-  (let* ((new-count
-          (string-to-number
-           (car (process-lines notmuch-command "count"))))
-         (diff-count (- new-count nico-notmuch-refresh-count)))
-    (if (and (not (zerop nico-notmuch-refresh-count))
-             (> diff-count 0))
-        (alert (format "You have %s messages."
-                       (notmuch-hello-nice-number diff-count))
-               :title "New messages"
-               :icon "/usr/share/icons/gnome/32x32/status/mail-unread.png"))
-    (setq nico-notmuch-refresh-count new-count)))
-
-;; (add-hook 'notmuch-hello-refresh-hook #'nico-notmuch-refresh-status-message)
 
 ;; opening attachments within emacs & xwidgets
 (define-key notmuch-show-part-map "e" #'nico-notmuch-view-part-in-emacs)
