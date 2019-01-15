@@ -578,7 +578,7 @@ be global."
 
 (use-package quelpa
   :config (progn
-          (setq quelpa-upgrade-p t)
+          (setq quelpa-upgrade-p nil)
           (add-to-list 'quelpa-melpa-recipe-stores "~/.emacs.d/etc/quelpa/recipes/")))
 
 (use-package rainbow-mode
