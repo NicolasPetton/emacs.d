@@ -184,28 +184,18 @@ Use CHANNEL if non-nil of the general channel if nil."
     (message-send-mail)))
 
 ;;;###autoload
-(defun send-budget-email ()
+(defun update-budget-html ()
   (interactive)
   (let ((ledger-file "~/org/reference/ledger/journal.ledger")
 	(budget-filename (format "/tmp/%s" (make-temp-name "ledger-budget")))
-	(html-filename (format "/tmp/%s.html" (make-temp-name "budget-html"))))
+	(html-filename (expand-file-name "inbox_folders/ledger/budget.html" (getenv "HOME")))
+	(html-buffer))
     (with-current-buffer (find-file-noselect ledger-file)
       (ledger-report "Budget" nil))
     (with-current-buffer "*Ledger Report*"
-      (write-file budget-filename))
-    (htmlize-file budget-filename html-filename)
-    (let ((from "nicolas@petton.fr")
-	  (to "aurelia@saout.fr")
-	  (subject (format "Budget %s" (format-time-string "%d/%m/%Y"))))
-      (switch-to-buffer "Budget email")
-      (message-mode)
-      (insert (format "From: %s\n" from))
-      (insert (format "to: %s\n" to))
-      (insert (format "subject: %s\n--text follows this line--\n" subject))
-      (insert (format "<#part type=\"text/html\" filename=\"%s\" disposition=attachment><#/part>"
-		      html-filename))
-      ;; (message-send-mail)
-      )))
+      (setq html-buffer (htmlize-buffer)))
+    (with-current-buffer html-buffer
+      (write-file html-filename))))
 
 (provide 'workflow)
 ;;; workflow.el ends here
