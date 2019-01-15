@@ -5,4 +5,4 @@
 		     '(("hl" "{% highlight $1 %}\n$0\n{% endhighlight %}\n" "highlight" nil nil nil "/home/nico/.emacs.d/etc/yasnippet/snippets/markdown-mode/hl.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Dec  1 14:41:41 2018
+;;; Do not edit! File generated at Mon Jan  7 17:38:42 2019

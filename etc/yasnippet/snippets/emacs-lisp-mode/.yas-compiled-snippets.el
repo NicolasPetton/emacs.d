@@ -146,4 +146,4 @@
 		       ("ah" "(add-hook $1 '$0)" "add-hook" nil nil nil "/home/nico/.emacs.d/etc/yasnippet/snippets/emacs-lisp-mode/add-hook.yasnippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Dec  1 14:41:41 2018
+;;; Do not edit! File generated at Mon Jan  7 17:38:42 2019

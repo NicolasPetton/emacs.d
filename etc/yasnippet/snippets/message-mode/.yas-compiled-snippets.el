@@ -8,4 +8,4 @@
 		       ("a" "Coucou ma belle,\n\n$0\n\nA ce soir,\nJe t'aime" "aurelia" nil nil nil "/home/nico/.emacs.d/etc/yasnippet/snippets/message-mode/aurelia.snippet" nil nil)))
 
 
-;;; Do not edit! File generated at Sat Dec  1 14:41:41 2018
+;;; Do not edit! File generated at Mon Jan  7 17:38:42 2019
