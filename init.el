@@ -250,6 +250,9 @@
   :demand t
   :config (electric-indent-mode t))
 
+(use-package elisp-mode
+  :hook (emacs-lisp-mode . (lambda () (setq indent-tabs-mode nil))))
+
 (use-package embrace
   :bind (("C-c e" . embrace-commander))
   :hook (emacs-lisp-mode . embrace-emacs-lisp-mode-hook))
