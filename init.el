@@ -157,6 +157,12 @@
             (setq company-dabbrev-ignore-case t)
             (setq company-dabbrev-downcase nil)))
 
+(use-package company-go
+  :after go-mode
+  :config (progn
+            (add-to-list 'company-backends #'company-go)
+            (setq company-go-show-annotation t)))
+
 (use-package compile
   :hook (compilation-filter . my/colorize-compilation-buffer)
   :config
@@ -318,6 +324,22 @@
 
 (use-package flyspell-correct-ivy
   :bind* (("C-." . flyspell-correct-word-generic)))
+
+(use-package go-eldoc
+  :after go-mode
+  :hook (go-mode . setup-go-mode)
+  :config (progn
+            (defun setup-go-mode ()
+              (add-hook 'before-save-hook #'gofmt nil t)
+              (go-eldoc-setup))))
+
+(use-package go-mode
+  :bind (:map go-mode-map
+              ("M-." . godef-jump)
+              ("C-c d" . godoc-at-point))
+  :init (progn
+          (add-to-list 'exec-path (format "%s/.local/share/go/bin" (getenv "HOME")))
+          (setenv "GOPATH" (format "%s/.local/share/go" (getenv "HOME")))))
 
 (use-package gnus-dired
   :bind (:map gnus-dired-mode-map
