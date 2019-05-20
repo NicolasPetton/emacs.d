@@ -56,12 +56,13 @@ buffer to the matched subtree."
 (setq org-src-fontify-natively t)
 
 (defvar nico/org-agenda-file "~/org/agenda.org")
+(defvar nico/org-shared-agenda-file "~/org/shared.org")
 (setq org-default-notes-file "~/org/inbox.org")
 
 (setq org-agenda-files `(,org-default-notes-file
                          ,nico/org-agenda-file
                          "~/org/gtd.org"
-			 "~/org/shared.org"
+			 ,nico/org-shared-agenda-file
                          "~/org/tickler.org"))
 
 (setq org-refile-targets `(("~/org/gtd.org" :maxlevel . 3)
@@ -69,7 +70,7 @@ buffer to the matched subtree."
                            (,nico/org-agenda-file :level . 1)
                            ("~/org/tickler.org" :maxlevel . 2)
                            ("~/org/inbox.org" :maxlevel . 1)
-			   ("~/org/shared.org" :maxlevel . 1)))
+			   (,nico/org-shared-agenda-file :maxlevel . 1)))
 
 (defun nico/find-notes-file ()
   (interactive)
@@ -77,21 +78,6 @@ buffer to the matched subtree."
 
 ;; Export TODO items in iCal too
 (setq org-icalendar-include-todo t)
-
-(defun my-stoic-quote (&rest _)
-  "Insert a random quote from quotes.org."
-  (let ((quotes (with-current-buffer (find-file-noselect "~/org/quotes.org")
-		  (split-string (buffer-string) "\n" t)))
-	(beg (point)))
-    (newline)
-    (insert (seq-random-elt quotes))
-    (fill-paragraph)
-    (save-excursion
-      (when (search-backward "—" nil t)
-	(newline 2)
-	(insert "  ")))
-    (put-text-property beg (point) 'face 'bold)
-    (newline)))
 
 ;; org-capture
 (setq org-capture-templates '())
@@ -102,8 +88,8 @@ buffer to the matched subtree."
 	     '("l" "Todo (with link) [inbox]" entry (file org-default-notes-file)
 	       "* TODO %? %a"))
 (add-to-list 'org-capture-templates
-             '("p" "Appt [agenda]" entry (file+headline nico/org-agenda-file "Appointment")
-	       "* APPT %i%? \nSCHEDULED: %^T"))
+             '("p" "Appt [agenda]" entry (file nico/org-shared-agenda-file)
+	       "* %i%? \n%^T"))
 (add-to-list 'org-capture-templates
 	     '("T" "Tickler" entry (file+headline "~/org/tickler.org" "Tickler")
                "* %i%? \nSCHEDULED: %^t"))
