@@ -650,7 +650,7 @@ be global."
   :init (global-subword-mode))
 
 (use-package swiper
-  :bind (("C-s" . swiper)))
+  :bind (("C-s" . swiper-isearch)))
 
 (use-package tabify
   :config
