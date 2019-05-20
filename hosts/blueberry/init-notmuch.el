@@ -47,10 +47,17 @@ I.e., the keyring has a public key for each recipient."
                                               (mail-extract-address-components header-value t))))
                                          '("To" "CC" "BCC"))))
         (context (epg-make-context epa-protocol)))
-    (and (string= from "nicolas@petton.fr")
+    (and (not (my/has-no-encrypt-header))
+         (string= from "nicolas@petton.fr")
 	 (seq-every-p (lambda (recipient)
 			(not (seq-empty-p (epg-list-keys context recipient))))
                       recipients))))
+
+(defun my/has-no-encrypt-header ()
+  "Return non-nil if the buffer contains a no-encrypt header."
+  (save-excursion
+    (goto-char (point-min))
+    (search-forward "no-encrypt" nil t)))
 
 (defun my/add-encryption-mark-if-possible ()
   "Add MML tag to encrypt message when there is a key for each recipient."
@@ -128,11 +135,25 @@ I.e., the keyring has a public key for each recipient."
 
 (defvar nico-notmuch-account-alist
   '(("nicolas@petton.fr"
-     (user-mail-address "nicolas@petton.fr"))
+     (user-mail-address "nicolas@petton.fr")
+     (message-signature nil))
     ("Nicolas.Petton@wolterskluwer.com"
-     (user-mail-address "Nicolas.Petton@wolterskluwer.com"))
+     (user-mail-address "Nicolas.Petton@wolterskluwer.com")
+     (message-signature nil))
     ("nicolas@foretagsplatsen.se"
-     (user-mail-address "nicolas@foretagsplatsen.se"))))
+     (user-mail-address "nicolas@foretagsplatsen.se")
+     (message-signature nil))
+    ("president@lacantine-brest.net"
+     (user-mail-address "president@lacantine-brest.net")
+     (message-signature "Nicolas Petton
+Président
+La Cantine brestoise
+09 72 58 83 13
+president@lacantine-brest.net
+AnDaolVras"))
+    ("nico@emacs.world"
+     (user-mail-address "nico@emacs.world")
+     (message-signature nil))))
 
 (setq notmuch-fcc-dirs '(("nicolas@petton.fr" . "petton/Sent -unread")
 			 ("nicolas@foretagsplatsen.se" . "foretagsplatsen/Sent -unread")
@@ -161,6 +182,8 @@ I.e., the keyring has a public key for each recipient."
 
 (defun nico-set-email-account-and-setup-message ()
   (nico-set-email-account)
+  (message-insert-signature)
+  (setq message-signature nil)
   (message-goto-from)
   (message-beginning-of-line)
   (delete-region (point) (point-at-eol))
@@ -182,8 +205,8 @@ I.e., the keyring has a public key for each recipient."
     (mm-insert-part handle)
     (mm-add-meta-html-tag handle)
     (require 'org-caldav)
-    (let ((org-caldav-inbox "~/org/agenda.org"))
-     (org-caldav-import-ics-buffer-to-org))))
+    (let ((org-caldav-inbox "~/org/shared.org"))
+      (org-caldav-import-ics-buffer-to-org))))
 
 (defun nico-notmuch-show-ics-to-org-part ()
   "Save the .ics MIME part containing point to an org file."
@@ -298,6 +321,26 @@ I.e., the keyring has a public key for each recipient."
                                                  merged)
                                          " ")))
       (notmuch-search (format "%s %s" address merged-addresses)))))
+
+;; Insert a stoic quote in the hello buffer
+(defun my-stoic-quote (&rest _)
+  "Insert a random quote from quotes.org."
+  (let ((inhibit-read-only t)
+	(quotes (with-current-buffer (find-file-noselect "~/org/quotes.org")
+		  (split-string (buffer-string) "\n" t))))
+    (newline)
+    (save-excursion
+      (goto-char (point-min))
+      (insert (seq-random-elt quotes))
+      (put-text-property (point-min) (point) 'face 'bold)
+      (newline 3)
+      (forward-char -3)
+      (fill-paragraph))))
+
+(add-hook 'notmuch-hello-mode-hook #'my-stoic-quote)
+(add-hook 'notmuch-hello-refresh-hook #'my-stoic-quote)
+
+
 
 (provide 'init-notmuch)
 ;;; init-notmuch ends here
