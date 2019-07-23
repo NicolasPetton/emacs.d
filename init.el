@@ -450,9 +450,9 @@ be global."
          :map magit-mode-map
          ("C" . magit-commit-add-log))
   :config (progn
-           (magit-add-section-hook 'magit-status-sections-hook
-                                   'magit-insert-modules
-                                   'magit-insert-unpulled-from-upstream)
+           ;; (magit-add-section-hook 'magit-status-sections-hook
+           ;;                         'magit-insert-modules
+           ;;                         'magit-insert-unpulled-from-upstream)
            (magit-define-popup-action 'magit-commit-popup
              ?x "Absorb" #'magit-commit-absorb-popup)
            (setq magit-branch-prefer-remote-upstream '("master"))
