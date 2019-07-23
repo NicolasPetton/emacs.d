@@ -139,10 +139,16 @@ I.e., the keyring has a public key for each recipient."
      (message-signature nil))
     ("Nicolas.Petton@wolterskluwer.com"
      (user-mail-address "Nicolas.Petton@wolterskluwer.com")
-     (message-signature nil))
+     (message-signature "Nicolas Petton
+CTO
+Företagsplatsen – a part of Wolters Kluwer Group
+www.foretagslpatsen.se"))
     ("nicolas@foretagsplatsen.se"
      (user-mail-address "nicolas@foretagsplatsen.se")
-     (message-signature nil))
+     (message-signature "Nicolas Petton
+CTO
+Företagsplatsen – a part of Wolters Kluwer Group
+www.foretagslpatsen.se"))
     ("president@lacantine-brest.net"
      (user-mail-address "president@lacantine-brest.net")
      (message-signature "Nicolas Petton
